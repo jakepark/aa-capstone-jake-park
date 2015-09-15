@@ -15,7 +15,7 @@
 
 //= require underscore
 //= require backbone
-//= require aa_capstone_jake_park
+//= require myFacebook
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
