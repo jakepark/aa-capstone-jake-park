@@ -7,7 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.string :session_token, null: false
       t.text :avatar_url
-      t.string :birth_date
+      t.string :birth_month
+      t.string :birth_day
       t.string :birth_year
       t.string :gender
 

@@ -2,32 +2,59 @@
 
 <form action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>First name<br>
-    <input name="user[name_first]" type="text"><br>
-  </label><br>
-  <label>Last name<br>
-    <input name="user[name_last]" type="text"><br>
-  </label><br>
 
-  <label>Email<br>
-    <input name="user[email]" type="text"><br>
-  </label><br>
+  <input name="user[name_first]" type="text" value="First name" onfocus="if (this.value=='First name') this.value='';"/>
 
-  <label>New password<br>
-    <input name="user[password]" type="password"><br>
+  <input name="user[name_last]" type="text" value="Last name" onfocus="if (this.value=='Last name') this.value='';"/><br>
+  <br>
+
+  <input name="user[email]" type="text" value="Email" onfocus="if (this.value=='Email') this.value='';"/><br>
+
+  <input name="user[password]" type="text" value="Password" onfocus="if (this.value=='Password') this.type='password', this.value='';"/><br>
   </label><br>
 
-  <label>Birthday<br>
+  <label for="user_birthday">Birthday</label><br>
+  <select name="user[birth_month]" id="birth_month">
+    <option value="">Month</option>
+    <option value="Jan">January</option>
+    <option value="Feb">February</option>
+    <option value="Mar">March</option>
+    <option value="Apr">April</option>
+    <option value="May">May</option>
+    <option value="Jun">June</option>
+    <option value="Jul">July</option>
+    <option value="Aug">August</option>
+    <option value="Sep">September</option>
+    <option value="Oct">October</option>
+    <option value="Nov">November</option>
+    <option value="Dec">December</option>
+  </select>
+
+  <select name="user[birth_day]" id="birth_day">
+    <option value="">Day</option>
+    <% i=1; while (i < 32) %>
+    <option value="<%= i %>"><%=i%></option>
+    <% i += 1 %>
+    <% end %>
+  </select>
+
+  <select name="user[birth_year]" id="birth_year">
+    <option value="">Year</option>
+    <% i=2002; while (i >= 1905) %>
+    <option value="<%= i %>"><%=i%></option>
+    <% i -= 1 %>
+    <% end %>
+  </select>
+
+  <br>
 
 
-  </label>
+  <label>Gender<br></label>
+    <input type="radio" name="user[gender]" id="female" value="f">
+    <label for="user_sex_female">Female</label>
 
-  <label>Gender<br>
-    <radiogroup>
-      <radio id="female" label="Female"/>
-      <radio id="male" label="Male"/>
-    </radiogroup>
-  </label>
-
-  <input type="submit" value="Submit" class="btn btn-primary"><br>
+    <input type="radio" name="user[gender]" id="male" value="m">
+    <label for="user_sex_male">Male</label>
+    <br>
+  <input type="submit" value="Sign Up" class="btn btn-primary"><br>
 </form>

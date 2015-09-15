@@ -34,7 +34,8 @@ ActiveRecord::Schema.define(version: 20150915150425) do
     t.string   "password_digest", null: false
     t.string   "session_token",   null: false
     t.text     "avatar_url"
-    t.string   "birth_date"
+    t.string   "birth_month"
+    t.string   "birth_day"
     t.string   "birth_year"
     t.string   "gender"
     t.datetime "created_at"
