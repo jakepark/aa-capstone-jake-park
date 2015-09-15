@@ -1,3 +1,3 @@
-AaCapstoneJakePark.Models.User = Backbone.Model.extend({
+myFacebook.Models.User = Backbone.Model.extend({
 
 });

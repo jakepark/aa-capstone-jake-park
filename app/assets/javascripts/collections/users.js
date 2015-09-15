@@ -1,5 +1,5 @@
-AaCapstoneJakePark.Collections.Users = Backbone.Collection.extend({
+myFacebook.Collections.Users = Backbone.Collection.extend({
 
-  model: AaCapstoneJakePark.Models.User
+  model: myFacebook.Models.User
 
 });

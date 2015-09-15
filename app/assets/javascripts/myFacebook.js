@@ -1,4 +1,4 @@
-window.AaCapstoneJakePark = {
+window.myFacebook = {
   Models: {},
   Collections: {},
   Views: {},
@@ -9,5 +9,5 @@ window.AaCapstoneJakePark = {
 };
 
 $(document).ready(function(){
-  AaCapstoneJakePark.initialize();
+  myFacebook.initialize();
 });
