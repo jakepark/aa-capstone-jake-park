@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'rename'
 gem 'backbone-on-rails'
 gem 'font-awesome-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
