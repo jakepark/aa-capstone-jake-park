@@ -1,0 +1,18 @@
+
+<div class='users-index-title'>
+  <h3>Profiles?</h3>
+</div>
+
+<ul class='users'>
+  <% users.each(function (user) { %>
+    <li>
+      <a href="#/users/<%= user.id %>">
+        <span class='shadow'></span>
+        <span class='details'>
+          <%= user.escape("name_first") %>
+          <%= user.escape("name_last") %>
+        </span>
+      </a>
+    </li>
+  <% }); %>
+</ul>

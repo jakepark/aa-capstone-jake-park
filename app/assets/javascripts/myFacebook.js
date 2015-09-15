@@ -5,7 +5,7 @@ window.myFacebook = {
   Routers: {},
   initialize: function() {
     new myFacebook.Routers.Router({
-      $rootEl = $("#main")
+      $rootEl: $("#main")
     })
     Backbone.history.start();
   }
