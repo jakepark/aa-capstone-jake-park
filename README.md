@@ -9,12 +9,13 @@ myFacebook is a clone of Facebook built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Upload user avatar
+- [x] Create user account (sign up)
+- [x] Create sessions (log in)
+- [ ] Create profile
+- [?] Upload user avatar
 - [ ] Search for Friends by Name
-- [ ] View Friend
-- [ ] Add Friends
+- [ ] View Friend profile
+- [ ] Add Friend
 - [ ] Approve Friend
 - [ ] Deny Friend
 - [ ] Remove Friend
