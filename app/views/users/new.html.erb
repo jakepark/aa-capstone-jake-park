@@ -2,6 +2,14 @@
 
 <form action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>First name<br>
+    <input name="user[name_first]" type="text"><br>
+  </label><br>
+  <label>Last name<br>
+    <input name="user[name_last]" type="text"><br>
+  </label><br>
+
+
   <label>Email<br>
     <input name="user[email]" type="text"><br>
   </label><br>

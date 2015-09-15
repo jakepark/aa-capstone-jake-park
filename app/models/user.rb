@@ -13,7 +13,6 @@
 #   t.datetime "updated_at"
 # end
 #
-#   add_index :users, :session_token, :unique => true
 #   add_index :users, :email, :unique => true
 
 class User < ActiveRecord::Base
@@ -21,11 +20,6 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8, allow_nil: true }
   validates :email, uniqueness: true
 
-  has_many :followers, through: :follower_follows, source: :follower
-  has-many :follower_follows, foreign_key: :followee_id, class_name: "Follow"
-
-  has_many :followees, through: :followee_follows, source: :followee
-  has_many :followee_follows, foreign_key: :follower_id, class_name: "Follow"
 
 
   attr_reader :password
