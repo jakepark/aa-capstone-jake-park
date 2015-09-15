@@ -1,8 +1,8 @@
 # Schema
 # create_table "users", force: :cascade do |t|
 #   t.string   "email",           null: false
-#   t.string   "user_fname",      null: false
-#   t.string   "user_lname",      null: false
+#   t.string   "name_first",      null: false
+#   t.string   "name_last",       null: false
 #   t.string   "password_digest", null: false
 #   t.string   "session_token",   null: false
 #   t.text     "avatar_url"
@@ -16,7 +16,7 @@
 #   add_index :users, :email, :unique => true
 
 class User < ActiveRecord::Base
-  validates :email, :user_fname, :user_lname, :session_token, presence: true
+  validates :email, :name_first, :name_last, :session_token, presence: true
   validates :password, length: { minimum: 8, allow_nil: true }
   validates :email, uniqueness: true
 
