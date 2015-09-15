@@ -5,8 +5,7 @@ gem 'backbone-on-rails'
 gem 'font-awesome-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-# Use postgresql as the database for Active Record
-gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,10 +29,18 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+
+group :production do
+  gem 'pg', '~> 0.18.3'
+  gem 'rails_12factor', '~> 0.0.3'
+end
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development do
+  gem 'sqlite3', '~> 1.3.10'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'

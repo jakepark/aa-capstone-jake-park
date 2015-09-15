@@ -21,12 +21,20 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8, allow_nil: true }
   validates :email, uniqueness: true
 
+  has_many :followers, through: :follower_follows, source: :follower
+  has-many :follower_follows, foreign_key: :followee_id, class_name: "Follow"
+
+  has_many :followees, through: :followee_follows, source: :followee
+  has_many :followee_follows, foreign_key: :follower_id, class_name: "Follow"
+
+
   attr_reader :password
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(user_params)
-    user = User.find_by_email(user_params[:email])
-    user.try(:is_password?, user_params[:password]) ? user : nil
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
+    return nil unless user && user.valid_password?(password)
+    user
   end
 
   def password=(password)
@@ -44,7 +52,7 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  protected
+  private
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
