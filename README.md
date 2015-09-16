@@ -11,7 +11,7 @@ myFacebook is a clone of Facebook built on Rails and Backbone. Users can:
 
 - [x] Create user account (sign up)
 - [x] Create sessions (log in)
-- [ ] Create profile
+- [x] Create profile
 - [?] Upload user avatar
 - [ ] Search for Friends by Name
 - [ ] View Friend profile
