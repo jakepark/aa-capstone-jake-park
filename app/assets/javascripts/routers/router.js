@@ -10,7 +10,6 @@ myFacebook.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-
     this.collection.fetch();
     var view = new myFacebook.Views.UsersIndex({
       collection: this.collection
