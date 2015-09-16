@@ -14,7 +14,7 @@ myFacebook is a clone of Facebook built on Rails and Backbone. Users can:
 - [x] Create profile
 - [?] Upload user avatar
 - [ ] Search for Friends by Name
-- [ ] View Friend profile
+- [x] View Friend profile
 - [ ] Add Friend
 - [ ] Approve Friend
 - [ ] Deny Friend
@@ -32,10 +32,10 @@ myFacebook is a clone of Facebook built on Rails and Backbone. Users can:
 
 ### Phase 1: User Authentication, Profile Creation (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create profiles using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+App Academy. By the end of this phase, users will be able to create profiles
+using a simple text form in a Rails view. The most important part of this phase
+will be pushing the app to Heroku and ensuring that everything works before
+moving on to phase 2.
 
 [Details][phase-one]
 
@@ -65,10 +65,11 @@ see after logging in.
 [Details][phase-four]
 
 ### Phase 5: Searching for Profiles and Posts (~2 days)
-I'll need to add `search` routes to both the Profiles and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `profiles` and `posts`
-collections, but they will fetch from the new `search` routes.
+I'll need to add `search` routes to both the Profiles and Posts controllers. On
+the Backbone side, there will be a `SearchResults` composite view has
+`BlogsIndex` and `PostsIndex` subviews. These views will use plain old
+`profiles` and `posts` collections, but they will fetch from the new `search`
+routes.
 
 [Details][phase-five]
 
