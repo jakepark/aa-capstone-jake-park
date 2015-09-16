@@ -10,3 +10,7 @@ window.myFacebook = {
     Backbone.history.start();
   }
 };
+
+$(document).ready(function(){
+  myFacebook.initialize();
+})
