@@ -3,11 +3,11 @@
 <form class= "log_in" action="/session" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label>Email
-    <input name="user[email]" type="text">
+    <input class= "log_in_input" name="user[email]" type="text">
   </label>
   <label>Password
-    <input name="user[password]" type="password">
+    <input class= "log_in_input" name="user[password]" type="password">
   </label>
 
-  <input type="submit" value="Log In" class="btn btn-primary"><br>
+  <input type="submit" value="Log In" class="button_log_in"><br>
 </form>

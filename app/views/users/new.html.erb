@@ -1,16 +1,14 @@
-<h1>Sign Up</h1>
-
-<form action="/users" method="post">
+<form class="form_sign_up" action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <input name="user[name_first]" type="text" value="First name" onfocus="if (this.value=='First name') this.value='';"/>
+  <input class= "sign_up_input" name="user[name_first]" type="text" value="First name" onfocus="if (this.value=='First name') this.value='';"/>
 
-  <input name="user[name_last]" type="text" value="Last name" onfocus="if (this.value=='Last name') this.value='';"/><br>
+  <input class= "sign_up_input" name="user[name_last]" type="text" value="Last name" onfocus="if (this.value=='Last name') this.value='';"/><br>
   <br>
 
-  <input name="user[email]" type="text" value="Email" onfocus="if (this.value=='Email') this.value='';"/><br>
+  <input class= "sign_up_input" name="user[email]" type="text" value="Email" onfocus="if (this.value=='Email') this.value='';"/><br>
 
-  <input name="user[password]" type="text" value="Password" onfocus="if (this.value=='Password') this.type='password', this.value='';"/><br>
+  <input class= "sign_up_input" name="user[password]" type="text" value="Password" onfocus="if (this.value=='Password') this.type='password', this.value='';"/><br>
   </label><br>
 
   <label for="user_birthday">Birthday</label><br>
@@ -56,5 +54,5 @@
     <input type="radio" name="user[gender]" id="male" value="m">
     <label for="user_sex_male">Male</label>
     <br>
-  <input type="submit" value="Sign Up" class="btn btn-primary"><br>
+  <input type="submit" value="Sign Up" class="button_sign_up"><br>
 </form>

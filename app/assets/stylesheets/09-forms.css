@@ -2,13 +2,43 @@
   margin: 0 0 20px 0;
 }
 
-.form-log_in {
-  color: white
+.log_in_input {
+  color: black;
+  border: 1px solid red;
+}
+
+.sign_up_input {
+  color: black;
+  border: 1px solid red;
+}
+
+.form_sign_up {
+  padding: 10px 20px;
+  font-size: 10px;
 }
 
 .submit {
   margin: 20px 0 0 0;
   padding: 0 0 3px 0;
+}
+
+
+.button_log_in {
+
+  color: white;
+  background-color: #8b9dc3;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px 6px;
+
+}
+
+.button_sign_up {
+
+  color: white;
+  background-color: #62A24F;
+  padding: 10px 50px;
+
 }
 
 .submit > button {
