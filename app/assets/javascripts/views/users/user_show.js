@@ -1,6 +1,7 @@
 myFacebook.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
 
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render)
   },
@@ -11,5 +12,6 @@ myFacebook.Views.UserShow = Backbone.View.extend({
     this.$el.html(view);
     return this;
   }
+
 
 });

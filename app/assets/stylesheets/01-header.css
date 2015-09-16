@@ -1,0 +1,49 @@
+/* PHASE 1: Header */
+
+body {
+  font-family: "Lucida Grande", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  background: #eee;
+}
+
+/* height navbar login: 84, height logged in: 44 */
+
+.header {
+  background: #3b5998;
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+}
+
+.header a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.header-nav {
+  margin: 0 auto;
+  width: 900px;
+  border-left: 1px solid #f00;
+  border-right: 1px solid #f00;
+}
+
+.header-logo {
+  float: left;
+  border-right: 1px solid #ccc;
+  font-weight: 700;
+}
+
+
+.header-list {
+  float: right;
+}
+
+.header-list > li {
+  float: left;
+  border-left: 1px solid #ccc;
+}
+
+.header-list > li:hover {
+  background: #000;
+}

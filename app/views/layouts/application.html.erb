@@ -2,14 +2,18 @@
 <html>
 <head>
   <title>myFacebook</title>
-  <%= stylesheet_link_tag    'application', media: 'all'%>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <%= render partial: "layouts/header" %>
+
+<li><%= link_to "Sign up", new_user_url %></li>
   <%= yield %>
+
+
 
 </body>
 </html>

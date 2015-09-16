@@ -1,0 +1,18 @@
+.form {
+  margin: 0 0 20px 0;
+}
+
+.form-log_in {
+  color: white
+}
+
+.submit {
+  margin: 20px 0 0 0;
+  padding: 0 0 3px 0;
+}
+
+.submit > button {
+  position: relative;
+  padding: 10px 20px;
+  color: #f00;
+}

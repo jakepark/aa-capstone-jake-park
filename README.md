@@ -39,18 +39,18 @@ to phase 2.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Profiles and Posts (~2 days)
+### Phase 2: Viewing Profiles (~1 days)
 I will add API routes to serve profile data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create profiles and view profiles, all
-inside a single Backbone app.
+phase, users will be able to update profiles and view profiles, inside the
+Backbone frontend.
 
 [Details][phase-two]
 
-### Phase 3: Adding and Approving Friends (~2 days)
+### Phase 3: Adding and Approving Friends (~3 days)
 I will add friends, and present a user with a choice whether to
 approve or deny the pending request. Thereupon the authenticated user will be
-authorized to view the friend's profile. By default, a user's profile will be
+authorized to view the friend's profile. By defa ult, a user's profile will be
 set to private.
 
 [Details][phase-three]
