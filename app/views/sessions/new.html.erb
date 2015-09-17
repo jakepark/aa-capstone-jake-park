@@ -1,2 +1,8 @@
+<div class="content-intro">
 Connect with friends and the<br>
 world around you on Facebook.
+</div>
+<% if !signed_in? %>
+
+  <%= render partial: "users/signup" %>
+<% end %>

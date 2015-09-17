@@ -10,9 +10,7 @@
 
   <%= render partial: "layouts/header" %>
 
-<% if !signed_in? %>
-  <li><%= link_to "Sign up", new_user_url %></li>
-<% end %>
+
 
   <%= yield %>
 

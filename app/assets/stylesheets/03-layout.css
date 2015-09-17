@@ -1,8 +1,48 @@
-.content {
+/*.content {
   position: relative;
   margin: 0 auto;
   background: white;
   width: 900px;
   color: #333;
 
+}*/
+
+.content-intro {
+  display: block;
+  width: 500px;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 50px 0 0 410px;
+}
+
+.content-signup {
+  width: 500px;
+  padding: 0px 1010px;
+
+}
+
+
+
+.sign_up_input {
+  color: black;
+  border: 1px solid grey;
+}
+
+.form_sign_up {
+  float: left;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.button_sign_up {
+  color: white;
+  background-color: #62A24F;
+  padding: 10px 50px;
+
+}
+
+.submit > button {
+  position: relative;
+  padding: 10px 20px;
+  color: #f00;
 }
