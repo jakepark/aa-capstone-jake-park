@@ -1,22 +1,22 @@
-<nav class="header header-default" role="navigation">
-<div class="container container-fluid">
+<div class="header" role="navigation">
   <div class="header-nav">
-      <a class="header-logo" href="#">myfacebook</a>
-  </div>
+    <a class="header-logo" href="#">myfacebook</a>
 
-  <div class="header-nav-right">
     <ul class="nav header-nav header-right">
     <% if signed_in? %>
 
       <li><%= button_to "Sign out", session_url, method: :delete, class: "button_log_in header-btn" %></li>
     <% else %>
-      <li><%= "display login view here" %></li>
+
+
+
+      <li><%= render partial: "sessions/login" %></li>
 
     <% end %>
     </ul>
   </div>
 </div>
-</nav>
+
 
 
 

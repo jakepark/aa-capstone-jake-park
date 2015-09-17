@@ -2,10 +2,7 @@
   margin: 0 0 20px 0;
 }
 
-.log_in_input {
-  color: black;
-  border: 1px solid red;
-}
+
 
 .sign_up_input {
   color: black;
@@ -14,7 +11,7 @@
 
 .form_sign_up {
   padding: 10px 20px;
-  font-size: 10px;
+  font-size: 20px;
 }
 
 .submit {
@@ -22,16 +19,6 @@
   padding: 0 0 3px 0;
 }
 
-
-.button_log_in {
-
-  color: white;
-  background-color: #8b9dc3;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 3px 6px;
-
-}
 
 .button_sign_up {
 

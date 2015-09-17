@@ -16,7 +16,7 @@
 //= require jquery.serializeJSON
 //= require underscore
 //= require backbone
-//= require myFacebook
+//= require myfacebook
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

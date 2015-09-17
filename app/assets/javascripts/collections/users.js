@@ -1,5 +1,5 @@
-myFacebook.Collections.Users = Backbone.Collection.extend({
-  model: myFacebook.Models.User,
+myfacebook.Collections.Users = Backbone.Collection.extend({
+  model: myfacebook.Models.User,
   url: '/api/users',
 
 
@@ -10,7 +10,7 @@ myFacebook.Collections.Users = Backbone.Collection.extend({
     if (user) {
       user.fetch();
     } else {
-      user = new myFacebook.Models.User({id: id});
+      user = new myfacebook.Models.User({id: id});
       users.add(user);
       user.fetch({
         error: function () {

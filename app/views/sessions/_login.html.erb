@@ -1,0 +1,13 @@
+<form class= "log_in" action="/session" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label class= "log_in_email">Email
+    <br>
+    <input class= "log_in_form_email" name="user[email]" type="text">
+  </label>
+  <label class= "log_in_password">Password
+    <br>
+    <input class= "log_in_form_password" name="user[password]" type="password">
+  </label>
+
+  <input type="submit" value="Log In" class="button_log_in"><br>
+</form>

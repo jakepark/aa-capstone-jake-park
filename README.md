@@ -1,11 +1,11 @@
-# myFacebook
+# myfacebook
 
 [Heroku link][heroku]
 
 [heroku]: http://jakebook.herokuapp.com
 
 ## Minimum Viable Product
-myFacebook is a clone of Facebook built on Rails and Backbone. Users can:
+myfacebook is a clone of Facebook built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 

@@ -1,7 +1,7 @@
-myFacebook.Routers.Router = Backbone.Router.extend({
+myfacebook.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl
-    this.collection = new myFacebook.Collections.Users
+    this.collection = new myfacebook.Collections.Users
   },
 
   routes: {
@@ -11,7 +11,7 @@ myFacebook.Routers.Router = Backbone.Router.extend({
 
   index: function () {
     this.collection.fetch();
-    var view = new myFacebook.Views.UsersIndex({
+    var view = new myfacebook.Views.UsersIndex({
       collection: this.collection
     });
     this._swapView(view);
@@ -20,7 +20,7 @@ myFacebook.Routers.Router = Backbone.Router.extend({
   show: function (id) {
 
     var user = this.collection.getOrFetch(id);
-    var view = new myFacebook.Views.UserShow({
+    var view = new myfacebook.Views.UserShow({
       model: user,
       collection: this.collection
     })

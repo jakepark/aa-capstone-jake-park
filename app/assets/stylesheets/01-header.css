@@ -13,42 +13,83 @@ body {
   background: #3b5998;
   color: #fff;
   border-bottom: 1px solid #ccc;
-  padding: 20px;
+  height: 84px;
+  /*padding: 20px;*/
 }
 
-.header a {
-  display: block;
-  padding: 10px 20px;
-}
 
 .header-nav {
   margin: 0 auto;
   width: 900px;
+  height: 100%;
   border-left: 1px solid #f00;
   border-right: 1px solid #f00;
-}
 
-.header-logo {
-  float: left;
-  border-right: 1px solid #ccc;
   font-weight: 700;
 }
 
-.header-nav-right {
-  
-}
-
-
-
-.header-list {
-  float: right;
-}
-
-.header-list > li {
+.header-logo {
+  height: 84px;
+  position: relative;
   float: left;
-  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  font-weight: 700;
+    padding: 20px;
 }
 
-.header-list > li:hover {
-  background: #000;
+.header-nav-right {
+
+
+}
+
+
+.log_in_email {
+  float: left;
+  width: 200px;
+  height: 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: normal;
+  border: 1px solid red;
+  padding: 10px 0px;
+}
+
+.log_in_password {
+  float: left;
+  width: 200px;
+  height: 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: normal;
+  border: 1px solid green;
+  padding: 10px 0px ;
+}
+
+.log_in_form_email {
+  background-color: white;
+  float: left;
+  width: 200px;
+  height: 25px;
+  color: white;
+  border: 1px solid red;
+}
+
+.log_in_form_password {
+  background-color: white;
+  float: left;
+  width: 200px;
+  height: 25px;
+  color: white;
+
+  border: 1px solid green;
+}
+
+
+.button_log_in {
+  color: white;
+  background-color: #8b9dc3;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px 6px;
+
 }

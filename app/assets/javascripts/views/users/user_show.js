@@ -1,4 +1,4 @@
-myFacebook.Views.UserShow = Backbone.View.extend({
+myfacebook.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
 
 

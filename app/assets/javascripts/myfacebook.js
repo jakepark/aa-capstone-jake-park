@@ -1,10 +1,10 @@
-window.myFacebook = {
+window.myfacebook = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    new myFacebook.Routers.Router({
+    new myfacebook.Routers.Router({
       $rootEl: $("#main")
     })
     Backbone.history.start();
@@ -12,5 +12,5 @@ window.myFacebook = {
 };
 
 $(document).ready(function(){
-  myFacebook.initialize();
+  myfacebook.initialize();
 })
