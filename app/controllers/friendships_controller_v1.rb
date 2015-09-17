@@ -25,30 +25,25 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id], approved: "false")
-
-    respond_to do |format|
-      if @friendship.save
-        format.html { redirect_to root_url, notice: 'Friendship was successfully created.' }
-        format.json { render :show, status: :created, location: @friendship }
-      else
-        format.html { render :new }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+    if @friendship.save
+      flash[:notice] = "Friend requested."
+      redirect_to :back
+    else
+      flash[:error] = "Unable to request friendship."
+      redirect_to :back
     end
   end
+
 
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
-    @friendship = Friendship.where(friend_id: current_user, user_id: params[:id]).first
-    respond_to do |format|
-      if @friendship.update(friendship_params)
-        format.html { redirect_to root_url, notice: 'Friendship was successfully updated.' }
-        format.json { render :show, status: :ok, location: @friendship }
-      else
-        format.html { render :edit }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+  @friendship = Friendship.where(friend_id: current_user, user_id: params[:id]).first
+  @friendship.update(approved: true)
+    if @friendship.save
+      redirect_to root_url, :notice => "Successfully confirmed friend!"
+    else
+      redirect_to root_url, :notice => "Sorry! Could not confirm friend!"
     end
   end
 
@@ -56,10 +51,9 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1.json
   def destroy
     @friendship = Friendship.where(friend_id: [current_user, params[:id]]).where(user_id: [current_user, params[:id]]).last
-    respond_to do |format|
-      format.html { redirect_to :back, notice: 'Friendship was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @friendship.destroy
+    flash[:notice] = "Removed friendship."
+    redirect_to :back
   end
 
   private

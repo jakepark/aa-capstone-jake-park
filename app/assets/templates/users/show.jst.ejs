@@ -1,16 +1,20 @@
-<h2>Show</h2>
+<div class='user-show'>
 
-<div class='show-user-header'>
-  <h4><%= user.escape('name_first') %>
-  <%= user.escape('name_last') %></h4>
+  <%= user.escape('name_first') %> <%= user.escape('name_last') %>
+    <br>
   <a href="#" + <%=user.escape('avatar_url')%>></a>
+    <br>
 
   Birth Date:
-
-  <h4><%= user.escape('birth_month') %>
+    <%= user.escape('birth_month') %>
     <%= user.escape('birth_day') %>
     <%= user.escape('birth_year') %>
-  <h4><%= user.escape('gender') %></h4>
+    <br>
+  Gender:
+    <%= user.escape('gender') %>
+    <br>
+
+
 
 </div>
 

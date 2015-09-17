@@ -1,5 +1,2 @@
-
-Problem :'missing template static_pages/root'
-
-Answer: because it's signed in!
-need to build static root page
+git config --local user.name 'Jake Park'
+git config --local user.email 'jake.park@caa.columbia.edu'

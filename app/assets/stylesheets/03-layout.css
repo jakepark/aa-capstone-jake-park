@@ -58,3 +58,13 @@
   font-size: 11px;
   color: grey;
 }
+
+div .users-index {
+  padding: 0 0 100px 400px;
+
+}
+
+div .user-show {
+  padding: 0 0 100px 400px;
+
+}

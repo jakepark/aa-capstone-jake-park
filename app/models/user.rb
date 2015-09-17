@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
     :through => :passive_friendships, :source => :user
 
 
+  def friends
+    active_friends | passive_friends
+  end
 
   attr_reader :password
   after_initialize :ensure_session_token
