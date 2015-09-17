@@ -35,8 +35,9 @@ class User < ActiveRecord::Base
   has_many :requested_friendships, -> { where(friendships: { approved: false}) },
     :through => :passive_friendships, :source => :user
 
-  has_attached_file :avatar_url, default_url: "missing.png"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  has_attached_file :profile_pic, default_url: "missing.png"
+  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
+
 
   def friends
     active_friends | passive_friends

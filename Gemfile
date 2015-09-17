@@ -34,7 +34,7 @@ gem 'font-awesome-rails'
 gem 'backbone-on-rails'
 gem 'ejs'
 gem 'figaro'
-gem 'paperclip'
+gem 'paperclip', "~> 4.3"
 gem 'aws-sdk', '~> 1.6'
 
 
