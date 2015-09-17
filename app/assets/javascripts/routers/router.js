@@ -4,10 +4,11 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this.collection = new myfacebook.Collections.Users
 
 
-    // var userid = this.$rootEl.attr('data-current-user-id')
-    // var current_user = new myfacebook.Models.User({id: userid})
-    // current_user.fetch()
-    // this.current_user = current_user
+    var userid = this.$rootEl.attr('data-current-user-id')
+    var current_user = new myfacebook.Models.User({id: userid})
+    current_user.fetch()
+    myfacebook.current_user = current_user
+
 
   },
 
@@ -17,8 +18,12 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-
-
+    
+    myfacebook.current_user.fetch({
+      success: function () {
+        console.log(myfacebook.current_user.toJSON())
+      }
+    });
     this.collection.fetch();
     var view = new myfacebook.Views.UsersIndex({
       collection: this.collection

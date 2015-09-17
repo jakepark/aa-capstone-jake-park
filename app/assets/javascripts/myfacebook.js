@@ -9,9 +9,12 @@ window.myfacebook = {
       $rootEl: $("#main")
     })
     Backbone.history.start();
+  
   }
 };
 
 $(document).ready(function(){
   myfacebook.initialize();
+
+
 })
