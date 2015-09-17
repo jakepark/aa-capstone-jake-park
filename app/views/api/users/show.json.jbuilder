@@ -9,9 +9,9 @@ json.extract! @user, :id, :name_last, :name_first, :avatar_url,
 # end
 
 # this doesn't break!
-
-@user.friendships do |friend|
-  json.array!(@user.friendships) do |friend|
-    # json.partial! 'friend', friend: friend
-  end
-end
+#
+# @user.friendships do |friend|
+#   json.array!(@user.friendships) do |friend|
+#     # json.partial! 'friend', friend: friend
+#   end
+# end

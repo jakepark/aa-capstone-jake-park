@@ -1,7 +1,11 @@
 git config --local user.name 'Jake Park'
 git config --local user.email 'jake.park@caa.columbia.edu'
 
+fix api/users displaying all the things
 
+# <form action="/api/#{current_user.id}">
+#   <li><input class: "button_user_home" type="submit" value="Home" > </li>
+# </form>
 
 
 <% unless current_user == @user %>

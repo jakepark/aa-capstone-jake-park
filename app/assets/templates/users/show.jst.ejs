@@ -1,10 +1,11 @@
 <div class='user-show'>
 
-
 <% if (myfacebook.current_user.get('id') !== this.model.get('id')) { %>
   Not yet friends!
 <% } else { %>
   This is you!
+
+  myfacebook.current_user.requested_friendships
 <% } %>
 
 <br>
