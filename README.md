@@ -15,10 +15,10 @@ myfacebook is a clone of Facebook built on Rails and Backbone. Users can:
 - [?] Upload user avatar
 - [ ] Search for Friends by Name
 - [x] View Friend profile
-- [ ] Add Friend
-- [ ] Approve Friend
-- [ ] Deny Friend
-- [ ] Remove Friend
+- [?] Add Friend
+- [?] Approve Friend
+- [?] Deny Friend
+- [?] Remove Friend
 
 
 ## Design Docs
