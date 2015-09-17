@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  wrap_parameters false
+
   def show
     @user = User.find(params[:id])
 

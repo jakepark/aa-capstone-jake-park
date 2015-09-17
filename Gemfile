@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'backbone-on-rails'
-gem 'font-awesome-rails'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
@@ -29,6 +29,14 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+gem 'font-awesome-rails'
+gem 'backbone-on-rails'
+gem 'ejs'
+gem 'figaro'
+gem 'paperclip'
+gem 'aws-sdk', '~> 1.6'
+
 
 
 group :production do
