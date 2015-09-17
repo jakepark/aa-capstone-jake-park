@@ -9,15 +9,20 @@
 
 .content-intro {
   display: block;
+  float: left;
+
   width: 500px;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
-  padding: 50px 0 0 410px;
+  padding: 70px 0 0 440px;
 }
 
 .content-signup {
+  float: left;
   width: 500px;
-  padding: 0px 1010px;
+  padding: 22px 0 0 75px;
+
+  /*padding: 0px 1010px;*/
 
 }
 
@@ -54,7 +59,7 @@
 
 }
 
-.blurb2 {
+.toc {
   font-size: 11px;
   color: grey;
 }
