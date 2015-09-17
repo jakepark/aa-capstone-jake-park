@@ -1,7 +1,9 @@
 <div class="content-signup">
 
-Sign Up<br>
-It’s free and always will be.
+<b>Sign Up<br></b>
+<p class="blurb1">
+It’s free and always will be.<br>
+</p>
 
 <form class="form_sign_up" action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -13,7 +15,7 @@ It’s free and always will be.
 
   <input class= "sign_up_input" name="user[email]" type="text" value="Email" onfocus="if (this.value=='Email') this.value='';"/><br>
 
-  <input class= "sign_up_input" name="user[password]" type="text" value="Password" onfocus="if (this.value=='Password') this.type='password', this.value='';"/><br>
+  <input class= "sign_up_input" name="user[password]" type="text" value="New Password" onfocus="if (this.value=='New Password') this.type='password', this.value='';"/><br>
   </label><br>
 
   <label for="user_birthday">Birthday</label><br>
@@ -50,9 +52,9 @@ It’s free and always will be.
   </select>
 
   <br>
+  <br>
 
 
-  <label>Gender<br></label>
     <input type="radio" name="user[gender]" id="female" value="f">
     <label for="user_sex_female">Female</label>
 
@@ -60,8 +62,12 @@ It’s free and always will be.
     <label for="user_sex_male">Male</label>
     <br>
     <br>
+
+    <p class="blurb2">
     By clicking Sign Up, you agree to our Terms and that you have<br>
       read our Data Policy, including our Cookie Use.<br>
+      <p class="blurb2"><br>
+
   <input type="submit" value="Sign Up" class="button_sign_up"><br>
 </form>
 </div>

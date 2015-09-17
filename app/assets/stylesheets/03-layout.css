@@ -30,7 +30,7 @@
 
 .form_sign_up {
   float: left;
-  padding: 10px 20px;
+  padding: 20px 0 0 0;
   font-size: 20px;
 }
 
@@ -45,4 +45,16 @@
   position: relative;
   padding: 10px 20px;
   color: #f00;
+}
+
+
+.blurb1 {
+  font-size: 18px;
+  color: black;
+
+}
+
+.blurb2 {
+  font-size: 11px;
+  color: grey;
 }
