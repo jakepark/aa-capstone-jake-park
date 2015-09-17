@@ -12,7 +12,7 @@
 
   <%= user.escape('name_first') %> <%= user.escape('name_last') %>
     <br>
-  <a href="#" + <%=user.escape('avatar_url')%>></a>
+      <img src="<%= user.get("image_url") %>" width="100px">
     <br>
 
   Birth Date:
