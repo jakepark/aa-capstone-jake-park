@@ -4,6 +4,7 @@ window.myfacebook = {
   Views: {},
   Routers: {},
   initialize: function() {
+
     new myfacebook.Routers.Router({
       $rootEl: $("#main")
     })

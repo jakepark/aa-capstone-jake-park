@@ -2,6 +2,13 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl
     this.collection = new myfacebook.Collections.Users
+
+
+    // var userid = this.$rootEl.attr('data-current-user-id')
+    // var current_user = new myfacebook.Models.User({id: userid})
+    // current_user.fetch()
+    // this.current_user = current_user
+
   },
 
   routes: {
@@ -10,6 +17,8 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
+
+
     this.collection.fetch();
     var view = new myfacebook.Views.UsersIndex({
       collection: this.collection
