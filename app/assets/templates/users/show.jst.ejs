@@ -1,5 +1,14 @@
 <div class='user-show'>
 
+
+<% if (myfacebook.current_user.get('id') !== this.model.get('id')) { %>
+  Not yet friends!
+<% } else { %>
+  This is you!
+<% } %>
+
+<br>
+
   <%= user.escape('name_first') %> <%= user.escape('name_last') %>
     <br>
   <a href="#" + <%=user.escape('avatar_url')%>></a>
