@@ -2,10 +2,7 @@ myfacebook.Views.UsersNew = Backbone.View.extend({
 
   template: JST['users/new'],
 
-  events: {
-    "submit form": "submit",
-    "change #input-post-image": "fileInputChange"
-  },
+
 
   initialize: function(){
     this.model = new myfacebook.Models.User();

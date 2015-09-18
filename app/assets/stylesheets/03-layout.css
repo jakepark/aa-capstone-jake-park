@@ -7,6 +7,13 @@
 
 }*/
 
+img {
+  display: block;
+  width: 100px;
+  height: auto;
+}
+
+
 .content-intro {
   display: block;
   float: left;

@@ -11,7 +11,8 @@ myfacebook.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "users/:id": "show"
+    "users/:id": "show",
+    "new_avatar": "newAvatar"
   },
 
   // myfacebook.current_user.fetch({
@@ -30,7 +31,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   show: function (id) {
-    
+
     var user = this.collection.getOrFetch(id);
     var view = new myfacebook.Views.UserShow({
       model: user,

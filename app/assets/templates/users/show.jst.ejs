@@ -15,6 +15,25 @@
       <img src="<%= user.get("image_url") %>" width="100px">
     <br>
 
+
+
+<% if (user.get('image_url') === 'default_profile.jpg') { %>
+
+  <form class="avatar">
+    <label>
+      Image
+      <input type="file" name="user[image]" id="input-user-avatar">
+    </label>
+
+    <button>Save</button> or <a href="#">Cancel</a>
+  </form><br>
+
+<% } %>
+
+
+
+
+
   Birth Date:
     <%= user.escape('birth_month') %>
     <%= user.escape('birth_day') %>
