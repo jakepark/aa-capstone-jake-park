@@ -24,34 +24,22 @@ ActiveRecord::Schema.define(version: 20150917220502) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer  "follower_id", null: false
-    t.integer  "followed_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
-
   create_table "users", force: :cascade do |t|
-    t.string   "email",                    null: false
-    t.string   "name_first",               null: false
-    t.string   "name_last",                null: false
-    t.string   "password_digest",          null: false
-    t.string   "session_token",            null: false
-    t.text     "avatar_url"
+    t.string   "email",               null: false
+    t.string   "name_first",          null: false
+    t.string   "name_last",           null: false
+    t.string   "password_digest",     null: false
+    t.string   "session_token",       null: false
     t.string   "birth_month"
     t.string   "birth_day"
     t.string   "birth_year"
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "profile_pic_file_name"
-    t.string   "profile_pic_content_type"
-    t.integer  "profile_pic_file_size"
-    t.datetime "profile_pic_updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

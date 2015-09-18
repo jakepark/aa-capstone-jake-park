@@ -5,7 +5,7 @@
 #   t.string   "name_last",       null: false
 #   t.string   "password_digest", null: false
 #   t.string   "session_token",   null: false
-#   t.text     "avatar_url"
+
 #   t.string   "birth_date"
 #   t.string   "birth_year"
 #   t.string   "gender"
@@ -35,8 +35,8 @@ class User < ActiveRecord::Base
   has_many :requested_friendships, -> { where(friendships: { approved: false}) },
     :through => :passive_friendships, :source => :user
 
-  has_attached_file :profile_pic, default_url: "missing.png"
-  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
+  has_attached_file :avatar, default_url: "missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
 
   def friends
