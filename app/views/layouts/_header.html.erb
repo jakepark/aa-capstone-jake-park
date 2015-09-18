@@ -6,7 +6,7 @@
 
     <% if signed_in? %>
 
-      <li><%= button_to "Home", api_users_url(@current_user.id), method: :get, class: "button_home" %></li>
+      <li><%= button_to "Home", root_url, method: :get, class: "button_home" %></li>
 
       <li><%= button_to "Sign out", session_url, method: :delete, class: "button_log_in header-btn" %></li>
     <% else %>

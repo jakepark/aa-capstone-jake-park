@@ -40,6 +40,13 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this._swapView(view)
   },
 
+  newAvatar: function () {
+    var userNewAvatar = new myfacebook.Views.PostsShow({
+      collection: this.collection
+    });
+    this._swapView(userNewAvatar);
+  },
+
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
