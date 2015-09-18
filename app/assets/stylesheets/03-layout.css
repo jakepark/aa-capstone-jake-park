@@ -80,3 +80,9 @@ div .user-show {
   padding: 0 0 100px 400px;
 
 }
+
+button {
+  border: 1px solid red;
+  background-color: white;
+  color: black;
+}

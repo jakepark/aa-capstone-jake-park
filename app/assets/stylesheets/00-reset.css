@@ -4,6 +4,7 @@
 section,*/
 
 
+
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i, span,
 img, div, h2, p, form,
@@ -21,6 +22,8 @@ article, footer, time, small {
   box-sizing: inherit;
   background: transparent;
 }
+
+
 
 ul {
   list-style: none;
@@ -46,12 +49,18 @@ button {
   -moz-appearance: none;
 }
 
+
+
+
+
 button,
 input[type="submit"] {
   cursor: pointer;
 
 
 }
+
+
 
 /* Clearfix */
 
