@@ -2,17 +2,9 @@
 json.extract! @user, :id, :name_last, :name_first,
   :birth_month, :birth_day, :birth_year, :gender
 
-json.image_url (@user.avatar.url(:original))
-# @user.friends do
-#   json.array!(user.friends) do |friend|
-#     json.partial! 'friend', friend: friend
-#   end
-# end
+json.friends @user.friends do |friend|
+  json.id friend.id
+  json.email friend.email
+end
 
-# this doesn't break!
-#
-# @user.friendships do |friend|
-#   json.array!(@user.friendships) do |friend|
-#     # json.partial! 'friend', friend: friend
-#   end
-# end
+json.image_url (@user.avatar.url(:original))

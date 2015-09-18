@@ -7,6 +7,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   events: {
+    "click .add_friend": "addFriend",
     "submit form": "newAvatar",
     "change #input-user-avatar": "fileInputChange"
   },
@@ -18,17 +19,25 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     return this;
   },
 
+  addFriend: function (e) {
+    e.preventDefault();
+
+    var friend = this.model
+    debugger
+    friend.set({'friendship': true})
+
+
+  },
+
+
   newAvatar: function(event){
     event.preventDefault();
 
     this.model.collection = this.collection;  //instead of initialized
-
     var file = this.$("#input-user-avatar")[0].files[0];
-
     var formData = new FormData();
 
     formData.append("user[avatar]", file);
-
     var that = this;
 
     this.model.saveFormData(formData, {

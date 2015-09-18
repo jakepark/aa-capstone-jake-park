@@ -3,14 +3,25 @@ class Api::FriendshipsController < ApplicationController
 
   # GET /friendships
   # GET /friendships.json
+
   def index
     @friendships = Friendship.all
+    render json: @friendships
   end
+
 
   # GET /friendships/1
   # GET /friendships/1.json
   def show
+    @friendship = Friendship.find(friendship_params[:id])
+
+    if @friendship
+      render :show
+    else
+      render json: ["Friendship doesn't exist."], status: 422
+    end
   end
+
 
   # GET /friendships/new
   def new
@@ -49,7 +60,7 @@ class Api::FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
-    @friendship = Friendship.where(friend_id: [current_user, params[:id]]).where(user_id: [current_user, params[:id]]).last
+    @friendship = current_user.friendships.find(params[:id])
     @friendship.destroy
     flash[:notice] = "Removed friendship."
     redirect_to :back

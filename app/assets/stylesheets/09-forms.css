@@ -1,0 +1,41 @@
+/*103 x 28*/
+
+.add_friend {
+  margin: 20px 0 0 0;
+  padding: 0 0 3px 0;
+}
+
+.add_friend > button {
+  position: relative;
+  padding: 5px 20px;
+  color: #fff;
+  background: #0c0;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 0 #070;
+}
+
+.add_friend > button:hover {
+  background: #0b0;
+}
+
+.add_friend > button:active {
+  top: 3px;
+  background: #0a0;
+  box-shadow: none;
+}
+
+/*.button-alternative {
+  padding: 0 0 0 5px;
+}
+
+.button-alternative strong {
+  padding: 0 0 0 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-alternative strong:hover {
+  color: #f00;
+}*/

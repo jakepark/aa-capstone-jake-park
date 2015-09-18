@@ -6,9 +6,11 @@
 
     <% if signed_in? %>
 
-      <li><%= button_to "Home", root_url, method: :get, class: "button_home" %></li>
+      <%= current_user.name_first %>
 
-      <li><%= button_to "Sign out", session_url, method: :delete, class: "button_log_in header-btn" %></li>
+      <%= button_to "Home", root_url, method: :get, class: "button_home" %>
+
+      <%= button_to "Sign Out", session_url, method: :delete, class: "button_log_in header-btn" %>
     <% else %>
 
 

@@ -19,7 +19,7 @@
           data-toggle='dropdown'><span class='glyphicon glyphicon-plus'></span>
         </button>
       </li>
-      <li><%= button_to "Sign out", session_url, method: :delete, class: "button_log_in navbar-btn" %></li>
+      <li><%= button_to "myfacebook", session_url, method: :delete, class: "button_log_in navbar-btn" %></li>
     <% else %>
       <li><%= link_to "Log in", new_session_url %></li>
       <li><%= link_to "Sign up", new_user_url %></li>

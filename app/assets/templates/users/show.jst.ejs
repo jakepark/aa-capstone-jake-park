@@ -5,7 +5,9 @@
 <% if (myfacebook.current_user.get('id') !== this.model.get('id')) { %>
   Not yet friends!
 
-<button class="add_friend">Add Friend</button>
+<div class="add_friend">
+  <button>Add Friend</button>
+</div>
 
 <% } else { %>
   This is you!
