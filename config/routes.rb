@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :users
-    resources :friendships
+    resources :friendships, only: [:create, :update, :destroy]
 
   end
 end

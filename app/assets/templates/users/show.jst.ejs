@@ -3,45 +3,30 @@
 
 
 <% if (myfacebook.current_user.get('id') !== this.model.get('id')) { %>
-  Not yet friends!
 
-<div class="add_friend">
-  <button>Add Friend</button>
-</div>
+  <div class="add_friend">
+    <button>Add Friend</button>
+  </div>
 
 <% } else { %>
+
   This is you!
+  <% if (user.get('image_url') === 'default_profile.jpg') { %>
+    <form class="avatar">
+      <input type="file" name="user[image]" id="input-user-avatar"> <br>
+        <img src="" id="preview-post-image" width="50"> <br>
+      <button>Save</button> or <a href="#">Cancel</a>
+    </form><br>
+  <% } %>
 
-  myfacebook.current_user.requested_friendships
-<% } %>
+<% } %><br>
 
-<br>
+<!-- myfacebook.current_user.requested_friendships -->
 
-  <%= user.escape('name_first') %> <%= user.escape('name_last') %>
-    <br>
-      <img src="<%= user.get("image_url") %>" width="100px">
-    <br>
-
-
-
-<% if (user.get('image_url') === 'default_profile.jpg') { %>
-
-
-  <form class="avatar">
-
-    <input type="file" name="user[image]" id="input-user-avatar">
-    <br>
-      <img src="" id="preview-post-image" width="50">
-    <br>
-
-    <button>Save</button> or <a href="#">Cancel</a>
-  </form><br>
-
-<% } %>
-
-
-
-
+<%= user.escape('name_first') %> <%= user.escape('name_last') %>
+  <br>
+    <img src="<%= user.get("image_url") %>" width="100px">
+  <br>
 
   Birth Date:
     <%= user.escape('birth_month') %>

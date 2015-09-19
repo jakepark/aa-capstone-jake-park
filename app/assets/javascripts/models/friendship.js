@@ -1,10 +1,11 @@
-myfacebook.Models.User = Backbone.Model.extend({
-  urlRoot: '/api/users',
+myfacebook.Models.Friendship = Backbone.Model.extend({
+  urlRoot: '/api/friendships',
 
   toJSON: function () {
-    var json = { user: _.clone(this.attributes)};
+    var json = { friendship: _.clone(this.attributes)};
     return json;
   },
+
 
   saveFormData: function(formData, options){
     var method = this.isNew() ? "POST" : "PUT";
@@ -25,24 +26,5 @@ myfacebook.Models.User = Backbone.Model.extend({
         options.error && options.error(model, resp, options);
       }
     });
-  },
-
-  friends: function () {
-    if (!this._friends) {
-      this._friends = new myfacebook.Collections.Friendships([], { user: this });
-    }
-
-    return this._friends;
-  },
-
-  parse: function (response) {
-    if (response.friends) {
-      this.friends().set(response.friends, { parse: true });
-      delete response.friends;
-    }
-
-    return response;
   }
-
-
 });

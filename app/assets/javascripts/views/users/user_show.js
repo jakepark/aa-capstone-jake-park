@@ -7,7 +7,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   events: {
-    "click .add_friend": "addFriend",
+    "click .add_friend": "createFriendship",
     "submit form": "newAvatar",
     "change #input-user-avatar": "fileInputChange"
   },
@@ -19,16 +19,28 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     return this;
   },
 
-  addFriend: function (e) {
+  createFriendship: function (e) {
     e.preventDefault();
 
-    var friend = this.model
+    var view = this;
+    var target = this.model
+    var target_id = target.get('id')
+    var friendship = new myfacebook.Models.Friendship()
+    friendship.set({
+      user_id: myfacebook.current_user.id,
+      friend_id: target_id
+    })
     debugger
-    friend.set({'friendship': true})
+    friendship.save({
 
-
+      }, {
+      success: function () {
+        Backbone.history.navigate('/users/' + target_id, {trigger: true});
+        view.reset();
+      }
+    });
+    return false;
   },
-
 
   newAvatar: function(event){
     event.preventDefault();
