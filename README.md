@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://jakebook.herokuapp.com
+[heroku]: http://myfacebook-jp.herokuapp.com
 
 ## Minimum Viable Product
 myfacebook is a clone of Facebook built on Rails and Backbone. Users can:
@@ -12,13 +12,14 @@ myfacebook is a clone of Facebook built on Rails and Backbone. Users can:
 - [x] Create user account (sign up)
 - [x] Create sessions (log in)
 - [x] Create profile
-- [?] Upload user avatar
+- [x] Upload user avatar
+- [x] View profiles
+- [x] Send Friend request
+- [ ] Approve Friend
+- [ ] Deny Friend
+- [ ] Remove Friend
+- [ ] View Friend profile
 - [ ] Search for Friends by Name
-- [x] View Friend profile
-- [?] Add Friend
-- [?] Approve Friend
-- [?] Deny Friend
-- [?] Remove Friend
 
 
 ## Design Docs
@@ -50,7 +51,7 @@ Backbone frontend.
 ### Phase 3: Adding and Approving Friends (~3 days)
 I will add friends, and present a user with a choice whether to
 approve or deny the pending request. Thereupon the authenticated user will be
-authorized to view the friend's profile. By defa ult, a user's profile will be
+authorized to view the friend's profile. By default, a user's profile will be
 set to private.
 
 [Details][phase-three]
@@ -64,29 +65,28 @@ see after logging in.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Profiles and Posts (~2 days)
-I'll need to add `search` routes to both the Profiles and Posts controllers. On
-the Backbone side, there will be a `SearchResults` composite view has
-`BlogsIndex` and `PostsIndex` subviews. These views will use plain old
-`profiles` and `posts` collections, but they will fetch from the new `search`
-routes.
+### Phase 5: Searching for Profiles (~2 days)
+I'll need to add `search` routes to the Profiles controller. On
+the Backbone side, there will be a `SearchResults` composite view with a
+`ProfilesIndex` subview. These views will use plain old `profiles` collections,
+but they will fetch from the new `search` routes.
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
 
-- [ ] Poke notification feature; no discernible use case
-- [ ] Custom profile urls
+- [ ] Post types (image posts, quote posts, etc)
 - [ ] Create profile posts
 - [ ] Tag profile posts
 - [ ] Search for posts by tag
 - [ ] "Like" button and counter for posts
 - [ ] View a feed of subscribed accounts
+- [ ] Poke notification feature; no discernible use case
+- [ ] Custom profile urls
 - [ ] Pagination/infinite scroll
 - [ ] Activity history (e.g. likes, taggings)
-- [ ] Post types (image posts, quote posts, etc)
 - [ ] Multiple sessions/session management
-- [ ] Typeahead search bar
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

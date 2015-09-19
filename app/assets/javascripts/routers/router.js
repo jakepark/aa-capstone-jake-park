@@ -3,7 +3,6 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl
     this.collection = new myfacebook.Collections.Users
 
-
     var userid = this.$rootEl.attr('data-current-user-id')
     myfacebook.current_user = new myfacebook.Models.User({id: userid})
 
@@ -15,12 +14,6 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     "new_avatar": "newAvatar",
     "friendships": "indexFriendships"
   },
-
-  // myfacebook.current_user.fetch({
-  //   success: function () {
-  //     console.log(myfacebook.current_user.toJSON())
-  //   }
-  // });
 
   index: function () {
     myfacebook.current_user.fetch();

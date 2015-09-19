@@ -4,8 +4,13 @@
 
 <% if (myfacebook.current_user.get('id') !== this.model.get('id')) { %>
 
-  <div class="add_friend">
+
+  <div class="request_friend">
     <button>Add Friend</button>
+  </div>
+
+  <div class="approve_friend">
+    <button>Approve Friend</button>
   </div>
 
 <% } else { %>

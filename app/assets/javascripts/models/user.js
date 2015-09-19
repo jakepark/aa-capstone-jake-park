@@ -27,18 +27,18 @@ myfacebook.Models.User = Backbone.Model.extend({
     });
   },
 
-  friends: function () {
-    if (!this._friends) {
-      this._friends = new myfacebook.Collections.Friendships([], { user: this });
+  friendships: function () {
+    if (!this._friendships) {
+      this._friendships = new myfacebook.Collections.Friendships([], { user: this });
     }
 
-    return this._friends;
+    return this._friendships;
   },
 
   parse: function (response) {
-    if (response.friends) {
-      this.friends().set(response.friends, { parse: true });
-      delete response.friends;
+    if (response.friendships) {
+      this.friendships().set(response.friendships, { parse: true });
+      delete response.friendships;
     }
 
     return response;
