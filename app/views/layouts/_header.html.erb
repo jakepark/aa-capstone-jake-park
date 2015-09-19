@@ -2,21 +2,24 @@
   <div class="header-nav">
     <a class="header-logo" href="#">myfacebook</a>
 
-    <ul class="header-nav right">
+    <ul class="header-nav-right">
 
     <% if signed_in? %>
 
-    <li class= "header-nav right li">
+    <li class= "header-nav-right-li">
       <a href="#users/<%= + current_user.id%>">
-      <img src="<%= current_user.avatar %>" class="avatar_icon">
-      <%= current_user.name_first %></a>
+        <img src="<%= current_user.avatar %>"/>
+        <span class="avatar_icon">
+          <%= current_user.name_first %>
+        </span>
+      </a>
     </li>
 
-    <li class= "header-nav right li">
+    <li class= "header-nav-right-li">
       <%= button_to "Home", root_url, method: :get, class: "button_home" %>
     </li>
-    <li class= "header-nav right li">
-      <%= button_to "Sign Out", session_url, method: :delete, class: "button_log_in header-btn" %>
+    <li class= "header-nav-right-li">
+      <%= button_to "Sign Out", session_url, method: :delete, class: "button_sign_out" %>
     </li>
     <% else %>
 

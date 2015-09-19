@@ -17,20 +17,21 @@ img {
 .container {
   background: lightgrey;
   color: black;
-  width: 1980px;
+  /*width: 1980px;*/
   height: 1000px;
+
   /*padding: 20px;*/
 }
 
 
 .content-intro {
-  display: block;
   float: left;
+  display: block;
 
   width: 500px;
   font-size: 26px;
   font-weight: bold;
-  padding: 70px 0 0 440px;
+  /*padding: 70px 0 0 440px;*/
 }
 
 .content-signup {

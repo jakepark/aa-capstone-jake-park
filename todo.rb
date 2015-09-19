@@ -7,6 +7,8 @@ fix api/users displaying all the things
 #   <li><input class: "button_user_home" type="submit" value="Home" > </li>
 # </form>
 
+http://stackoverflow.com/questions/18721054/link-with-2-lines-text-and-image
+
 
 <% unless current_user == @user %>
       <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
