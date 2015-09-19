@@ -2,15 +2,18 @@ myfacebook.Collections.Friendships = Backbone.Collection.extend({
   model: myfacebook.Models.Friendship,
   url: '/api/friendships',
 
+  initialize: function (models, options) {
+    this.user = options.user
+  },
 
-  getOrFetch: function (id) {
-    var friendship = this.get(id);
+  getOrFetch: function (model) {
+    var friendship = this.get(model);
     var friendships = this;
 
     if (friendship) {
       friendship.fetch();
     } else {
-      friendship = new myfacebook.Models.Friendship({id: id});
+      friendship = model;
       friendships.add(friendship);
       friendship.fetch({
         error: function () {
@@ -22,3 +25,5 @@ myfacebook.Collections.Friendships = Backbone.Collection.extend({
   }
 
 });
+
+myfacebook.Collections.friendships = new myfacebook.Collections.Friendships

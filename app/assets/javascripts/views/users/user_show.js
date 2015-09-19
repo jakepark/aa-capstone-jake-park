@@ -24,14 +24,18 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   approveFriendship: function (e) {
     e.preventDefault();
 
-    var view = this;
     var target = this.model
     var target_id = target.get('id')
 
-    var friendship = this.friendships.getOrFetch(target_id)
-    friendship.set({
-      approved: true,
+    debugger
+    var friendship = this.model.friendships().findWhere({
+      user_id: myfacebook.current_user.id,
+      friend_id: target_id
     })
+
+    friendship.set(
+      "approved", true
+    )
     friendship.save({}, {
       success: function () {
         Backbone.history.navigate('/users/' + target_id, {trigger: true});
@@ -41,11 +45,41 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     return false;
   },
 
+    //  // this goes to POST api route
+    //
+    // approveFriendship: function (e) {
+    //   e.preventDefault();
+    //
+    //
+    //
+    //   var target = this.model
+    //   var target_id = target.get('id')
+    //
+    //   var model = new myfacebook.Models.Friendship({
+    //     user_id: myfacebook.current_user.id,
+    //     friend_id: target_id
+    //   })
+    //
+    //   debugger
+    //   var friendship = this.model.friendships().getOrFetch(model)
+    //
+    //   friendship.set({
+    //     approved: true,
+    //   })
+    //   friendship.save({}, {
+    //     success: function () {
+    //       Backbone.history.navigate('/users/' + target_id, {trigger: true});
+    //       view.reset();
+    //     }
+    //   });
+    //   return false;
+    // },
+
+
 
   createFriendship: function (e) {
     e.preventDefault();
 
-    var view = this;
     var target = this.model
     var target_id = target.get('id')
     var friendship = new myfacebook.Models.Friendship()
