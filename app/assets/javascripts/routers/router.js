@@ -11,8 +11,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "index",
     "users/:id": "show",
-    "new_avatar": "newAvatar",
-    "friendships": "indexFriendships"
+
   },
 
   index: function () {
@@ -24,14 +23,6 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  indexFriendships: function () {
-    myfacebook.current_user.fetch();
-    this.collection.fetch();
-    var view = new myfacebook.Views.FriendshipsIndex({
-      collection: this.collection
-    });
-    this._swapView(view);
-  },
 
 
   show: function (id) {
@@ -44,12 +35,6 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this._swapView(view)
   },
 
-  newAvatar: function () {
-    var userNewAvatar = new myfacebook.Views.PostsShow({
-      collection: this.collection
-    });
-    this._swapView(userNewAvatar);
-  },
 
 
   _swapView: function (view) {
