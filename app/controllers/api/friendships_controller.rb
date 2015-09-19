@@ -35,7 +35,9 @@ class Api::FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = current_user.friendships.build(:friend_id => params[:friend_id], approved: "false")
+    @friendship = current_user.friendships.build(friend_id: friendship_params[:friend_id], approved: "false")
+
+
     if @friendship.save
       flash[:notice] = "Friend requested."
       redirect_to :back
