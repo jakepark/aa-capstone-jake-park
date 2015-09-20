@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # resources :friendships
   root to: 'static_pages#root'
 
+  resource :session, only: [:new]
+
   resources :users, only: [:new, :create]
 
   namespace :api, defaults: { format: :json } do

@@ -18,6 +18,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     // myfacebook.currentUser.fetch();
     // this.collection.fetch();
 
+
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
@@ -44,7 +45,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   signIn: function(callback){
-    
+
     if (!this._requireSignedOut(callback)) { return; }
 
     var signInView = new myfacebook.Views.SignIn({
@@ -59,6 +60,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
         this.signIn(callback);
         return false;
       }
+      
 
       return true;
     },

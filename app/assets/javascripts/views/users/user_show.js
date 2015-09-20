@@ -4,6 +4,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render)
+
   },
 
   events: {
@@ -34,7 +35,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       friend_id: parseInt(myfacebook.currentUser.id)
 
     })
-    
+
     friendship.set(
       "approved", true
     )
@@ -46,36 +47,6 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     });
     return false;
   },
-
-    //  // this goes to POST api route
-    //
-    // approveFriendship: function (e) {
-    //   e.preventDefault();
-    //
-    //
-    //
-    //   var target = this.model
-    //   var target_id = target.get('id')
-    //
-    //   var model = new myfacebook.Models.Friendship({
-    //     user_id: myfacebook.currentUser.id,
-    //     friend_id: target_id
-    //   })
-    //
-    //   debugger
-    //   var friendship = this.model.friendships().getOrFetch(model)
-    //
-    //   friendship.set({
-    //     approved: true,
-    //   })
-    //   friendship.save({}, {
-    //     success: function () {
-    //       Backbone.history.navigate('/users/' + target_id, {trigger: true});
-    //       view.reset();
-    //     }
-    //   });
-    //   return false;
-    // },
 
 
 
@@ -103,6 +74,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   newAvatar: function(event){
     event.preventDefault();
 
+    
     this.model.collection = this.collection;  //instead of initialized
     var file = this.$("#input-user-avatar")[0].files[0];
     var formData = new FormData();
