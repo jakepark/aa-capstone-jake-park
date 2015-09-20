@@ -1,0 +1,20 @@
+<h1>myfacebook</h1>
+
+<% if(myfacebook.currentUser.isSignedIn()) { %>
+
+  <p>
+    Signed in as:
+    <a href="#users/<%= myfacebook.currentUser.id %>"><%= myfacebook.currentUser.escape("name_first") %></a> |
+    <a href="#" id="sign-out-link">Sign Out</a>
+  </p>
+
+<% } else { %>
+
+  <p>
+    <a href="#users/new">Sign Up</a> |
+    <a href="#session/new">Sign In</a>
+  </p>
+
+<% } %>
+
+<hr>

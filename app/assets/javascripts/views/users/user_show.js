@@ -31,7 +31,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     var friendship = this.model.friendships().findWhere({
       user_id: target_id,
-      friend_id: parseInt(myfacebook.current_user.id)
+      friend_id: parseInt(myfacebook.currentUser.id)
 
     })
     
@@ -58,7 +58,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     //   var target_id = target.get('id')
     //
     //   var model = new myfacebook.Models.Friendship({
-    //     user_id: myfacebook.current_user.id,
+    //     user_id: myfacebook.currentUser.id,
     //     friend_id: target_id
     //   })
     //
@@ -86,7 +86,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     var target_id = target.get('id')
     var friendship = new myfacebook.Models.Friendship()
     friendship.set({
-      user_id: myfacebook.current_user.id,
+      user_id: myfacebook.currentUser.id,
       friend_id: target_id
     })
     friendship.save({
