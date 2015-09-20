@@ -50,10 +50,10 @@ class Api::FriendshipsController < ApplicationController
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
-  @friendship = Friendship.where(friend_id: current_user, user_id: params[:id]).first
-  @friendship.update(approved: true)
-    if @friendship.save
-      redirect_to root_url, :notice => "Successfully confirmed friend!"
+    @friendship = Friendship.find(params[:id])
+    if @friendship.update_attributes(friendship_params)
+      flash[:notice] = "Friend accepted."
+      redirect_to root_url
     else
       redirect_to root_url, :notice => "Sorry! Could not confirm friend!"
     end

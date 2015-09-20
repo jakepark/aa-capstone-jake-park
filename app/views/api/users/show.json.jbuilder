@@ -4,7 +4,9 @@ json.extract! @user, :id, :name_last, :name_first,
 
 json.friendships @user.friendships do |friendship|
   json.id friendship.id
-
+  json.user_id friendship.user_id
+  json.friend_id friendship.friend_id
+  json.approved friendship.approved
 end
 
 json.image_url (@user.avatar.url(:original))

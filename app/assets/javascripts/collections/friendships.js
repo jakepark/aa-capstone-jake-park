@@ -3,7 +3,8 @@ myfacebook.Collections.Friendships = Backbone.Collection.extend({
   url: '/api/friendships',
 
   initialize: function (models, options) {
-    this.user = options.user
+
+    // this.user = options.user
   },
 
   getOrFetch: function (model) {

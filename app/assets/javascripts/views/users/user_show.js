@@ -21,18 +21,20 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
 
+// var friend = this.model.friendships().findWhere({user_id: 6}) // works on russell "6"...
   approveFriendship: function (e) {
     e.preventDefault();
 
-    var target = this.model
+    var target = this.model  // second user '4'
     var target_id = target.get('id')
 
-    debugger
-    var friendship = this.model.friendships().findWhere({
-      user_id: myfacebook.current_user.id,
-      friend_id: target_id
-    })
 
+    var friendship = this.model.friendships().findWhere({
+      user_id: target_id,
+      friend_id: parseInt(myfacebook.current_user.id)
+
+    })
+    
     friendship.set(
       "approved", true
     )

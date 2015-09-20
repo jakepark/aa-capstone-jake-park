@@ -10,6 +10,9 @@ fix api/users displaying all the things
 http://stackoverflow.com/questions/18721054/link-with-2-lines-text-and-image
 
 
+check api route for what is getting sent up
+  http://localhost:3000/api/users/6 
+
 <% unless current_user == @user %>
       <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
   <% end %>
