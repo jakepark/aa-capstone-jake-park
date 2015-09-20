@@ -1,4 +1,4 @@
-<div class="content-signup">
+<div class="content-signup group">
 
 <b>Sign Up<br></b>
 <p class="blurb1">
@@ -8,9 +8,9 @@ It’s free and always will be.<br>
 <form class="form_sign_up" action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <input class= "sign_up_input" name="user[name_first]" type="text" placeholder="First name"/>
+  <input class= "sign_up_input_first" name="user[name_first]" type="text" placeholder="First name"/>
 
-  <input class= "sign_up_input" name="user[name_last]" type="text" placeholder="Last name"/><br>
+  <input class= "sign_up_input_last" name="user[name_last]" type="text" placeholder="Last name"/><br>
   <br>
 
   <input class= "sign_up_input" name="user[email]" type="text" placeholder="Email"/><br>
@@ -67,7 +67,7 @@ It’s free and always will be.<br>
     By clicking Sign Up, you agree to our Terms and that you have<br>
       read our Data Policy, including our Cookie Use.<br>
       <br>
-
+    </p>
 
   <input type="submit" value="Sign Up" class="button_sign_up"><br>
 </form>
