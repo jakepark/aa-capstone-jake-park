@@ -6,8 +6,6 @@
 
     <% if (myfacebook.currentUser.isSignedIn()) { %>
 
-      <debugger>
-
     <li class= "header-nav-right-li">
       <a href="#users/<%= myfacebook.currentUser.id %>">
     <img src="<%= myfacebook.currentUser.get("image_url") %>">
@@ -18,7 +16,7 @@
     </li>
 
     <li class= "header-nav-right-li">
-      <a href="#">Home</a>
+      <a href="#" class="gohome">Home</a>
     </li>
     <li class= "header-nav-right-li">
     <a href="#" id="sign-out-link">Sign Out</a>

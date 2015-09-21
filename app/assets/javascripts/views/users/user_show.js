@@ -11,7 +11,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     "click .request_friend": "createFriendship",
     "click .approve_friend": "approveFriendship",
     "submit form": "newAvatar",
-    "change #input-user-avatar": "fileInputChange"
+    "change #input-user-avatar": "fileInputChange",
+    "click .gohome": "goHome",
+    "click .header-logo": "goHome",
   },
 
   render: function () {
@@ -74,7 +76,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   newAvatar: function(event){
     event.preventDefault();
 
-    
+
     this.model.collection = this.collection;  //instead of initialized
     var file = this.$("#input-user-avatar")[0].files[0];
     var formData = new FormData();
@@ -110,7 +112,11 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   _updatePreview: function(src){
     this.$el.find("#preview-post-image").attr("src", src);
-  }
+  },
+
+  goHome: function(){
+    Backbone.history.navigate("", { trigger: true });
+  },
 
 
 });
