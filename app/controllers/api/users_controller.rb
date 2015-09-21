@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
   def index
 
     @users = User.order(:name_first)
-    render json: @users
+    render :index
   end
 
 
