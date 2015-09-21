@@ -3,6 +3,7 @@ myfacebook.Views.Header = Backbone.View.extend({
   initialize: function(options){
     this.listenTo(myfacebook.currentUser, "signIn signOut", this.render);
     this.listenTo(myfacebook.currentUser, "signIn", this.signInCallback);
+    this.listenTo(this.model, 'sync', this.render)
     this.render();
   },
 
