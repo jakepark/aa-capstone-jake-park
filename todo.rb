@@ -1,7 +1,11 @@
 git config --local user.name 'Jake Park'
 git config --local user.email 'jake.park@caa.columbia.edu'
 
-fix api/users displaying all the things
+fix api/users displaying all the things  -- FIXED
+
+
+http://stackoverflow.com/questions/16001586/change-the-no-file-chosen
+
 
 # <form action="/api/#{current_user.id}">
 #   <li><input class: "button_user_home" type="submit" value="Home" > </li>
@@ -11,7 +15,7 @@ http://stackoverflow.com/questions/18721054/link-with-2-lines-text-and-image
 
 
 check api route for what is getting sent up
-  http://localhost:3000/api/users/6 
+  http://localhost:3000/api/users/6
 
 <% unless current_user == @user %>
       <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>

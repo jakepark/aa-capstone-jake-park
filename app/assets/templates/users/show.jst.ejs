@@ -1,19 +1,25 @@
 <div class='user-show'>
 
 
+  <% if (myfacebook.currentUser.get('id') !== this.model.get('id')) { %>
+    <% if (this.model.friendships().findWhere({
+         friend_id: this.model.get('id')
+       }) === undefined) { %>
 
-<debugger>
-<% if (myfacebook.currentUser.get('id') !== this.model.get('id')) { %>
+      <div class="request_friend">
+        <button>Add Friend</button>
+      </div>
 
-  <div class="request_friend">
-    <button>Add Friend</button>
-  </div>
+    <% } else { %>
 
-  <div class="approve_friend">
-    <button>Approve Friend</button>
-  </div>
+      <div class="approve_friend">
+        <button>Approve Friend</button>
+      </div>
 
-<% } else { %>
+
+    <% } %>
+
+  <% } else { %>
 
 
   This is you!
@@ -27,8 +33,6 @@
   <% } %>
 
 <% } %><br>
-
-<!-- myfacebook.currentUser.requested_friendships -->
 
 <%= user.escape('name_first') %> <%= user.escape('name_last') %>
   <br>
