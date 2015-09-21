@@ -1,20 +1,90 @@
-<h2>Sign In</h2>
+<div class="content-intro group">
+Connect with friends and the<br>
+world around you on Facebook.
+</div>
 
-<form>
+<% if (myfacebook.currentUser.isSignedIn() === false) { %>
 
-  <label>
-    Email
-    <input type="email" name="user[email]">
-  </label>
 
-  <br>
 
-  <label>
-    Password
-    <input type="password" name="user[password]">
-  </label>
+  <div class="content-signup group">
 
-  <br>
+  <b>Sign Up<br></b>
+  <p class="blurb1">
+  It’s free and always will be.<br>
+  </p>
 
-  <button>Sign In</button>
-</form>
+  <form class="form_sign_up" action="/users" method="post">
+
+      <input class= "sign_up_input_first" name="user[name_first]" type="text" placeholder="First name"/>
+
+      <input class= "sign_up_input_last" name="user[name_last]" type="text" placeholder="Last name"/><br>
+      <br>
+
+      <input class= "sign_up_input" name="user[email]" type="text" placeholder="Email"/><br>
+
+      <input class= "sign_up_input" name="user[password]" type="text" placeholder="New Password"/><br>
+      </label><br>
+
+      <label for="user_birthday">Birthday</label><br>
+      <select name="user[birth_month]" id="birth_month">
+        <option value="">Month</option>
+        <option value="Jan">January</option>
+        <option value="Feb">February</option>
+        <option value="Mar">March</option>
+        <option value="Apr">April</option>
+        <option value="May">May</option>
+        <option value="Jun">June</option>
+        <option value="Jul">July</option>
+        <option value="Aug">August</option>
+        <option value="Sep">September</option>
+        <option value="Oct">October</option>
+        <option value="Nov">November</option>
+        <option value="Dec">December</option>
+      </select>
+
+
+        <select name="user[birth_day]" id="birth_day">
+          <option value="">Day</option>
+          <% for (var i=1; i < 32; i++) { %>
+            <option value="<%= i %>"><%=i%></option>
+
+          <% } %>
+        </select>
+
+        <select name="user[birth_year]" id="birth_year">
+          <option value="">Year</option>
+          <% for (var i=2002; i >= 1905; i--) {%>
+            <option value="<%= i %>"><%=i%></option>
+
+          <% } %>
+        </select>
+
+        <br>
+        <br>
+
+
+
+
+            <input type="radio" name="user[gender]" id="female" value="f">
+            <label for="user_sex_female">Female</label>
+
+            <input type="radio" name="user[gender]" id="male" value="m">
+            <label for="user_sex_male">Male</label>
+            <br>
+            <br>
+
+            <p class="toc">
+            By clicking Sign Up, you agree to our Terms and that you have<br>
+              read our Data Policy, including our Cookie Use.<br>
+              <br>
+            </p>
+
+          <input type="submit" value="Sign Up" class="button_sign_up"><br>
+
+  </form>
+
+
+  </div>
+
+<% } %>

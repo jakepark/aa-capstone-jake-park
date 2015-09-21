@@ -4,7 +4,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl
     this.collection = new myfacebook.Collections.Users
     this.collection.fetch();
-
+    // this.currentUser = this.collection.getOrFetch(myfacebook.currentUser.get('id'));
   },
 
   routes: {
@@ -60,7 +60,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
         this.signIn(callback);
         return false;
       }
-      
+
 
       return true;
     },

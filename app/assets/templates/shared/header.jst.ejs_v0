@@ -6,11 +6,9 @@
 
     <% if (myfacebook.currentUser.isSignedIn()) { %>
 
-      <% debugger %>
-
     <li class= "header-nav-right-li">
       <a href="#users/<%= myfacebook.currentUser.id %>">
-    <img src="<%= myfacebook.currentUser.get("image_url") %>">
+        <img src="<%= currentUser.avatar %>"/>
         <span class="avatar_icon">
           <%= myfacebook.currentUser.escape("name_first") %></a>
         </span>
@@ -18,7 +16,7 @@
     </li>
 
     <li class= "header-nav-right-li">
-      <a href="#">Home</a>
+      Home
     </li>
     <li class= "header-nav-right-li">
     <a href="#" id="sign-out-link">Sign Out</a>
@@ -27,20 +25,7 @@
     <% } else { %>
 
 
-      <form class= "log_in">
-
-        <label class= "log_in_email">Email
-          <br>
-          <input class= "log_in_form_email" name="user[email]" type="text">
-        </label>
-        <label class= "log_in_password">Password
-          <br>
-          <input class= "log_in_form_password" name="user[password]" type="password">
-        </label>
-
-        <button class="button_log_in">Log In</button>
-      </form>
-
+      <a href="#session/new">Sign In</a>
 
     <% } %>
 

@@ -26,19 +26,17 @@ body {
   height: 100%;
   /*border-left: 1px solid #f00;
   border-right: 1px solid #f00;*/
-
   font-weight: 700;
 }
 
 .header-logo {
-  font-family: "Tahoma", sans-serif;
+  font-family: "Lucida Grande", sans-serif;
   height: 64px;
-  /*position: 400px;*/
   float: left;
-  /*border-right: 1px solid #ccc;*/
+  font-size: 39px;
   font-weight: 700;
   padding: 20px 300px 0 0;
-  font-size: 39px;
+
 
 
 }
