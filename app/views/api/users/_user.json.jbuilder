@@ -1,4 +1,4 @@
-# json.(post, :id, :title, :created_at, :updated_at)
+# USED BY BACKBONE TO PASS ATTRS TO CURRENT USER SOMEHOW
 json.(user, :id, :email, :name_first, :name_last ) # added for BB auth
 
 
@@ -12,10 +12,11 @@ json.friendships user.friendships do |friendship|
   json.approved friendship.approved
 end
 
-# json.pending_friends user.pending_friends do |pending|
-#   json.id pending.id
-#   json.user_id pending.user_id
-#   json.friend_id pending.friend_id
-# end
+json.requested_friendships do
+  json.array! @user.requested_friendships do |request|
+    json.extract! request, :id, :name_first, :name_last
+  end
+end
 
-json.image_url (user.avatar.url(:original))
+
+json.image_url (user.avatar.url(:original))   # need this for BB auth image
