@@ -27,4 +27,10 @@ json.requests do
   end
 end
 
+json.pending do
+  json.array! @user.pending_friends do |temp|
+    json.extract! temp, :id, :name_first, :name_last
+  end
+end
+
 json.image_url (@user.avatar.url(:original))

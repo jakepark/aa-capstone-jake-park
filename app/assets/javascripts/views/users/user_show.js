@@ -4,7 +4,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync change add destroy', this.render)
-    debugger
+    this.model.fetch();
   },
 
   events: {
@@ -19,6 +19,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
+
 
     var view = this.template({ user: this.model })
     this.$el.html(view);

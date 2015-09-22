@@ -65,5 +65,5 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
 // var model = new myfacebook.Models.User()
 //
 // model.set(userData);
-// debugger
+// 
 // model.save({}, {

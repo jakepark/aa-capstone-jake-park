@@ -32,6 +32,8 @@ myfacebook.Models.User = Backbone.Model.extend({
     });
   },
 
+  // All friends
+
   friends: function () {
 
     if (!this._friends) {
@@ -40,6 +42,8 @@ myfacebook.Models.User = Backbone.Model.extend({
 
     return this._friends;
   },
+
+  // Requests made by current user
 
   requests: function () {
 
@@ -50,9 +54,34 @@ myfacebook.Models.User = Backbone.Model.extend({
     return this._requests;
   },
 
+  // Offers sent to current user
+
+  friendships: function () {
+
+    if (!this._friendships) {
+      this._friendships = new myfacebook.Collections.Friendships([], { user: this });
+    }
+
+    return this._friendships;
+  },
+
+  pending: function () {
+
+    if (!this._pending) {
+      this._pending = new myfacebook.Collections.Pending([], { user: this });
+    }
+
+    return this._pending;
+  },
+
 
   parse: function (response) {
-    debugger
+
+
+    if (response.friendships) {
+      this.friendships().set(response.friendships, { parse: true });
+      delete response.friendships;
+    }
 
     if (response.friends) {
       this.friends().set(response.friends, { parse: true });
@@ -64,6 +93,10 @@ myfacebook.Models.User = Backbone.Model.extend({
       delete response.requests;
     }
 
+    if (response.pending) {
+      this.pending().set(response.pending, { parse: true });
+      delete response.pending;
+    }
 
     return response;
   },

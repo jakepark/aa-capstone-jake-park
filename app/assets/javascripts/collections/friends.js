@@ -8,21 +8,21 @@ myfacebook.Collections.Friends = Backbone.Collection.extend({
   },
 
   getOrFetch: function (model) {
-    var friendship = this.get(model);
-    var friendships = this;
+    var friend = this.get(model);
+    var friends = this;
 
-    if (friendship) {
-      friendship.fetch();
+    if (friend) {
+      friend.fetch();
     } else {
-      friendship = model;
-      friendships.add(friendship);
-      friendship.fetch({
+      friend = model;
+      friends.add(friend);
+      friend.fetch({
         error: function () {
-          friendships.remove(friendship);
+          friends.remove(friend);
         }
       })
     }
-    return friendship
+    return friend
   }
 
 });
