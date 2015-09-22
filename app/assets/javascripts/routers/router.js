@@ -1,6 +1,6 @@
 myfacebook.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-    
+
     this.$rootEl = options.$rootEl
     this.collection = new myfacebook.Collections.Users
     this.collection.fetch();
@@ -16,7 +16,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    debugger
+    
 
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }

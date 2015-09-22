@@ -25,5 +25,5 @@ u5 = User.create(email: 'ellie@mail.com',
 
 u7 = User.create(email: 'russell@mail.com',
   name_first: 'russell', name_last: 'nagai', password: 'password',
-  birth_month: 'Oct', birth_day: '17', birth_year: '2007',
+  birth_month: 'Oct', birth_day: '17', birth_year: '1985',
   gender: 'm')

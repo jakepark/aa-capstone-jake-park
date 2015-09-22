@@ -2,11 +2,10 @@
   <div class="header-nav">
     <a class="header-logo" href="#">myfacebook</a>
 
-    <ul class="header-nav-right">
 
     <% if (myfacebook.currentUser.isSignedIn()) { %>
 
-    <li class= "header-nav-right-li">
+    <li class= "header-nav-icon">
       <a href="#users/<%= myfacebook.currentUser.id %>">
     <img src="<%= myfacebook.currentUser.get("image_url") %>">
         <span class="avatar_icon">
@@ -15,10 +14,11 @@
       </a>
     </li>
 
-    <li class= "header-nav-right-li">
+    <ul class="header-nav-right">
+    <li class= "header-nav-right">
       <a href="#" class="gohome">Home</a>
     </li>
-    <li class= "header-nav-right-li">
+    <li class= "header-nav-right">
     <a href="#" id="sign-out-link">Sign Out</a>
     </li>
 
@@ -29,11 +29,11 @@
 
         <label class= "log_in_email">Email
           <br>
-          <input class= "log_in_form_email" name="user[email]" type="text">
+          <input class= "log_in_form_email" name="user[email]" type="text" placeholder="dug@mail.com">
         </label>
         <label class= "log_in_password">Password
           <br>
-          <input class= "log_in_form_password" name="user[password]" type="password">
+          <input class= "log_in_form_password" name="user[password]" type="password" placeholder="password">
         </label>
 
         <button class="button_log_in">Log In</button>

@@ -36,12 +36,23 @@ img {
   width: 500px;
   font-size: 27px;
   font-weight: bold;
+
   padding: 60px 0 0 40px;
+    /*border: 1px solid black;*/
 
 }
 
+.content-welcome {
+  float: left;
+  width: 450px;
+  font-size: 17px;
+  padding: 20px 0 0 20px;
+    /*border: 1px solid black;*/
+}
+
 .content-signup {
-  /*margin:0 auto;*/
+    /*margin:0 auto;*/
+    /*border: 1px solid black;*/
   font-family: 'Open Sans', sans-serif;
   float: right;
   width: 400px;
@@ -55,6 +66,8 @@ img {
   color: black;
 
 }
+
+
 
 
 .sign_up_input_first {

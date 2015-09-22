@@ -12,7 +12,7 @@ body {
   font-family: "Tahoma", sans-serif;
   font-size: 36px;
   font-weight: 400;
-  background: #eee;
+  background: #eeeff4;
 }
 
 /* height navbar login: 84, height logged in: 44 */
@@ -41,10 +41,15 @@ body {
 
 }
 
-.header-nav-right {
-  float: right;
-  font-size: 12px;
+.header-nav-icon {
+  float: left;
+  font-size: 16px;
   margin-right: 20px;
+
+}
+
+.header-nav-icon:hover {
+  background-color: #293e6a;
 }
 
 a img {
@@ -60,12 +65,18 @@ a span {
 }
 
 
-.header-nav-right-li {
+.header-nav-right > li {
   float: left;
-  padding: 15px 10px;
-  /*border: 1px solid red;*/
+  font-size: 12px;
+  margin: 25px 0 0 0;
+  padding: 10px 10px;
+
 }
 
+
+.header-nav-right > li:hover {
+  background-color: #293e6a;
+}
 
 .log_in_email {
   float: left;
@@ -75,7 +86,7 @@ a span {
   font-size: 12px;
   font-weight: normal;
 
-  padding: 14px 0 0 0;
+  padding: 14px 0 0 100px;
 }
 
 .log_in_password {
