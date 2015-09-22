@@ -10,7 +10,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "index",
     "users/:id": "show",
-    "session/new": "signIn"
+    "session/new": "signUp"
   },
 
   index: function () {
@@ -44,11 +44,11 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this._swapView(view)
   },
 
-  signIn: function(callback){
+  signUp: function(callback){
 
     if (!this._requireSignedOut(callback)) { return; }
 
-    var signInView = new myfacebook.Views.SignIn({
+    var signInView = new myfacebook.Views.SignUp({
       callback: callback
     });
     this._swapView(signInView);
@@ -57,7 +57,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   _requireSignedIn: function(callback){
       if (!myfacebook.currentUser.isSignedIn()) {
         callback = callback || this._goHome.bind(this);
-        this.signIn(callback);
+        this.signUp(callback);
         return false;
       }
 

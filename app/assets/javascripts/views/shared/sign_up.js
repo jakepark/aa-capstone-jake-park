@@ -1,4 +1,4 @@
-myfacebook.Views.SignIn = Backbone.View.extend({
+myfacebook.Views.SignUp = Backbone.View.extend({
 
   initialize: function(options){
     this.callback = options.callback;
@@ -18,6 +18,7 @@ myfacebook.Views.SignIn = Backbone.View.extend({
   },
 
   submit: function(event){
+
     event.preventDefault();
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON().user;
