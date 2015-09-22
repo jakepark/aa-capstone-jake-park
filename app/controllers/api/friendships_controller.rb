@@ -62,7 +62,8 @@ class Api::FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
-    @friendship = current_user.friendships.find(params[:id])
+
+    @friendship = Friendship.find(params[:id])
     @friendship.destroy
     flash[:notice] = "Removed friendship."
     redirect_to :back

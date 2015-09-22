@@ -83,15 +83,16 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   denyFriendship: function (e) {
     e.preventDefault();
 
-    var target = this.model  // second user '4'
+    var target = this.model  // second user '3'
     var target_id = target.get('id')
 
 
     var friendship = this.model.friendships().findWhere({
-      user_id: target_id,
-      friend_id: parseInt(myfacebook.currentUser.id)
+      user_id: target_id,  // 3
+      friend_id: parseInt(myfacebook.currentUser.id)  // 2
 
     })
+
 
     friendship.destroy({}, {
       success: function () {
