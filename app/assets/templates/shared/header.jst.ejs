@@ -6,7 +6,7 @@
     <% if (myfacebook.currentUser.isSignedIn()) { %>
 
     <li class= "header-nav-icon">
-      <a href="#users/<%= myfacebook.currentUser.id %>">
+      <a href="#/users/<%= myfacebook.currentUser.id %>">
     <img src="<%= myfacebook.currentUser.get("image_url") %>">
         <span class="avatar_icon">
           <%= myfacebook.currentUser.escape("name_first") %></a>

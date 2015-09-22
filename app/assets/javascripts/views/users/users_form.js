@@ -35,7 +35,7 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
       success: function(){
         myfacebook.currentUser.fetch();
         that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("", { trigger: true });
+        Backbone.history.navigate("", { trigger: true })
       },
       error: function(data){
         alert("Form invalid. Let the user know what went wrong.");
