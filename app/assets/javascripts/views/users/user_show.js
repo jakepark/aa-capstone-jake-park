@@ -83,6 +83,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     e.preventDefault();
 
     $( ".approve_friend" ).remove();
+    $( ".deny_friend" ).remove();
 
     var target = this.model  // second user '4'
     var target_id = target.get('id')
@@ -137,25 +138,26 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     return false;
   },
 
-  denyFriendship: function (e) {
-    e.preventDefault();
+  denyFriendship: function (event) {
+    event.preventDefault();
 
+    $( ".request_friend" ).remove();
     $( ".deny_friend" ).remove();
 
-    var target = this.model  // second user '3'
+    var target = this.model
     var target_id = target.get('id')
 
 
     var friendship = this.model.friendships().findWhere({
-      user_id: target_id,  // 3
-      friend_id: parseInt(myfacebook.currentUser.id)  // 2
+      user_id: target_id,
+      friend_id: parseInt(myfacebook.currentUser.id)
 
     })
 
 
     friendship.destroy({}, {
       success: function () {
-        Backbone.history.navigate('/users/' + target_id, {trigger: true});
+        Backbone.history.navigate("#", {trigger: true});
         view.reset();
       }
     });
@@ -168,9 +170,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     $( ".remove_friend" ).remove();
 
-    var target = this.model  // second user '4'
+    var target = this.model
     var target_id = target.get('id')
-
 
     var friendship = this.model.friendships().findWhere({
       user_id: target_id,
@@ -179,7 +180,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     })
 
     if (friendship === undefined){
-      friendship = myfacebook.currentUser.friendships().findWhere({
+      var target = this.collection.findWhere({id: myfacebook.currentUser.id})
+
+      friendship = target.friendships().findWhere({
         user_id: parseInt(myfacebook.currentUser.id),
         friend_id: target_id
       });
