@@ -1,10 +1,10 @@
 myfacebook.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-
+    
     this.$rootEl = options.$rootEl
     this.collection = new myfacebook.Collections.Users
     this.collection.fetch();
-    
+
     // this.currentUser = this.collection.getOrFetch(myfacebook.currentUser.get('id'));
   },
 
@@ -16,14 +16,10 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-
-    // myfacebook.currentUser.fetch();
-    // this.collection.fetch();
-
+    debugger
 
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-
 
     var view = new myfacebook.Views.UsersIndex({
       collection: this.collection
@@ -33,7 +29,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
 
 
     new: function(){
-      debugger
+
       if (!this._requireSignedOut()) { return; }
 
       var model = new this.collection.model();
@@ -58,14 +54,14 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   signUp: function(callback){
-
     if (!this._requireSignedOut(callback)) { return; }
 
-    var signInView = new myfacebook.Views.UsersForm({
-      callback: callback,
+    var model = new this.collection.model();
+    var formView = new myfacebook.Views.UsersForm({
       collection: this.collection,
+      model: model
     });
-    this._swapView(signInView);
+    this._swapView(formView);
   },
 
   _requireSignedIn: function(callback){
@@ -79,19 +75,19 @@ myfacebook.Routers.Router = Backbone.Router.extend({
       return true;
     },
 
-    _requireSignedOut: function(callback){
-      if (myfacebook.currentUser.isSignedIn()) {
-        callback = callback || this._goHome.bind(this);
-        callback();
-        return false;
-      }
+  _requireSignedOut: function(callback){
+    if (myfacebook.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    }
 
-      return true;
-    },
+    return true;
+  },
 
-    _goHome: function(){
-      Backbone.history.navigate("", { trigger: true });
-    },
+  _goHome: function(){
+    Backbone.history.navigate("", { trigger: true });
+  },
 
 
   _swapView: function (view) {

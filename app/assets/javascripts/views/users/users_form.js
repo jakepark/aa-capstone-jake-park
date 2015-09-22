@@ -22,7 +22,7 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
 
   submit: function(event){
     event.preventDefault();
-    
+
     var $form = $(event.currentTarget);
     var userData = $form.serializeJSON().user;
     var that = this;
@@ -30,6 +30,7 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
     var model = new myfacebook.Models.User()
 
     model.set(userData);
+
     model.save({}, {
       success: function(){
         myfacebook.currentUser.fetch();
@@ -51,3 +52,18 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
     }
   }
 });
+
+
+// //this re-renders index page on sign in
+//
+// event.preventDefault();
+//
+// var $form = $(event.currentTarget);
+// var userData = $form.serializeJSON().user;
+// var that = this;
+//
+// var model = new myfacebook.Models.User()
+//
+// model.set(userData);
+// debugger
+// model.save({}, {
