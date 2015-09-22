@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new]
 
-  resources :users, only: [:new, :create]
+  
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:show, :index, :update]
+    resources :users, only: [:create, :show, :index, :update]
     resource :session, only: [:show, :create, :destroy]
     resources :friendships
 
