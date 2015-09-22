@@ -19,10 +19,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-
-
     var view = this.template({ user: this.model })
-    this.$el.html(view);
+    this.$el.html(view)
+
     return this;
   },
 
@@ -30,6 +29,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 // var friend = this.model.friendships().findWhere({user_id: 6}) // works on russell "6"...
   approveFriendship: function (e) {
     e.preventDefault();
+
+    $( ".approve_friend" ).remove();
 
     var target = this.model  // second user '4'
     var target_id = target.get('id')
@@ -63,6 +64,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   createFriendship: function (e) {
     e.preventDefault();
 
+    $( ".request_friend" ).remove();
+
     var target = this.model
     var target_id = target.get('id')
     var friendship = new myfacebook.Models.Friend()
@@ -83,6 +86,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   denyFriendship: function (e) {
     e.preventDefault();
+
+    $( ".deny_friend" ).remove();
 
     var target = this.model  // second user '3'
     var target_id = target.get('id')
@@ -107,6 +112,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   removeFriendship: function (e) {
     e.preventDefault();
+
+    $( ".remove_friend" ).remove();
 
     var target = this.model  // second user '4'
     var target_id = target.get('id')

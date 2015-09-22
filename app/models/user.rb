@@ -30,9 +30,9 @@ class User < ActiveRecord::Base
     :through => :friendships, :source => :friend
   has_many :passive_friends, -> { where(friendships: { approved: true}) },
     :through => :passive_friendships, :source => :user
-  has_many :pending_friends, -> { where(friendships: { approved: false}) },
+  has_many :pending_friends, -> { where(friendships: { approved: false}) },        # dug has offered friendships to carl
     :through => :friendships, :source => :friend
-  has_many :requested_friendships, -> { where(friendships: { approved: false}) },
+  has_many :requested_friendships, -> { where(friendships: { approved: false}) },  # dug has requested friendships from alpha
     :through => :passive_friendships, :source => :user
 
   has_attached_file :avatar, default_url: "default_profile.jpg"
