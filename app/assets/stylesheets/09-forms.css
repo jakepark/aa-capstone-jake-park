@@ -78,7 +78,7 @@
 
 .deny_friend > button:active {
   top: 3px;
-  background: #0a0;
+  background: #c00;
   box-shadow: none;
 }
 
@@ -98,7 +98,7 @@
   font-size: 12px;
   font-weight: 500;
   border-radius: 3px;
-  box-shadow: 0 3px 0 0 #070;
+  box-shadow: 0 3px 0 0 #990000;
 }
 
 .remove_friend > button:hover {
@@ -107,7 +107,7 @@
 
 .remove_friend > button:active {
   top: 3px;
-  background: #0a0;
+  background: #c00;
   box-shadow: none;
 }
 
