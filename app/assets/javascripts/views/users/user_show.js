@@ -3,7 +3,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render)
+    this.listenTo(this.model, 'sync change add destroy', this.render)
 
   },
 
@@ -117,6 +117,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     })
 
+    if (friendship === undefined){
+      friendship = myfacebook.currentUser.friendships().findWhere({
+        user_id: parseInt(myfacebook.currentUser.id),
+        friend_id: target_id
+      });
+    };
+
     friendship.destroy({}, {
       success: function () {
         Backbone.history.navigate('/users/' + target_id, {trigger: true});
@@ -124,6 +131,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       }
     });
     return false;
+
   },
 
   newAvatar: function(event){
