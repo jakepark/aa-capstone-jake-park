@@ -13,7 +13,7 @@ json.friendships user.friendships do |friendship|
 end
 
 json.requested_friendships do
-  json.array! @user.requested_friendships do |request|
+  json.array! user.requested_friendships do |request|
     json.extract! request, :id, :name_first, :name_last
   end
 end
