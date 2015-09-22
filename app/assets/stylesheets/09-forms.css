@@ -53,6 +53,68 @@
   box-shadow: none;
 }
 
+
+
+.deny_friend {
+  margin: 20px 0 0 0;
+  padding: 0 0 3px 0;
+}
+
+.deny_friend > button {
+  float: left;
+  position: relative;
+  padding: 5px 20px;
+  color: #fff;
+  background: #f00;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 0 #070;
+}
+
+.deny_friend > button:hover {
+  background: #c00;
+}
+
+.deny_friend > button:active {
+  top: 3px;
+  background: #0a0;
+  box-shadow: none;
+}
+
+
+
+.remove_friend {
+  margin: 20px 0 0 0;
+  padding: 0 0 3px 0;
+}
+
+.remove_friend > button {
+  float: left;
+  position: relative;
+  padding: 5px 20px;
+  color: #fff;
+  background: #f00;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 0 #070;
+}
+
+.remove_friend > button:hover {
+  background: #c00;
+}
+
+.remove_friend > button:active {
+  top: 3px;
+  background: #0a0;
+  box-shadow: none;
+}
+
+
+
+
+
 .hidden {
   opacity: 0;
 }

@@ -10,6 +10,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   events: {
     "click .request_friend": "createFriendship",
     "click .approve_friend": "approveFriendship",
+    "click .deny_friend": "denyFriendship",
+    "click .remove_friend": "removeFriendship",
     "submit form": "newAvatar",
     "change #input-user-avatar": "fileInputChange",
     "click .gohome": "goHome",
@@ -31,18 +33,24 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     var target = this.model  // second user '4'
     var target_id = target.get('id')
 
-
     var friendship = this.model.friendships().findWhere({
       user_id: target_id,
       friend_id: parseInt(myfacebook.currentUser.id)
-
     })
 
     friendship.set(
       "approved", true
     )
+
+    var friendship2 = new myfacebook.Models.Friendship({
+      user_id: parseInt(myfacebook.currentUser.id),
+      friend_id: target_id
+    })
+
+    friendship2.save()
     friendship.save({}, {
       success: function () {
+
         Backbone.history.navigate('/users/' + target_id, {trigger: true});
         view.reset();
       }
@@ -60,11 +68,56 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     var friendship = new myfacebook.Models.Friendship()
     friendship.set({
       user_id: myfacebook.currentUser.id,
-      friend_id: target_id
+      friend_id: target_id,
     })
     friendship.save({
 
       }, {
+      success: function () {
+        Backbone.history.navigate('/users/' + target_id, {trigger: true});
+        view.reset();
+      }
+    });
+    return false;
+  },
+
+  denyFriendship: function (e) {
+    e.preventDefault();
+
+    var target = this.model  // second user '4'
+    var target_id = target.get('id')
+
+
+    var friendship = this.model.friendships().findWhere({
+      user_id: target_id,
+      friend_id: parseInt(myfacebook.currentUser.id)
+
+    })
+
+    friendship.destroy({}, {
+      success: function () {
+        Backbone.history.navigate('/users/' + target_id, {trigger: true});
+        view.reset();
+      }
+    });
+    return false;
+  },
+
+
+  removeFriendship: function (e) {
+    e.preventDefault();
+
+    var target = this.model  // second user '4'
+    var target_id = target.get('id')
+
+
+    var friendship = this.model.friendships().findWhere({
+      user_id: target_id,
+      friend_id: parseInt(myfacebook.currentUser.id)
+
+    })
+
+    friendship.destroy({}, {
       success: function () {
         Backbone.history.navigate('/users/' + target_id, {trigger: true});
         view.reset();
