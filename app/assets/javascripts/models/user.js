@@ -32,21 +32,38 @@ myfacebook.Models.User = Backbone.Model.extend({
     });
   },
 
-  friendships: function () {
+  friends: function () {
 
-    if (!this._friendships) {
-      this._friendships = new myfacebook.Collections.Friendships([], { user: this });
+    if (!this._friends) {
+      this._friends = new myfacebook.Collections.Friends([], { user: this });
     }
 
-    return this._friendships;
+    return this._friends;
   },
 
-  parse: function (response) {
+  requests: function () {
 
-    if (response.friendships) {
-      this.friendships().set(response.friendships, { parse: true });
-      delete response.friendships;
+    if (!this._requests) {
+      this._requests = new myfacebook.Collections.Requests([], { user: this });
     }
+
+    return this._requests;
+  },
+
+
+  parse: function (response) {
+    debugger
+
+    if (response.friends) {
+      this.friends().set(response.friends, { parse: true });
+      delete response.friends;
+    }
+
+    if (response.requests) {
+      this.requests().set(response.requests, { parse: true });
+      delete response.requests;
+    }
+
 
     return response;
   },

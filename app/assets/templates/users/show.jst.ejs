@@ -5,22 +5,22 @@
 
 
 
-    <% if ((this.model.friendships().findWhere({
+    <% if ((this.model.friends().findWhere({
       user_id: this.model.get('id'),
       friend_id: myfacebook.currentUser.get('id')
        }) === undefined)
         &&
-       (this.model.friendships().findWhere({
+       (this.model.friends().findWhere({
          user_id: myfacebook.currentUser.get('id'),
          friend_id: this.model.get('id')
        }) === undefined)
        &&
-       (myfacebook.currentUser.friendships().findWhere({
+       (myfacebook.currentUser.friends().findWhere({
          user_id: this.model.get('id'),
          friend_id: myfacebook.currentUser.get('id')
        }) === undefined)
        &&
-       (myfacebook.currentUser.friendships().findWhere({
+       (myfacebook.currentUser.friends().findWhere({
          user_id: myfacebook.currentUser.get('id'),
          friend_id: this.model.get('id')
        }) === undefined)
@@ -36,9 +36,9 @@
 
 
 
-        <% if (this.model.friendships().length !== 0 &&
+        <% if (this.model.friends().length !== 0 &&
 
-              this.model.friendships().findWhere({
+              this.model.friends().findWhere({
               user_id: this.model.get('id'),
               friend_id: myfacebook.currentUser.get('id')})
               .get('approved') === false) { %>
@@ -63,6 +63,7 @@
 
   <% } else { %>
 
+<% debugger %>
 
   This is you!
   <% if (user.get('image_url') === 'default_profile.jpg') { %>

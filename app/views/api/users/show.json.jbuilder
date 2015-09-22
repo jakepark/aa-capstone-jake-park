@@ -1,10 +1,18 @@
 
-json.extract! @user, :id, :name_last, :name_first,
+json.extract! @user, :id, :name_first, :name_last,
   :birth_month, :birth_day, :birth_year, :gender
 
 # json.requested_friendships do
 #   json.partial!  'api/users/user', user: @user.requested_friendships
 # end
+
+json.friends @user.friends do |friend|
+  json.id friend.id
+  json.email friend.email
+  json.name_first friend.name_first
+  json.name_last friend.name_last
+end
+
 
 json.friendships @user.friendships do |friendship|
   json.id friendship.id
@@ -13,7 +21,7 @@ json.friendships @user.friendships do |friendship|
   json.approved friendship.approved
 end
 
-json.requested_friendships do
+json.requests do
   json.array! @user.requested_friendships do |request|
     json.extract! request, :id, :name_first, :name_last
   end

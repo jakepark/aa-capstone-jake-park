@@ -42,7 +42,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       "approved", true
     )
 
-    // var friendship2 = new myfacebook.Models.Friendship({
+    // var friendship2 = new myfacebook.Models.Friend({
     //   user_id: parseInt(myfacebook.currentUser.id),
     //   friend_id: target_id
     // })
@@ -64,7 +64,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     var target = this.model
     var target_id = target.get('id')
-    var friendship = new myfacebook.Models.Friendship()
+    var friendship = new myfacebook.Models.Friend()
     friendship.set({
       user_id: myfacebook.currentUser.id,
       friend_id: target_id,

@@ -1,5 +1,5 @@
-myfacebook.Collections.Friendships = Backbone.Collection.extend({
-  model: myfacebook.Models.Friendship,
+myfacebook.Collections.Requests = Backbone.Collection.extend({
+  model: myfacebook.Models.Friend,
   url: '/api/friendships',
 
   initialize: function (models, options) {
@@ -27,4 +27,4 @@ myfacebook.Collections.Friendships = Backbone.Collection.extend({
 
 });
 
-myfacebook.Collections.friendships = new myfacebook.Collections.Friendships
+myfacebook.Collections.requests = new myfacebook.Collections.Requests
