@@ -42,12 +42,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       "approved", true
     )
 
-    var friendship2 = new myfacebook.Models.Friendship({
-      user_id: parseInt(myfacebook.currentUser.id),
-      friend_id: target_id
-    })
+    // var friendship2 = new myfacebook.Models.Friendship({
+    //   user_id: parseInt(myfacebook.currentUser.id),
+    //   friend_id: target_id
+    // })
+    //
+    // friendship2.save()
 
-    friendship2.save()
     friendship.save({}, {
       success: function () {
 
@@ -57,8 +58,6 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     });
     return false;
   },
-
-
 
   createFriendship: function (e) {
     e.preventDefault();
