@@ -20,9 +20,17 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   render: function () {
     var view = this.template({ user: this.model })
+    this.$el.html(view)
 
+    // dug wants to see requests. for example, from alpha.
+    // alpha: this.model
+    // this.model.friendships()
 
-    // case d: dug and target are friends. delete friend. see profile.
+    // dug needs to know if he's requested somebody.
+    // carl: this.model
+    // this.model.requests() // will have dug's request.
+
+    // case d: dug and target are friends. delete friend.
 
     var d = this.model.friends().findWhere({
       id: myfacebook.currentUser.get('id')
@@ -30,14 +38,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     if (this.model.get('id') !== myfacebook.currentUser.get('id')) {
 
-    if (d) {
-      this.$el.html(view)
-
-      this.$el.prepend(
+    if (d) { this.$el.prepend(
       "<div class='remove_friend'><button>Remove Friend</button></div>"
-      )
+    )} else {
 
-    } else {
 
       // case c: dug has already requested carl's friendship.
 
@@ -74,14 +78,14 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
 
-
+// var friend = this.model.friendships().findWhere({user_id: 6}) // works on russell "6"...
   approveFriendship: function (e) {
     e.preventDefault();
 
     $( ".approve_friend" ).remove();
     $( ".deny_friend" ).remove();
 
-    var target = this.model
+    var target = this.model  // second user '4'
     var target_id = target.get('id')
 
     var friendship = this.model.friendships().findWhere({
@@ -89,7 +93,17 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       friend_id: parseInt(myfacebook.currentUser.id)
     })
 
-    friendship.set( "approved", true )
+    friendship.set(
+      "approved", true
+    )
+
+    // var friendship2 = new myfacebook.Models.Friend({
+    //   user_id: parseInt(myfacebook.currentUser.id),
+    //   friend_id: target_id
+    // })
+    //
+    // friendship2.save()
+
     friendship.save({}, {
       success: function () {
 
