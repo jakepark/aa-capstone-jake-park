@@ -12,11 +12,12 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     "": "index",
     "session/new": "new",
     "users/:id": "show",
-    "api/users/:id": "edit",
+    "users/:id/edit": "edit",
     // "session/new": "signUp",
   },
 
   edit: function (id) {
+    
     var user = this.collection.getOrFetch(id);
     var view = new myfacebook.Views.UsersForm({
       model: user,

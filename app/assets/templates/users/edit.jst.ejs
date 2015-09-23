@@ -1,4 +1,6 @@
-<% if (myfacebook.currentUser.isSignedIn() === false) { %>
+
+<% if ((myfacebook.currentUser.isSignedIn() === true) &&
+  ( myfacebook.currentUser.id === this.model.id )) { %>
 
 
 

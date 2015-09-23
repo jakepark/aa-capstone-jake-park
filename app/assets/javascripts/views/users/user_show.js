@@ -16,6 +16,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     "change #input-user-avatar": "fileInputChange",
     "click .gohome": "goHome",
     "click .header-logo": "goHome",
+    "click .edit_profile": "goEdit",
   },
 
   render: function () {
@@ -265,5 +266,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     Backbone.history.navigate("", { trigger: true });
   },
 
+  goEdit: function(){
+    
+    Backbone.history.navigate("/users/" + this.model.id + "/edit", { trigger: true });
+  },
 
 });

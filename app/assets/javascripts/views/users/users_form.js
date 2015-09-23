@@ -7,7 +7,7 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
     this.listenTo(myfacebook.currentUser, "signIn", this.signInCallback);
   },
 
-  template: JST['users/sign_in'],
+  template: JST['users/edit'],
 
   events: {
     "submit form": "submit"
@@ -27,7 +27,7 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
     var userData = $form.serializeJSON().user;
     var that = this;
 
-    var model = new myfacebook.Models.User()
+    var model = this.collection.getOrFetch(this.model.id)
 
     model.set(userData);
 
@@ -65,5 +65,5 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
 // var model = new myfacebook.Models.User()
 //
 // model.set(userData);
-// 
+//
 // model.save({}, {
