@@ -26,7 +26,23 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     var $profile_pic = $("<img>").addClass('profile_pic').attr('src', this.model.get('image_url'))
 
 
-    $container.append($para).append($profile_pic)
+
+    if (myfacebook.currentUser.id === this.model.id) {
+      if (this.model.get('image_url') === 'default_profile.jpg') {
+
+      var $avtr_form = $('<form>').addClass('avatar')
+      var $avtr_input = $('<input>').attr('type', 'file').addClass('hidden').attr('name', 'user[image]').attr('id', 'input-user-avatar')
+      var $avtr_label = $('<label>').addClass('button-avatar-select').attr('for', 'input-user-avatar').text('New Avatar')
+      var $avtr_img = $('<img>').attr('id', 'preview-post-image')
+      var $avtr_button = $('<button>').text('Save or')
+      var $avtr_cancel = $('<a>').attr('href', '#').text(' Cancel')
+
+      $avtr_form.append($avtr_input).append($avtr_label).append($avtr_img)
+      .append($avtr_button).append($avtr_cancel)
+      }
+    }
+
+    $container.append($para).append($profile_pic).append($avtr_form)  // magic
 
     this.$el.html($container)
 
