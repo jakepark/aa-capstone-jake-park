@@ -14,7 +14,7 @@ img {
 }
 
 .authorized {
-  width: 500px;
+  /*width: 500px;*/
   text-align: center;
   font-size: 24px;
   margin: 0 auto;
@@ -24,7 +24,7 @@ img {
 
 .profile_preview {
   margin: 0 auto;
-  width: 500px;
+  /*width: 500px;*/
 
 
 }
@@ -37,7 +37,7 @@ img {
 
 .profile_pic {
   width: 200px;
-  margin:  0 auto;
+  float: left;
 }
 
 .avatar {
@@ -51,8 +51,6 @@ img {
 }
 
 .button-avatar-select {
-
-
   padding: 5px;
   font-size: 16px;
   color: #fff;
@@ -69,29 +67,61 @@ img {
 }
 
 
+.button-save {
+  padding: 5px 10px;
+  margin: 0 20px 0 0;
+  font-size: 16px;
+  color: #fff;
+  background: #0c0;
+}
+
+.button-cancel {
+  padding: 5px 10px;
+  color: #fff;
+  background: #f00;
+  font-size: 16px;
+
+}
+
+
+
+.edit_profile {
+  float: right;
+  padding: 5px 10px;
+  border: 1px solid black;
+  width: 85px;
+  color: #fff;
+  background: #8b9dc3;
+  font-size: 16px;
+  display: inline-block;
+
+}
+
 /* USER SHOW */
-#main {
+.profile-main {
+  margin: 0 auto;
 
 }
 
 .user-show {
-  width: 500px;
+  /*width: 500px;*/
   margin: 0 auto;
 
 }
 
 .profile_name {
-  text-align: center;
+  
 }
 
 .user-info {
   margin: 0 auto;
-  width: 500px;
+
 }
 
 .profile_pic_main {
   width: 200px;
-  margin:  0 auto;
+  /*margin:  0 auto;*/
+  float: left;
 }
 
 

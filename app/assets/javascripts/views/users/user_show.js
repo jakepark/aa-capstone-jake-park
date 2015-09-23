@@ -22,6 +22,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   render: function () {
     var view = this.template({ user: this.model })
 
+
+
     var $profile_preview = $("<div>").addClass('profile_preview')
     var $para = $("<p>").text(this.model.escape('name_first')+ " " +
       this.model.escape('name_last'))
@@ -42,8 +44,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       var $avtr_label = $('<label>').addClass('button-avatar-select')
         .attr('for', 'input-user-avatar').text('New Avatar')
       var $avtr_img = $('<img>').attr('id', 'preview-post-image')
-      var $avtr_button = $('<button>').text('Save or')
-      var $avtr_cancel = $('<a>').attr('href', '#').text(' Cancel')
+      var $avtr_button = $('<button>').addClass('button-save').text('Save')
+      var $avtr_cancel = $('<a>').addClass('button-cancel').attr('href', '#').text('Cancel')
 
       $avtr_form.append($avtr_input).append($avtr_label).append($avtr_img)
       .append($avtr_button).append($avtr_cancel)
@@ -53,7 +55,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     $profile_preview.append($para).append($profile_pic).append($friend_auth)
       .append($avtr_form)  // magic
 
-    this.$el.html($profile_preview)
+    this.$el.html($profile_preview).addClass("profile-main")
 
     // case d: dug and target are friends. delete friend. see profile.
 
@@ -126,11 +128,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     })
 
     friendship.set( "approved", true )
+
     friendship.save({}, {
       success: function () {
-
-        Backbone.history.navigate('/users/' + target_id, {trigger: true});
-        view.reset();
+        this.render();
+        // Backbone.history.loadUrl();
+        // // Backbone.history.navigate('/users/' + target_id, {trigger: true});
+        // view.reset();
       }
     });
     return false;
@@ -267,7 +271,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   goEdit: function(){
-    
+
     Backbone.history.navigate("/users/" + this.model.id + "/edit", { trigger: true });
   },
 
