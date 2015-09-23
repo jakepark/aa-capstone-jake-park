@@ -1,31 +1,17 @@
 <div class='user-show'>
-
-
-
-
-
-<%= user.escape('name_first') %> <%= user.escape('name_last') %>
-  <br>
-    <img class = "profile_pic" src="<%= user.get("image_url") %>" width="100px">
-  <br>
-
-  Birth Date:
-    <%= user.escape('birth_month') %>
+  <div class='user-info'
+  <%= user.escape('name_first') %> <%= user.escape('name_last') %>
+  <br><img class = "profile_pic_main" src="<%= user.get("image_url") %>" width="100px">
+  <br>Birth Date: <%= user.escape('birth_month') %>
     <%= user.escape('birth_day') %>
-    <%= user.escape('birth_year') %>
-    <br>
-  Gender:
-    <%= user.escape('gender') %>
-    <br>
-
-
-
-</div>
-
-<div class='lists-window'>
-  <div id="lists">
+    <%= user.escape('birth_year') %><br>Gender: <%= user.escape('gender') %> <br>
   </div>
 
-  <div id="list-form">
+  <div class='lists-window'>
+    <div id="lists">
+    </div>
+
+    <div id="list-form">
+    </div>
   </div>
 </div>

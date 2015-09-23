@@ -21,13 +21,18 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   render: function () {
     var view = this.template({ user: this.model })
 
-    var $container = $("<div>")
+
+
+
+    var $profile_preview = $("<div>").addClass('profile_preview')
     var $para = $("<p>").text(this.model.escape('name_first')+ " " + this.model.escape('name_last'))
     var $profile_pic = $("<img>").addClass('profile_pic').attr('src', this.model.get('image_url'))
 
-
+    var $friend_auth = $("<p>").addClass('authorized').text('You must be confirmed as a friend to view more info.')
 
     if (myfacebook.currentUser.id === this.model.id) {
+      $friend_auth = null
+
       if (this.model.get('image_url') === 'default_profile.jpg') {
 
       var $avtr_form = $('<form>').addClass('avatar')
@@ -42,9 +47,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       }
     }
 
-    $container.append($para).append($profile_pic).append($avtr_form)  // magic
+    $profile_preview.append($para).append($profile_pic).append($friend_auth).append($avtr_form)  // magic
 
-    this.$el.html($container)
+    this.$el.html($profile_preview)
 
     // case d: dug and target are friends. delete friend. see profile.
 
@@ -211,6 +216,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   newAvatar: function(event){
     event.preventDefault();
 
+    $( ".profile_pic" ).remove();
 
     this.model.collection = this.collection;  //instead of initialized
     var file = this.$("#input-user-avatar")[0].files[0];

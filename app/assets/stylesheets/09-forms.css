@@ -6,7 +6,8 @@
 }
 
 .request_friend > button {
-  position: relative;
+
+  /*position: relative;*/
   padding: 5px 20px;
   color: #fff;
   background: #0c0;
@@ -14,6 +15,8 @@
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 0 3px 0 0 #070;
+  margin: 0 auto;
+  display: block;
 }
 
 .request_friend > button:hover {
@@ -41,6 +44,8 @@
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 0 3px 0 0 #070;
+  margin: 0 auto;
+  display: block;
 }
 
 .approve_friend > button:hover {
@@ -61,8 +66,8 @@
 }
 
 .deny_friend > button {
-  float: left;
-  position: relative;
+
+
   padding: 5px 20px;
   color: #fff;
   background: #f00;
@@ -70,6 +75,8 @@
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 0 3px 0 0 #070;
+  margin: 0 auto;
+  display: block;
 }
 
 .deny_friend > button:hover {
@@ -90,7 +97,7 @@
 }
 
 .remove_friend > button {
-  float: left;
+
   position: relative;
   padding: 5px 20px;
   color: #fff;
@@ -99,6 +106,8 @@
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 0 3px 0 0 #990000;
+  margin: 0 auto;
+  display: block;
 }
 
 .remove_friend > button:hover {
@@ -114,21 +123,6 @@
 
 
 
-
-.hidden {
-  opacity: 0;
-}
-
-.button-avatar-select {
-  padding: 5px;
-  font-size: 16px;
-  color: #fff;
-  background: #0c0;
-}
-
-.button-avatar-select:hover {
-  cursor: pointer;
-}
 
 /*.button-alternative {
   padding: 0 0 0 5px;
