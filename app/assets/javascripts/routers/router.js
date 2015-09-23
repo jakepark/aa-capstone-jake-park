@@ -17,9 +17,9 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   edit: function (id) {
-    
+
     var user = this.collection.getOrFetch(id);
-    var view = new myfacebook.Views.UsersForm({
+    var view = new myfacebook.Views.UserForm({
       model: user,
       collection: this.collection
     })
@@ -40,10 +40,11 @@ myfacebook.Routers.Router = Backbone.Router.extend({
 
 
   new: function(){
+
     if (!this._requireSignedOut()) { return; }
 
     var model = new this.collection.model();
-    var formView = new myfacebook.Views.UsersForm({
+    var formView = new myfacebook.Views.SignUp({
       collection: this.collection,
       model: model
     });
@@ -67,7 +68,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedOut(callback)) { return; }
 
     var model = new this.collection.model();
-    var formView = new myfacebook.Views.UsersForm({
+    var formView = new myfacebook.Views.SignUp({
       collection: this.collection,
       model: model
     });

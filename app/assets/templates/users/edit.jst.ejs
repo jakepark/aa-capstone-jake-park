@@ -15,18 +15,19 @@
         type="text" value="<%=myfacebook.currentUser.get('name_first')%>"/>
 
       <input class= "sign_up_input_last" name="user[name_last]"
-        type="text" value="Last name"/><br>
+        type="text" value="<%=myfacebook.currentUser.get('name_last')%>"/><br>
       <br>
 
       <input class= "sign_up_input" name="user[email]"
-        type="text" value="Email"/><br>
+        type="text" value="<%=myfacebook.currentUser.get('email')%>"/><br>
 
       <input class= "sign_up_input" name="user[password]"
-        type="password" value="New Password"/><br>
+        type="password" placeholder="New Password"/><br>
       </label><br>
 
       <label for="user_birthday">Birthday</label><br>
       <select name="user[birth_month]" id="birth_month">
+
         <option value="">Month</option>
         <option value="Jan">January</option>
         <option value="Feb">February</option>
@@ -43,43 +44,43 @@
       </select>
 
 
-        <select name="user[birth_day]" id="birth_day">
-          <option value="">Day</option>
-          <% for (var i=1; i < 32; i++) { %>
-            <option value="<%= i %>"><%=i%></option>
+      <select name="user[birth_day]" id="birth_day">
+        <option value="">Day</option>
+        <% for (var i=1; i < 32; i++) { %>
+          <option value="<%= i %>"><%=i%></option>
 
-          <% } %>
-        </select>
+        <% } %>
+      </select>
 
-        <select name="user[birth_year]" id="birth_year">
-          <option value="">Year</option>
-          <% for (var i=2002; i >= 1905; i--) {%>
-            <option value="<%= i %>"><%=i%></option>
+      <select name="user[birth_year]" id="birth_year">
+        <option value="">Year</option>
+        <% for (var i=2002; i >= 1905; i--) {%>
+          <option value="<%= i %>"><%=i%></option>
 
-          <% } %>
-        </select>
+        <% } %>
+      </select>
 
+      <br>
+      <br>
+
+
+
+
+      <input type="radio" name="user[gender]" id="female" value="f">
+      <label for="user_sex_female">Female</label>
+
+      <input type="radio" name="user[gender]" id="male" value="m">
+      <label for="user_sex_male">Male</label>
+      <br>
+      <br>
+
+      <p class="toc">
+      By clicking Sign Up, you agree to our Terms and that you have<br>
+        read our Data Policy, including our Cookie Use.<br>
         <br>
-        <br>
+      </p>
 
-
-
-
-            <input type="radio" name="user[gender]" id="female" value="f">
-            <label for="user_sex_female">Female</label>
-
-            <input type="radio" name="user[gender]" id="male" value="m">
-            <label for="user_sex_male">Male</label>
-            <br>
-            <br>
-
-            <p class="toc">
-            By clicking Sign Up, you agree to our Terms and that you have<br>
-              read our Data Policy, including our Cookie Use.<br>
-              <br>
-            </p>
-
-          <input type="submit" value="Sign Up" class="button_sign_up"><br>
+      <input type="submit" value="Sign Up" class="button_sign_up"><br>
 
   </form>
 

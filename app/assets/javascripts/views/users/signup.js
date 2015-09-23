@@ -1,4 +1,4 @@
-myfacebook.Views.UsersForm = Backbone.View.extend({
+myfacebook.Views.SignUp = Backbone.View.extend({
 
   initialize: function(options){
 
@@ -7,7 +7,7 @@ myfacebook.Views.UsersForm = Backbone.View.extend({
     this.listenTo(myfacebook.currentUser, "signIn", this.signInCallback);
   },
 
-  template: JST['users/edit'],
+  template: JST['users/sign_up'],
 
   events: {
     "submit form": "submit"
