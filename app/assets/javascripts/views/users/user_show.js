@@ -21,14 +21,14 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   render: function () {
     var view = this.template({ user: this.model })
 
-
-
-
     var $profile_preview = $("<div>").addClass('profile_preview')
-    var $para = $("<p>").text(this.model.escape('name_first')+ " " + this.model.escape('name_last'))
-    var $profile_pic = $("<img>").addClass('profile_pic').attr('src', this.model.get('image_url'))
+    var $para = $("<p>").text(this.model.escape('name_first')+ " " +
+      this.model.escape('name_last'))
+    var $profile_pic = $("<img>").addClass('profile_pic')
+      .attr('src', this.model.get('image_url'))
 
-    var $friend_auth = $("<p>").addClass('authorized').text('You must be confirmed as a friend to view more info.')
+    var $friend_auth = $("<p>").addClass('authorized')
+      .text('You must be confirmed as a friend to view more info.')
 
     if (myfacebook.currentUser.id === this.model.id) {
       $friend_auth = null
@@ -36,8 +36,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       if (this.model.get('image_url') === 'default_profile.jpg') {
 
       var $avtr_form = $('<form>').addClass('avatar')
-      var $avtr_input = $('<input>').attr('type', 'file').addClass('hidden').attr('name', 'user[image]').attr('id', 'input-user-avatar')
-      var $avtr_label = $('<label>').addClass('button-avatar-select').attr('for', 'input-user-avatar').text('New Avatar')
+      var $avtr_input = $('<input>').attr('type', 'file').addClass('hidden')
+        .attr('name', 'user[image]').attr('id', 'input-user-avatar')
+      var $avtr_label = $('<label>').addClass('button-avatar-select')
+        .attr('for', 'input-user-avatar').text('New Avatar')
       var $avtr_img = $('<img>').attr('id', 'preview-post-image')
       var $avtr_button = $('<button>').text('Save or')
       var $avtr_cancel = $('<a>').attr('href', '#').text(' Cancel')
@@ -47,7 +49,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       }
     }
 
-    $profile_preview.append($para).append($profile_pic).append($friend_auth).append($avtr_form)  // magic
+    $profile_preview.append($para).append($profile_pic).append($friend_auth)
+      .append($avtr_form)  // magic
 
     this.$el.html($profile_preview)
 
@@ -62,7 +65,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     if (d) {
       this.$el.html(view)
 
-      this.$el.prepend(
+      this.$el.append(
       "<div class='remove_friend'><button>Remove Friend</button></div>"
       )
 
@@ -97,8 +100,11 @@ myfacebook.Views.UserShow = Backbone.View.extend({
           }
         }
       }
-    }
+    } else {      // this is your page
 
+      this.$el.append(view)
+
+    }
     return this;
   },
 

@@ -10,13 +10,23 @@ myfacebook.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "users/:id": "show",
     "session/new": "new",
+    "users/:id": "show",
+    "api/users/:id": "edit",
     // "session/new": "signUp",
   },
 
+  edit: function (id) {
+    var user = this.collection.getOrFetch(id);
+    var view = new myfacebook.Views.UsersForm({
+      model: user,
+      collection: this.collection
+    })
+    this._swapView(view)
+  },
+
   index: function () {
-    
+
 
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
@@ -28,17 +38,16 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
 
-    new: function(){
+  new: function(){
+    if (!this._requireSignedOut()) { return; }
 
-      if (!this._requireSignedOut()) { return; }
-
-      var model = new this.collection.model();
-      var formView = new myfacebook.Views.UsersForm({
-        collection: this.collection,
-        model: model
-      });
-      this._swapView(formView);
-    },
+    var model = new this.collection.model();
+    var formView = new myfacebook.Views.UsersForm({
+      collection: this.collection,
+      model: model
+    });
+    this._swapView(formView);
+  },
 
   show: function (id) {
     var callback = this.show.bind(this, id);

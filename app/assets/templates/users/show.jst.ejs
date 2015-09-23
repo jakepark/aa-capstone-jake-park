@@ -1,7 +1,13 @@
 <div class='user-show'>
   <div class='user-info'
+
+  <% if (user.id !== myfacebook.currentUser.id) { %>
+
   <%= user.escape('name_first') %> <%= user.escape('name_last') %>
   <br><img class = "profile_pic_main" src="<%= user.get("image_url") %>" width="100px">
+
+  <% } %>
+
   <br>Birth Date: <%= user.escape('birth_month') %>
     <%= user.escape('birth_day') %>
     <%= user.escape('birth_year') %><br>Gender: <%= user.escape('gender') %> <br>
@@ -15,3 +21,8 @@
     </div>
   </div>
 </div>
+
+
+<% if (user.id === myfacebook.currentUser.id) { %>
+  <a class="edit_button" href="api/users/<%= user.id %>">Edit Profile</a>
+<% } %>
