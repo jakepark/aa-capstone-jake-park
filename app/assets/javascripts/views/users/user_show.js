@@ -21,6 +21,14 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   render: function () {
     var view = this.template({ user: this.model })
 
+    var $container = $("<div>")
+    var $para = $("<p>").text(this.model.escape('name_first')+ " " + this.model.escape('name_last'))
+    var $profile_pic = $("<img>").addClass('profile_pic').attr('src', this.model.get('image_url'))
+
+
+    $container.append($para).append($profile_pic)
+
+    this.$el.html($container)
 
     // case d: dug and target are friends. delete friend. see profile.
 
