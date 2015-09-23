@@ -33,4 +33,14 @@ json.pending do
   end
 end
 
+json.posts @user.posts do |post|
+  json.id post.id
+  json.user_id post.user_id
+  json.description post.description
+  json.ord post.ord
+  json.created_at post.created_at
+  json.updated_at post.updated_at
+end
+
+
 json.image_url (@user.avatar.url(:original))
