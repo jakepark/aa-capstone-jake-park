@@ -8,12 +8,20 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     // this.currentUser = this.collection.getOrFetch(myfacebook.currentUser.get('id'));
   },
 
+  // routes: {  // editing names
+  //   "": "index",
+  //   "session/new": "new",
+  //   "users/:id": "show",
+  //   "users/:id/edit": "edit",
+  //   // "session/new": "signUp",
+  // },
+
   routes: {
     "": "index",
-    "session/new": "new",
+    "users/new": "new",
     "users/:id": "show",
     "users/:id/edit": "edit",
-    // "session/new": "signUp",
+    "session/new": "signIn",
   },
 
   edit: function (id) {
@@ -40,7 +48,6 @@ myfacebook.Routers.Router = Backbone.Router.extend({
 
 
   new: function(){
-
     if (!this._requireSignedOut()) { return; }
 
     var model = new this.collection.model();
@@ -64,7 +71,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this._swapView(view)
   },
 
-  signUp: function(callback){
+  signIn: function(callback){
     if (!this._requireSignedOut(callback)) { return; }
 
     var model = new this.collection.model();
@@ -78,7 +85,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   _requireSignedIn: function(callback){
       if (!myfacebook.currentUser.isSignedIn()) {
         callback = callback || this._goHome.bind(this);
-        this.signUp(callback);
+        this.signIn(callback);
         return false;
       }
 

@@ -6,42 +6,14 @@ fix api/users displaying all the things  -- FIXED
 
 http://stackoverflow.com/questions/16001586/change-the-no-file-chosen
 
-
 # <form action="/api/#{current_user.id}">
 #   <li><input class: "button_user_home" type="submit" value="Home" > </li>
 # </form>
 
 http://stackoverflow.com/questions/18721054/link-with-2-lines-text-and-image
 
+BUGS!
 
-check api route for what is getting sent up
-  http://localhost:3000/api/users/6
-
-<% unless current_user == @user %>
-      <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
-  <% end %>
-
-  <h4>Friends</h4>
-  <ul>
-      <% @user.friends.each do |friend| %>
-      <li>
-        <%= friend.email %>
-        <% if current_user == @user %>
-          <%= link_to "Remove", friendship_path(:id => friend), :method => :delete %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-
-  <% if current_user == @user %>
-      <h4>Friend Requests</h4>
-      <ul>
-          <% @user.requested_friendships.each do |request| %>
-          <li>
-            <%= request.email %>
-            <%= link_to "Accept", friendship_path(:id => request), :method => "put" %>
-            <%= link_to "Decline", friendship_path(:id => request), :method => :delete %>
-          </li>
-        <% end %>
-      </ul>
-  <% end %>
+When friend approve button is clicked, the page doesnt refresh.
+When new user signs up, a blank entity is added to the index of users. However,
+hard page refresh fixes problem.

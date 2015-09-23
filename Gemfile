@@ -37,7 +37,7 @@ gem 'figaro'
 gem 'paperclip', "~> 4.3"
 gem 'aws-sdk', '~> 1.6'
 
-
+gem 'omniauth-twitter'
 
 group :production do
   gem 'pg', '~> 0.18.3'
