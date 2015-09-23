@@ -54,6 +54,18 @@ body {
   background-color: #293e6a;
 }
 
+
+
+.sign_in_twitter {
+  /*display: block;*/
+  /*width: auto !important;*/
+  margin: 25px 0 0 20px ;
+
+  width: 158px  !important;
+  height: 28px !important;
+}
+
+
 a img {
   display: inline-block;
   width: 60px;
@@ -72,7 +84,7 @@ a span {
   font-size: 12px;
   margin: 25px 0 0 0;
   padding: 10px 10px;
-  
+
 
 
 }
