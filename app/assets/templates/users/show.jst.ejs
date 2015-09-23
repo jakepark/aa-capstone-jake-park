@@ -1,25 +1,21 @@
 <div class='user-show'>
-  <div class='user-info'
+  <div class='user-info'>
 
   <% if (user.id !== myfacebook.currentUser.id) { %>
-
-  <%= user.escape('name_first') %> <%= user.escape('name_last') %>
-  <br><img class = "profile_pic_main" src="<%= user.get("image_url") %>" width="100px">
+    <p class="profile_name">
+  <%= user.escape('name_first') %> <%= user.escape('name_last') %></p>
+  <img class = "profile_pic_main" src="<%= user.get("image_url") %>" width="100px">
 
   <% } %>
 
   <br>Birth Date: <%= user.escape('birth_month') %>
     <%= user.escape('birth_day') %>
     <%= user.escape('birth_year') %><br>Gender: <%= user.escape('gender') %> <br>
+
+
   </div>
 
-  <div class='lists-window'>
-    <div id="lists">
-    </div>
 
-    <div id="list-form">
-    </div>
-  </div>
 </div>
 
 

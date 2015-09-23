@@ -80,12 +80,17 @@ img {
 
 }
 
+.profile_name {
+  text-align: center;
+}
+
+.user-info {
+  margin: 0 auto;
+  width: 500px;
+}
 
 .profile_pic_main {
-
   width: 200px;
-
-
   margin:  0 auto;
 }
 
