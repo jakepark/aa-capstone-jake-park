@@ -30,7 +30,6 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       var attrs = $(event.currentTarget).serializeJSON();
 
       var post = new myfacebook.Models.Post();
-      debugger
 
       post.set(attrs);
       post.save();
@@ -129,8 +128,15 @@ myfacebook.Views.UserShow = Backbone.View.extend({
         this.$el.append(view)
 
       }
-      // this.renderPosts();
-      // this.renderPostForm();
+      var that = this;
+
+      this.model.posts().forEach(function(post) {
+        var $profile_post = $('<div>').addClass('profile-post').text(post.get('body'))
+        that.$el.append($profile_post)
+      })
+
+
+
       return this;
     },   // End of render code //
 

@@ -17,3 +17,23 @@ BUGS!
 When friend approve button is clicked, the page doesnt refresh.
 When new user signs up, a blank entity is added to the index of users. However,
 hard page refresh fixes problem.
+
+
+
+<% this.model.posts().each(function(post) {
+  <div class = "profile-post">
+    <%= post.get('body') %>
+  </div>
+}) %>
+
+var $avtr_form = $('<form>').addClass('avatar')
+var $avtr_input = $('<input>').attr('type', 'file').addClass('hidden')
+  .attr('name', 'user[image]').attr('id', 'input-user-avatar')
+var $avtr_label = $('<label>').addClass('button-avatar-select')
+  .attr('for', 'input-user-avatar').text('New Avatar')
+var $avtr_img = $('<img>').attr('id', 'preview-post-image')
+var $avtr_button = $('<button>').addClass('button-save').text('Save')
+var $avtr_cancel = $('<a>').addClass('button-cancel').attr('href', '#').text('Cancel')
+
+$avtr_form.append($avtr_input).append($avtr_label).append($avtr_img)
+.append($avtr_button).append($avtr_cancel)
