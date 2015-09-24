@@ -1,9 +1,11 @@
 <div class="user-public-info-group">
   <p class="profile_name">
     <%= user.escape('name_first')%> <%=user.escape('name_last')%>
-  <img class="profile_pic" src= <%=user.escape('image_url')%> ></img>
+  <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
   </p>
 </div>
+
+<% if (user.get('image_url') === 'default_profile.jpg') { %>
 
 <form class="avatar">
   <input type="file" class="hidden" name="user[image]" id="input-user-avatar">
@@ -12,6 +14,8 @@
   <button class="button-save">Save</button>
   <a class="button-cancel" href="#">Cancel</a>
 </form>
+
+<% } %>
 
 <div class="user-show group">
   <br>Birth Date:
@@ -35,5 +39,7 @@
   <input type="submit" class="post-submit" value="Post">
 </form>
 
-<div class="posts">
-<div class="profile-post group"></div>
+
+<div class="profile-posts">
+
+</div>

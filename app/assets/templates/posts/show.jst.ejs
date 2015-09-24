@@ -1,3 +1,5 @@
-<div class="post-heading" data-post-id="<%= post.id %>">
-  <h4><%= post.escape('body') %></h4>
+<div class="profile-post group"><%= post.escape('body') %>
+  <div class="delete_post">
+    <button data="<%= post.id %>">Delete</button>
+  </div>
 </div>

@@ -1,0 +1,28 @@
+<div class="user-public-info-group">
+  <p class="profile_name">
+    <%= user.escape('name_first')%> <%=user.escape('name_last')%>
+  <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
+  </p>
+</div>
+
+
+
+<div class="user-show group">
+  <br>Birth Date:
+    <%= user.escape('birth_month') %>
+    <%= user.escape('birth_day') %>
+    <%= user.escape('birth_year') %>
+  <br>Gender:
+    <%= user.escape('gender') %>
+  <br>
+
+</div>
+
+<div class="remove_friend">
+  <button>Remove Friend</button>
+</div>
+
+
+<div class="profile-posts">
+
+</div>

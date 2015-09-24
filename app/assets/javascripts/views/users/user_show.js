@@ -66,20 +66,57 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     },
 
     renderSelfie: function () {
-      var public_view = JST['users/public']({ user: this.model })
-      this.$el.html(public_view)
+      var selfie_view = JST['users/selfie']({ user: this.model })
+      this.$el.html(selfie_view)
+
+      this.model.posts().forEach(function(post) {
+        var postShow = JST['posts/show']({ post: post })
+        this.$('div.profile-posts').append(postShow)
+      })
+      return this;
+    },
+
+    renderFriend: function () {
+      
+      var friend_view = JST['users/friend']({ user: this.model })
+      this.$el.html(friend_view)
+
+      this.model.posts().forEach(function(post) {
+        var postShow = JST['posts/show']({ post: post })
+        this.$('div.profile-posts').append(postShow)
+      })
       return this;
     },
 
     render: function () {
       var view = this.template({ user: this.model })
-      debugger
-      // if this is currentUser page
-      if (parseInt(this.model.id) === myfacebook.currentUser.id) {
-        return this.renderSelfie()
-      } 
 
-      // if this is not a Friend page
+      // // if this is the currentUser page
+      if (parseInt(this.model.id) === myfacebook.currentUser.id) {
+        return this.renderSelfie();
+
+      // // if this userPage is a friendOf currentUser
+      } else if (
+
+          this.model.friends().findWhere({
+            id: myfacebook.currentUser.get('id')
+          })
+
+        ){
+        return this.renderFriend();
+      } else {
+
+        return this.renderPublic();
+      }
+
+      return this;
+        // return this.renderFriend();
+
+      // if this is a friend page
+      // return this.renderFriend()
+
+      // if this is a public page
+        // return this.renderPublic()
 
 
       //
@@ -91,21 +128,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       // if (myfacebook.currentUser.id === this.model.id) {
       //   $friend_auth = null
       //
-      //   if (this.model.get('image_url') === 'default_profile.jpg') {
-      //
-      //   var $avtr_form = $('<form>').addClass('avatar')
-      //   var $avtr_input = $('<input>').attr('type', 'file').addClass('hidden')
-      //     .attr('name', 'user[image]').attr('id', 'input-user-avatar')
-      //   var $avtr_label = $('<label>').addClass('button-avatar-select')
-      //     .attr('for', 'input-user-avatar').text('New Avatar')
-      //   var $avtr_img = $('<img>').attr('id', 'preview-post-image')
-      //   var $avtr_button = $('<button>').addClass('button-save').text('Save')
-      //   var $avtr_cancel = $('<a>').addClass('button-cancel').attr('href', '#').text('Cancel')
-      //
-      //   $avtr_form.append($avtr_input).append($avtr_label).append($avtr_img)
-      //   .append($avtr_button).append($avtr_cancel)
-      //   }
       // }
+      // REFACTORED // ------------ //
       //
       // // $profile_preview.append($para).append($friend_auth)
       // //   .append($avtr_form)  // magic
@@ -117,82 +141,69 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       // var d = this.model.friends().findWhere({
       //   id: myfacebook.currentUser.get('id')
       // });
-
-      if (false) {
-      // if (this.model.get('id') !== myfacebook.currentUser.get('id')) {
-
-      if (d) {
-        this.$el.html(view)
-
-
-        // appending posts to profile !
-        var that = this;
-
-        this.model.posts().forEach(function(post) {
-          var $profile_post = $('<div>').addClass('profile-post')
-          .text(post.get('body'))
-          that.$el.append($profile_post)
-        })
-
-        this.$el.append(
-        "<div class='remove_friend'><button>Remove Friend</button></div>"
-        )
-
-      } else {
-
-        // case c: dug has already requested carl's friendship.
-
-        var c = this.model.requests().findWhere({
-          id: myfacebook.currentUser.get('id')
-        });
-
-        if (c) {
-
-          // do nothing. seriously. actually, notify:
-          this.$el.append(
-          "<p class='request_sent'>Friend Request Sent.</p>"
-          )
-
-        } else {
-
-            // case a: alpha has requested dug's friendship.
-
-            var a = this.model.friendships().findWhere({
-              user_id: this.model.get('id'),
-              friend_id: myfacebook.currentUser.get('id')
-            });
-
-            if (a) { this.$el.append(
-              "<div class='approve_friend'><button>Approve Friend</button></div><div class='deny_friend'><button>Deny Friend</button></div>"
-            )} else {
-
-            // case b: dug and target have no friendship status. add friend.
-
-              this.$el.append("<div class='request_friend'><button>Add Friend</button></div>")
-            }
-          }
-        }
-      } else {      // this is your page
-
-        this.$el.append(view)
-        // appending posts to profile !
-        var that = this;
-
-
-
-        this.model.posts().forEach(function(post) {
-          var $profile_post = $('<div>').addClass('profile-post group').text(post.get('body'))
-
-          var $delete_post = $('<div>').addClass('delete_post')
-          var $delete_button = $('<button>').attr('data', post.get('id')).text('Delete')
-          that.$('div.posts').append($profile_post.append($delete_post.append($delete_button)))
-        })
-
-      }
+      //
+      // if (false) {
+      // // if (this.model.get('id') !== myfacebook.currentUser.get('id')) {
+      //
+      // if (d) {
+      //   this.$el.html(view)
+      //
+      //
+      //   // appending posts to profile !
+      //   var that = this;
+      //
+      //   this.model.posts().forEach(function(post) {
+      //     var $profile_post = $('<div>').addClass('profile-post')
+      //     .text(post.get('body'))
+      //     that.$el.append($profile_post)
+      //   })
+      //
+      //   this.$el.append(
+      //   "<div class='remove_friend'><button>Remove Friend</button></div>"
+      //   )
+      //
+      // } else {
+      //
+      //   // case c: dug has already requested carl's friendship.
+      //
+      //   var c = this.model.requests().findWhere({
+      //     id: myfacebook.currentUser.get('id')
+      //   });
+      //
+      //   if (c) {
+      //
+      //     // do nothing. seriously. actually, notify:
+      //     this.$el.append(
+      //     "<p class='request_sent'>Friend Request Sent.</p>"
+      //     )
+      //
+      //   } else {
+      //
+      //       // case a: alpha has requested dug's friendship.
+      //
+      //       var a = this.model.friendships().findWhere({
+      //         user_id: this.model.get('id'),
+      //         friend_id: myfacebook.currentUser.get('id')
+      //       });
+      //
+      //       if (a) { this.$el.append(
+      //         "<div class='approve_friend'><button>Approve Friend</button></div><div class='deny_friend'><button>Deny Friend</button></div>"
+      //       )} else {
+      //
+      //       // case b: dug and target have no friendship status. add friend.
+      //
+      //         this.$el.append("<div class='request_friend'><button>Add Friend</button></div>")
+      //       }
+      //     }
+      //   }
+      // } else {      // this is your page
+      //
+      // REFACTORED // ------------ //
+      //
+      // }
 
 
 
-      return this;
     },   // End of render code //
 
 

@@ -3,4 +3,52 @@
     <%= user.escape('name_first')%> <%=user.escape('name_last')%>
   <img class="profile_pic" src= <%=user.escape('image_url')%> ></img>
   </p>
+
 </div>
+
+<% if ((user.friends().findWhere({
+    user_id: user.get('id'),
+    friend_id: myfacebook.currentUser.get('id')
+   }) === undefined)
+    &&
+   (user.friends().findWhere({
+     user_id: myfacebook.currentUser.get('id'),
+     friend_id: user.get('id')
+   }) === undefined)
+   &&
+   (myfacebook.currentUser.friends().findWhere({
+     user_id: user.get('id'),
+     friend_id: myfacebook.currentUser.get('id')
+   }) === undefined)
+   &&
+   (myfacebook.currentUser.friends().findWhere({
+     user_id: myfacebook.currentUser.get('id'),
+     friend_id: user.get('id')
+   }) === undefined)
+  )
+
+  { %>
+
+    <div class="request_friend">
+      <button>Add Friend</button>
+    </div>
+
+  <% } else { %>
+
+    <% if (user.friends().length !== 0 &&
+
+      user.friends().findWhere({
+      user_id: user.get('id'),
+      friend_id: myfacebook.currentUser.get('id')})
+      .get('approved') === false) { %>
+
+      <div class="approve_friend">
+        <button>Approve Friend</button>
+      </div>
+
+      <div class="deny_friend">
+        <button>Deny Friend</button>
+      </div>
+
+    <% } %>
+  <% } %>
