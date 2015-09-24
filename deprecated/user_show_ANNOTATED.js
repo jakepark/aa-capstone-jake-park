@@ -8,7 +8,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   events: {
-    "click .request_friend": "createFriendship",
+    "click .add_friend": "createFriendship",
     "click .approve_friend": "approveFriendship",
     "click .deny_friend": "denyFriendship",
     "click .remove_friend": "removeFriendship",
@@ -45,7 +45,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     var b = true
 
-    if (b) { this.$el.prepend("<div class='request_friend'><button>Add Friend</button></div>")}
+    if (b) { this.$el.prepend("<div class='add_friend'><button>Add Friend</button></div>")}
 
 
     // case c: dug has already requested carl's friendship.
@@ -130,7 +130,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     e.preventDefault();
 
 
-    $( ".request_friend" ).remove();
+    $( ".add_friend" ).remove();
 
     var target = this.model
     var target_id = target.get('id')

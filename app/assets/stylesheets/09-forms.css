@@ -1,11 +1,11 @@
 /*103 x 28*/
 
-.request_friend {
+.add_friend {
   /*margin: 20px 0 0 0;*/
   padding: 0 0 3px 0;
 }
 
-.request_friend > button {
+.add_friend > button {
 
   /*position: relative;*/
   padding: 5px 20px;
@@ -19,11 +19,11 @@
   display: block;
 }
 
-.request_friend > button:hover {
+.add_friend > button:hover {
   background: #0b0;
 }
 
-.request_friend > button:active {
+.add_friend > button:active {
   top: 3px;
   background: #0a0;
   box-shadow: none;

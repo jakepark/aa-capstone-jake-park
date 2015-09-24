@@ -15,7 +15,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   events: {
-    "click .request_friend": "createFriendship",
+    "click .add_friend": "createFriendship",
     "click .approve_friend": "approveFriendship",
     "click .deny_friend": "denyFriendship",
     "click .remove_friend": "removeFriendship",
@@ -158,7 +158,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     e.preventDefault();
 
 
-    $( ".request_friend" ).remove();
+    $( ".add_friend" ).remove();
 
     var target = this.model
     var target_id = target.get('id')
@@ -181,7 +181,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   denyFriendship: function (event) {
     event.preventDefault();
 
-    $( ".request_friend" ).remove();
+    $( ".add_friend" ).remove();
     $( ".deny_friend" ).remove();
 
     var target = this.model

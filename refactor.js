@@ -19,7 +19,7 @@
 
 
 
-    <div class="request_friend">
+    <div class="add_friend">
       <button>Add Friend</button>
     </div>
 
@@ -63,7 +63,7 @@
 
          { %>
 
-          <div class="request_friend">
+          <div class="add_friend">
             <button>Add Friend</button>
           </div>
 
@@ -201,7 +201,7 @@
 
                 // case b: dug and target have no friendship status. add friend.
 
-                  this.$el.append("<div class='request_friend'><button>Add Friend</button></div>")
+                  this.$el.append("<div class='add_friend'><button>Add Friend</button></div>")
                 }
               }
             }

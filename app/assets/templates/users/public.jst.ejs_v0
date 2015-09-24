@@ -34,7 +34,7 @@
 
     { %>
 
-      <div class="request_friend">
+      <div class="add_friend">
         <button>Add Friend</button>
       </div>
 

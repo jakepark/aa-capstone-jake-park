@@ -3,7 +3,8 @@
     <%= user.escape('name_first')%> <%=user.escape('name_last')%>
   <img class="profile_pic" src= <%=user.escape('image_url')%> ></img>
   </p>
-
+  <p class="authorized">In order to view this profile, you must be request a friendship
+    and be confirmed.</p>
 </div>
 
 
@@ -51,7 +52,7 @@
 
     { %>
 
-      <div class="request_friend">
+      <div class="add_friend">
         <button>Add Friend</button>
       </div>
 

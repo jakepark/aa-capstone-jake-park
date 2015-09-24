@@ -15,7 +15,8 @@ img {
 }
 
 .authorized {
-  /*width: 500px;*/
+  width: 300px;
+  float: left;
   text-align: center;
   font-size: 24px;
   margin: 0 auto;
@@ -215,6 +216,16 @@ img {
   margin-right: 50px;
 }
 
+.content-signup-edit {
+    /*margin:0 auto;*/
+    /*border: 1px solid black;*/
+  font-family: 'Open Sans', sans-serif;
+
+  width: 400px;
+  padding: 22px 0 0 0;
+  margin: 0 auto;
+}
+
 .blurb1 {
   font-size: 18px;
   font-weight: 100;
@@ -265,6 +276,15 @@ img {
   color: white;
   background-color: #62A24F;
   padding: 10px 30px 10px 70px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.button_edit_up {
+  color: white;
+  background-color: #62A24F;
+  padding: 10px 30px 10px 30px;
   border: 1px solid black;
   border-radius: 5px;
   width: 100px;
