@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :, :user, :ord, presence: true
+  validates :body, :user, :ord, presence: true
 
   belongs_to :user
   # has_many :comments, dependent: :destroy # not yet!
