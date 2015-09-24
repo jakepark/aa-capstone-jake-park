@@ -15,7 +15,7 @@ myfacebook.Views.SignUp = Backbone.View.extend({
 
   render: function(){
     var html = this.template({ user: this.model });
-    this.$el.html(html);
+    this.$el.html(html).addClass('content-container group');
 
     return this;
   },

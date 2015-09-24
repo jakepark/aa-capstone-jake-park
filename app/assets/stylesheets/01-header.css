@@ -19,18 +19,18 @@ body {
 
 
 
-
 .header-nav {
+  color: white;
   margin: 0 auto;
   width: 1080px;
   height: 100%;
   /*border-left: 1px solid #f00;
   border-right: 1px solid #f00;*/
   font-weight: 700;
+  font-family: "Lucida Grande", sans-serif;
 }
 
 .header-logo {
-  font-family: "Lucida Grande", sans-serif;
   height: 64px;
   float: left;
   font-size: 39px;
