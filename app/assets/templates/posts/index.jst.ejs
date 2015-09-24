@@ -1,0 +1,22 @@
+
+<div class='posts-index'>
+  <h3>Friends</h3>
+
+
+
+<ul class='posts'>
+  <% posts.each(function (post) { %>
+    <li>
+
+      post.escape('body')
+      
+      <a href="#/users/<%= post.get('user_id') %>">
+        <img src="<%= post.user.escape("image_url") %>" width="100px">
+        <span class="friends_list_preview">
+          <%= post.user.escape("name_first") %> <%= post.user.escape("name_last") %>
+        </span>
+      </a>
+    </li>
+  <% }); %>
+</ul>
+</div>

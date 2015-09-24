@@ -12,8 +12,29 @@ json.friends @user.friends do |friend|
   json.name_first friend.name_first
   json.name_last friend.name_last
   json.image_url asset_path(friend.avatar.url(:original))
+
+  # json.friendposts do
+  #   json.array! friend.posts do |post|
+  #   json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
+  #   end
+  # end
 end
 
+#
+# <--SQL
+# SELECT
+#   *
+# FROM
+#   friendships
+# JOIN
+#   posts
+# ON
+#   posts.user_id = friendships.friend_id
+#
+# WHERE
+#   (approved = true) AND (friendships.user_id = 4)
+# ;
+# -->
 
 
 json.friendships @user.friendships do |friendship|
