@@ -44,5 +44,25 @@
   float:right;
   /*bottom: 0;
   right: 0;*/
+}
+
+
+.profile-post {
+  border: 1px solid blue;
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  display: block;
+  width: 450px;
+  margin: 50px;
+}
+
+.delete_post {
+  float: right;
+  width: 60px;
+  border: 1px solid red;
+  background-color: red;
+  color: white;
+  font-weight: bold;
 
 }

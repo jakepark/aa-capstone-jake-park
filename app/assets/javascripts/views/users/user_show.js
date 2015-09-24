@@ -71,7 +71,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
         this.model.escape('name_last'))
 
       $para.append($profile_pic)
-      
+
 
       // if (myfacebook.currentUser.id === this.model.id){
       //   var $edit_profile = $("<div>").addClass('edit_profile')
@@ -176,10 +176,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
 
         this.model.posts().forEach(function(post) {
-          var $profile_post = $('<div>').addClass('profile-post').text(post.get('body'))
+          var $profile_post = $('<div>').addClass('profile-post group').text(post.get('body'))
 
           var $delete_post = $('<div>').addClass('delete_post')
-          var $delete_button = $('<button>').attr('data', post.get('id')).text('Remove Post')
+          var $delete_button = $('<button>').attr('data', post.get('id')).text('Delete')
           that.$el.append($profile_post.append($delete_post.append($delete_button)))
         })
 
