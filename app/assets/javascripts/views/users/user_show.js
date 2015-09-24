@@ -33,11 +33,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       debugger
 
       post.set(attrs);
-      post.save({
-        success: function () {
-          Backbone.history.navigate("", { trigger: true });
-        }
-      });
+      post.save();
 
       this.render();
     },

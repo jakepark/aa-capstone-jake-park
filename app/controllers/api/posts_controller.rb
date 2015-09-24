@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-  before_action :require_signed_in!
+  # before_action :require_signed_in!
 
   def create
     @post = current_user.posts.new(post_params)
@@ -49,5 +49,4 @@ class Api::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:user_id, :ord, :body)
   end
-end
 end

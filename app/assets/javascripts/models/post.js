@@ -1,4 +1,6 @@
 myfacebook.Models.Post = Backbone.Model.extend({
+  urlRoot: '/api/posts',
+
   comments: function () {
     if (!this._comments) {
       this._comments = new myfacebook.Collections.Items([], { post: this });
