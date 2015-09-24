@@ -49,9 +49,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     deletePost: function (event) {
       event.preventDefault();
 
-      debugger
-      var attrs = $(event.currentTarget).serializeJSON();
-      var post = this.model.posts().getOrFetch(id);
+
+      var target_id = $(event.target).attr('data')
+      var post = this.model.posts().getOrFetch(target_id);
       post.destroy()
 
       this.render();
@@ -117,12 +117,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
         var that = this;
 
         this.model.posts().forEach(function(post) {
-          // var $profile_post = $('<div>').addClass('profile-post')
-          // .text(post.get('body')).data(post.get('id'))
+          var $profile_post = $('<div>').addClass('profile-post')
+          .text(post.get('body'))
           that.$el.append($profile_post)
-          var $delete_post = $('<div>').addClass('delete_post')
-          var $delete_button = $('<button>').text('Remove Post')
-          that.$el.append($delete_post.append($delete_button))
         })
 
         this.$el.append(
