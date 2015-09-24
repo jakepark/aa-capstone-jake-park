@@ -39,11 +39,7 @@ class Api::FriendshipsController < ApplicationController
 
 
     if @friendship.save
-      flash[:notice] = "Friend requested."
-      redirect_to :back
-    else
-      flash[:error] = "Unable to request friendship."
-      redirect_to :back
+      render :show
     end
   end
 
@@ -52,10 +48,7 @@ class Api::FriendshipsController < ApplicationController
   def update
     @friendship = Friendship.find(params[:id])
     if @friendship.update_attributes(friendship_params)
-      flash[:notice] = "Friend accepted."
-      redirect_to root_url
-    else
-      redirect_to root_url, :notice => "Sorry! Could not confirm friend!"
+      render :show
     end
   end
 
@@ -64,9 +57,8 @@ class Api::FriendshipsController < ApplicationController
   def destroy
 
     @friendship = Friendship.find(params[:id])
-    @friendship.destroy
-    flash[:notice] = "Removed friendship."
-    redirect_to :back
+    @friendship.destroy!
+    render json: {}
   end
 
   private

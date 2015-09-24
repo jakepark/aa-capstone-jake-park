@@ -6,9 +6,12 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
 
   initialize: function () {
-    this.listenTo(this.model, 'sync change add destroy', this.render)
+
     this.model.fetch();
+
+    this.listenTo(this.model, 'sync change add destroy', this.render)
     this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
+    this.listenTo(this.model.friendships(), 'sync change add create destroy', this.render)
     // this.collection = this.model.posts();     // might break new Avatar upload
     // this.listenTo(this.model, 'sync', this.render);
     // this.listenTo(this.collection, 'add', this.addPost);
@@ -143,14 +146,16 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     friendship.set( "approved", true )
 
+    debugger
     friendship.save({}, {
       success: function () {
-        this.render();
+        this.renderFriend()
         // Backbone.history.loadUrl();
         // // Backbone.history.navigate('/users/' + target_id, {trigger: true});
         // view.reset();
-      }
+      }.bind(this)
     });
+    debugger
     return false;
   },
 
@@ -172,9 +177,11 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       }, {
       success: function () {
         Backbone.history.navigate('/users/' + target_id, {trigger: true});
-        view.reset();
+
       }
     });
+
+
     return false;
   },
 
@@ -228,12 +235,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       });
     };
 
-    friendship.destroy({}, {
+
+    friendship.destroy({
       success: function () {
-        Backbone.history.navigate('/users/' + target_id, {trigger: true});
-        view.reset();
-      }
-    });
+
+        this.renderPublic()
+      }.bind(this)
+    })
     return false;
 
   },
