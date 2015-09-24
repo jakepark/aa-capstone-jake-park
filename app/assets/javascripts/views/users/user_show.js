@@ -61,7 +61,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   renderPublic: function () {
     var public_view = JST['users/public']({ user: this.model })
-    this.$el.html(public_view)
+    this.$el.html(public_view).addClass("profile-main")
     return this;
   },
 

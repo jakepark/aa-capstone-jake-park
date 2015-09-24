@@ -1,7 +1,8 @@
 <div class="user-public-info-group">
+  <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
   <p class="profile_name">
     <%= user.escape('name_first')%> <%=user.escape('name_last')%>
-  <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
+    (This is you!)
   </p>
 </div>
 
@@ -39,6 +40,8 @@
   <input type="submit" class="post-submit" value="Post">
 </form>
 
+<div id="section-break">
+</div>
 
 <div class="profile-posts">
 

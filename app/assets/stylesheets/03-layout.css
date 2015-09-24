@@ -7,6 +7,11 @@
 
 }*/
 
+.user-public-info-group {
+  width: 500px;
+  border: 1px solid red;
+}
+
 img {
   display: block;
   width: 100px;
@@ -42,9 +47,23 @@ img {
 
 .avatar {
   width: 200px;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
+
+  margin: 0 60px 0 0;
   text-align: center;
+  position: absolute;
 }
+
+.profile_name {
+  text-transform:capitalize;
+}
+
+.profile_pic_main {
+  width: 200px;
+  /*margin:  0 auto;*/
+  float: left;
+}
+
 
 .hidden {
   opacity: 0;
@@ -87,7 +106,8 @@ img {
 
 
 .edit_profile {
-  float: left;
+  position: relative;
+  left: -150px;
 
   padding: 5px 10px;
   border: 1px solid black;
@@ -121,17 +141,7 @@ img {
   display: block;
 }
 
-.profile_name {
-  text-transform:capitalize;
-}
 
-
-
-.profile_pic_main {
-  width: 200px;
-  /*margin:  0 auto;*/
-  float: left;
-}
 
 
 /* CONTENT CONTAINER */
@@ -256,9 +266,14 @@ img {
   color: grey;
 }
 
+#section-break {
+  display: block;
+}
+
 
 
 .profile-posts {
+  width: 500px;
   float: left;
 }
 
