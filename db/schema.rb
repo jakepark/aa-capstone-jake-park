@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20150923192134) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "user_id",                   null: false
-    t.text     "description"
-    t.float    "ord",         default: 0.0
+    t.text     "body",                     null: false
+    t.integer  "user_id",                  null: false
+    t.float    "ord",        default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

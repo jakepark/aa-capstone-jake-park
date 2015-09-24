@@ -1,8 +1,8 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
+      t.text :body, null: false
       t.integer :user_id, null: false
-      t.text :description
       t.float :ord, default: 0
 
       t.timestamps

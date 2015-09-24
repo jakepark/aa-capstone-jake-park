@@ -34,13 +34,22 @@ json.pending do
 end
 
 json.posts @user.posts do |post|
-  json.id post.id
-  json.user_id post.user_id
-  json.description post.description
-  json.ord post.ord
-  json.created_at post.created_at
-  json.updated_at post.updated_at
+  json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
+
+  # json.cards post.comments do |comment|
+  #   json.extract! comment, :id, :title, :ord, :created_at, :updated_at
+  # end
 end
+#
+#
+# json.posts @user.posts do |post|
+#   json.id post.id
+#   json.user_id post.user_id
+#   json.body post.body
+#   json.ord post.ord
+#   json.created_at post.created_at
+#   json.updated_at post.updated_at
+# end
 
 
 json.image_url (@user.avatar.url(:original))

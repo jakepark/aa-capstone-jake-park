@@ -11,13 +11,18 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    render json: {}
+  end
+
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
       render json: @post
     else
-      render json: @post.errors.full_messages,
-             status: :unprocessable_entity
+      render json: @post.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -42,7 +47,7 @@ class Api::PostsController < ApplicationController
   # end
 
   def post_params
-    params.require(:post).permit(:user_id, :ord, :description)
+    params.require(:post).permit(:user_id, :ord, :body)
   end
 end
 end

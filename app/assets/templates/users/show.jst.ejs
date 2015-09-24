@@ -1,5 +1,5 @@
 <div class='user-show'>
-  <div class='user-info'>
+  <div class='user-info group'>
 
   <% if (user.id !== myfacebook.currentUser.id) { %>
     <p class="profile_name">
@@ -14,11 +14,37 @@
 
 
   </div>
-
-
 </div>
+
+
+<form class="comment-form">
+  <ul class="errors">
+  </ul>
+    <textarea name="body"></textarea>
+
+  <input type="submit">
+</form>
+
+<!--
+<form class="comment-form group">
+  <ul class="errors">
+  </ul>
+  <textarea></textarea>
+
+  <input type="submit">
+</form> -->
+
+
 
 
 <% if (user.id === myfacebook.currentUser.id) { %>
   <div class='edit_profile'><button>Edit Profile</button></div>
 <% } %>
+
+
+<form class="avatar">
+    <input type="file" class="hidden" name="user[image]" id="input-user-avatar"/> <br>
+      <label class="button-avatar-select" for="input-user-avatar">New Avatar</label>
+      <img src="" id="preview-post-image" width="50"> <br>
+    <button>Save</button> or <a href="#">Cancel</a>
+  </form><br>
