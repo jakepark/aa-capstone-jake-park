@@ -1,10 +1,14 @@
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 myfacebook.Views.UserShow = Backbone.View.extend({
     template: JST['users/show'],
 
     initialize: function () {
       this.listenTo(this.model, 'sync change add destroy', this.render)
       this.model.fetch();
-
+      this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
       // this.collection = this.model.posts();     // might break new Avatar upload
       // this.listenTo(this.model, 'sync', this.render);
       // this.listenTo(this.collection, 'add', this.addPost);
@@ -32,7 +36,11 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       var post = new myfacebook.Models.Post();
 
       post.set(attrs);
-      post.save();
+      post.save({
+        success: function () {
+          Backbone.history.loadUrl();
+        }
+      });
 
       this.render();
     },
@@ -44,14 +52,18 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
 
 
-      var $profile_preview = $("<div>").addClass('profile_preview')
-      var $para = $("<p>").text(this.model.escape('name_first')+ " " +
+      var $profile_preview = $("<div>").addClass('user-info group')
+      var $para = $("<p>").addClass("profile_name").text(this.model.escape('name_first')+ " " +
         this.model.escape('name_last'))
       var $profile_pic = $("<img>").addClass('profile_pic')
         .attr('src', this.model.get('image_url'))
 
+      $para.append($profile_pic)
+
+      var first_name = this.model.escape('name_first')
+
       var $friend_auth = $("<p>").addClass('authorized')
-        .text('You must be confirmed as a friend to view more info.')
+        .text('Add ' + capitalizeFirstLetter(first_name) + ' as a friend to view more info.')
 
       if (myfacebook.currentUser.id === this.model.id) {
         $friend_auth = null
@@ -72,7 +84,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
         }
       }
 
-      $profile_preview.append($para).append($profile_pic).append($friend_auth)
+      $profile_preview.append($para).append($friend_auth)
         .append($avtr_form)  // magic
 
       this.$el.html($profile_preview).addClass("profile-main")
@@ -88,6 +100,14 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       if (d) {
         this.$el.html(view)
 
+        var that = this;
+
+        this.model.posts().forEach(function(post) {
+          var $profile_post = $('<div>').addClass('profile-post').text(post.get('body'))
+          that.$el.append($profile_post)
+        })
+
+
         this.$el.append(
         "<div class='remove_friend'><button>Remove Friend</button></div>"
         )
@@ -102,7 +122,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
         if (c) {
 
-          // do nothing. seriously.
+          // do nothing. seriously. actually, notify:
+          this.$el.append(
+          "<p class='request_sent'>Friend Request Sent.</p>"
+          )
 
         } else {
 
@@ -113,13 +136,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
               friend_id: myfacebook.currentUser.get('id')
             });
 
-            if (a) { this.$el.prepend(
+            if (a) { this.$el.append(
               "<div class='approve_friend'><button>Approve Friend</button></div><div class='deny_friend'><button>Deny Friend</button></div>"
             )} else {
 
             // case b: dug and target have no friendship status. add friend.
 
-              this.$el.prepend("<div class='request_friend'><button>Add Friend</button></div>")
+              this.$el.append("<div class='request_friend'><button>Add Friend</button></div>")
             }
           }
         }
@@ -128,12 +151,6 @@ myfacebook.Views.UserShow = Backbone.View.extend({
         this.$el.append(view)
 
       }
-      var that = this;
-
-      this.model.posts().forEach(function(post) {
-        var $profile_post = $('<div>').addClass('profile-post').text(post.get('body'))
-        that.$el.append($profile_post)
-      })
 
 
 
