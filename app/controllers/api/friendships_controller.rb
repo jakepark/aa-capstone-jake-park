@@ -46,7 +46,7 @@ class Api::FriendshipsController < ApplicationController
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
-    @friendship = Friendship.find(params[:id])
+    @friendship = Friendship.find_by_id(params[:id])
     if @friendship.update_attributes(friendship_params)
       render :show
     end

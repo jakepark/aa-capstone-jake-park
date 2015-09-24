@@ -11,7 +11,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     this.listenTo(this.model, 'sync change add destroy', this.render)
     this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
-    this.listenTo(this.model.friendships(), 'sync change add create destroy', this.render)
+    // this.listenTo(this.model.friendships(), 'sync change add create destroy', this.render)
     // this.collection = this.model.posts();     // might break new Avatar upload
     // this.listenTo(this.model, 'sync', this.render);
     // this.listenTo(this.collection, 'add', this.addPost);
@@ -130,6 +130,34 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
 
+
+
+  createFriendship: function (e) {
+    e.preventDefault();
+
+
+    $( ".add_friend" ).remove();
+
+    var target = this.model
+    var target_id = target.get('id')
+    var friendship = new myfacebook.Models.Friend()
+    friendship.set({
+      user_id: myfacebook.currentUser.id,
+      friend_id: target_id,
+    })
+    friendship.save({
+      }, {
+      success: function () {
+        this.renderPublic()
+        this.$('div.add_friend').remove()
+        this.$('div.deny_friend').remove()
+      }.bind(this)
+    });
+
+
+    return false;
+  },
+
   approveFriendship: function (e) {
     e.preventDefault();
 
@@ -146,41 +174,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     friendship.set( "approved", true )
 
-    debugger
+
     friendship.save({}, {
       success: function () {
+
         this.renderFriend()
-        // Backbone.history.loadUrl();
-        // // Backbone.history.navigate('/users/' + target_id, {trigger: true});
-        // view.reset();
       }.bind(this)
     });
-    debugger
-    return false;
-  },
-
-  createFriendship: function (e) {
-    e.preventDefault();
-
-
-    $( ".add_friend" ).remove();
-
-    var target = this.model
-    var target_id = target.get('id')
-    var friendship = new myfacebook.Models.Friend()
-    friendship.set({
-      user_id: myfacebook.currentUser.id,
-      friend_id: target_id,
-    })
-    friendship.save({
-
-      }, {
-      success: function () {
-        Backbone.history.navigate('/users/' + target_id, {trigger: true});
-
-      }
-    });
-
 
     return false;
   },
@@ -204,9 +204,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     friendship.destroy({}, {
       success: function () {
-        Backbone.history.navigate("#", {trigger: true});
-        view.reset();
-      }
+        this.renderPublic()
+      }.bind(this)
     });
     return false;
   },

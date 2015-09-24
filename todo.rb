@@ -35,3 +35,21 @@ CSS styling. REDID SOME NESTED DIVS
 
   <input type="submit">
 </form>
+
+
+
+
+<div class="approve_friend">
+  <button>Approve Friend</button>
+</div>
+
+<div class="deny_friend">
+  <button>Deny Friend</button>
+</div>
+
+ <p class='request_sent'>Friend Request Sent.</p>
+
+
+<div class="add_friend">
+  <button>Add Friend</button>
+</div>
