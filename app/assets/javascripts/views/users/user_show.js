@@ -67,24 +67,36 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   renderSelfie: function () {
     var selfie_view = JST['users/selfie']({ user: this.model })
-    this.$el.html(selfie_view)
+    this.$el.html(selfie_view).addClass("profile-main")
 
     this.model.posts().forEach(function(post) {
       var postShow = JST['posts/show']({ post: post })
       this.$('div.profile-posts').append(postShow)
     })
+
+    this.model.friends().forEach(function(friend) {
+      var friendShow = JST['friends/show']({ friend: friend })
+      this.$('div.profile-friends').append(friendShow)
+    })
+
     return this;
   },
 
   renderFriend: function () {
 
     var friend_view = JST['users/friend']({ user: this.model })
-    this.$el.html(friend_view)
+    this.$el.html(friend_view).addClass("profile-main")
 
     this.model.posts().forEach(function(post) {
       var postShow = JST['posts/show']({ post: post })
       this.$('div.profile-posts').append(postShow)
     })
+
+    this.model.friends().forEach(function(friend) {
+      var friendShow = JST['friends/show']({ friend: friend })
+      this.$('div.profile-friends').append(friendShow)
+    })
+
     return this;
   },
 
@@ -98,9 +110,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     // // if this userPage is a friendOf currentUser
     } else if (
 
-      this.model.friends().findWhere({
-        id: myfacebook.currentUser.get('id')
-      })
+      this.isFriend()
 
     ){
 
@@ -109,11 +119,21 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     } else {
 
       return this.renderPublic();
-      
+
     }
 
     return this;
-},   // End of render code //
+  },   // End of render code //
+
+  isFriend: function () {
+    if (this.model.friends().findWhere({
+      id: myfacebook.currentUser.get('id')
+      })){
+      return true;
+    } else {
+      return false;
+    }
+  },
 
 
   approveFriendship: function (e) {

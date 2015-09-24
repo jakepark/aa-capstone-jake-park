@@ -255,3 +255,13 @@ img {
   font-weight: normal;
   color: grey;
 }
+
+
+
+.profile-posts {
+  float: left;
+}
+
+.profile-friends {
+  float: right;
+}
