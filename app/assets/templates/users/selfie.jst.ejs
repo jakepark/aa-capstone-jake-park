@@ -1,0 +1,39 @@
+<div class="user-public-info-group">
+  <p class="profile_name">
+    <%= user.escape('name_first')%> <%=user.escape('name_last')%>
+  <img class="profile_pic" src= <%=user.escape('image_url')%> ></img>
+  </p>
+</div>
+
+<form class="avatar">
+  <input type="file" class="hidden" name="user[image]" id="input-user-avatar">
+  <label class="button-avatar-select" for="input-user-avatar">New Avatar</label>
+  <img id="preview-post-image">
+  <button class="button-save">Save</button>
+  <a class="button-cancel" href="#">Cancel</a>
+</form>
+
+<div class="user-show group">
+  <br>Birth Date:
+    <%= user.escape('birth_month') %>
+    <%= user.escape('birth_day') %>
+    <%= user.escape('birth_year') %>
+  <br>Gender:
+    <%= user.escape('gender') %>
+  <br>
+  <div class="edit_profile">
+    <button>Edit Profile</button>
+  </div>
+
+</div>
+
+<form class="post-form">
+  <ul class="errors">
+  </ul>
+    <textarea name="body" class="post-area" placeholder="What's on your mind?"></textarea>
+
+  <input type="submit" class="post-submit" value="Post">
+</form>
+
+<div class="posts">
+<div class="profile-post group"></div>

@@ -61,23 +61,14 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     render: function () {
       var view = this.template({ user: this.model })
-
-
-
+      
       var $profile_preview = $("<div>").addClass('user-public-info group')
       var $profile_pic = $("<img>").addClass('profile_pic')
-        .attr('src', this.model.get('image_url'))
+        .attr('src', this.model.escape('image_url'))
       var $para = $("<p>").addClass("profile_name").text(this.model.escape('name_first')+ " " +
         this.model.escape('name_last'))
 
       $para.append($profile_pic)
-
-
-      // if (myfacebook.currentUser.id === this.model.id){
-      //   var $edit_profile = $("<div>").addClass('edit_profile')
-      //   var $edit_button = $("<button>").text("Edit Profile")
-      //   $para.append($edit_profile).append($edit_button)
-      // }
 
       var first_name = this.model.escape('name_first')
 
@@ -180,7 +171,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
           var $delete_post = $('<div>').addClass('delete_post')
           var $delete_button = $('<button>').attr('data', post.get('id')).text('Delete')
-          that.$el.append($profile_post.append($delete_post.append($delete_button)))
+          that.$('div.posts').append($profile_post.append($delete_post.append($delete_button)))
         })
 
       }
