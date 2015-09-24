@@ -24,7 +24,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       "click .gohome": "goHome",
       "click .header-logo": "goHome",
       "click .edit_profile": "goEdit",
-      "submit .comment-form": "addPost",
+      "submit .post-form": "addPost",
       "click .delete_post": "deletePost",
     },
 
@@ -64,13 +64,20 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
 
 
-      var $profile_preview = $("<div>").addClass('user-info group')
-      var $para = $("<p>").addClass("profile_name").text(this.model.escape('name_first')+ " " +
-        this.model.escape('name_last'))
+      var $profile_preview = $("<div>").addClass('user-public-info group')
       var $profile_pic = $("<img>").addClass('profile_pic')
         .attr('src', this.model.get('image_url'))
+      var $para = $("<p>").addClass("profile_name").text(this.model.escape('name_first')+ " " +
+        this.model.escape('name_last'))
 
       $para.append($profile_pic)
+      
+
+      // if (myfacebook.currentUser.id === this.model.id){
+      //   var $edit_profile = $("<div>").addClass('edit_profile')
+      //   var $edit_button = $("<button>").text("Edit Profile")
+      //   $para.append($edit_profile).append($edit_button)
+      // }
 
       var first_name = this.model.escape('name_first')
 

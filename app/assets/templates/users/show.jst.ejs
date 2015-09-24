@@ -1,5 +1,5 @@
-<div class='user-show'>
-  <div class='user-info group'>
+<div class='user-show group'>
+
 
   <% if (user.id !== myfacebook.currentUser.id) { %>
     <p class="profile_name">
@@ -12,22 +12,26 @@
     <%= user.escape('birth_day') %>
     <%= user.escape('birth_year') %><br>Gender: <%= user.escape('gender') %> <br>
 
+    <% if (user.id === myfacebook.currentUser.id) { %>
+      <div class='edit_profile'><button>Edit Profile</button></div>
+    <% } %>
 
-  </div>
+
+  
 </div>
 
 
 
 <% if (user.id === myfacebook.currentUser.id) { %>
 
-<form class="comment-form">
+<form class="post-form" >
   <ul class="errors">
   </ul>
-    <textarea name="body"></textarea>
+    <textarea name="body" class="post-area" placeholder="What's on your mind?"></textarea>
 
-  <input type="submit">
+  <input type="submit" class="post-submit" value="Post">
 </form>
 
 
-  <div class='edit_profile'><button>Edit Profile</button></div>
+
 <% } %>

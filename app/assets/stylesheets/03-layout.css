@@ -86,7 +86,8 @@ img {
 
 
 .edit_profile {
-  float: right;
+  float: left;
+
   padding: 5px 10px;
   border: 1px solid black;
   width: 85px;
@@ -97,26 +98,33 @@ img {
 
 }
 
-/* USER SHOW */
+/* USER SHOW container */
 .profile-main {
   margin: 0 auto;
   width: 1080px;
 }
 
-.user-show {
-  /*width: 500px;*/
-  margin: 0 auto;
+/*left*/
+.user-public-info {
+  /*margin: 0 auto;*/
+  width: 250px;
+  float: left;
+}
 
+
+/*right*/
+.user-show {
+  /*margin: 0 auto;*/
+  width: 500px;
+  float: left;
+  display: block;
 }
 
 .profile_name {
   text-transform:capitalize;
 }
 
-.user-info {
-  margin: 0 auto;
 
-}
 
 .profile_pic_main {
   width: 200px;
@@ -246,11 +254,3 @@ img {
   font-weight: normal;
   color: grey;
 }
-
-
-
-/*button {
-  border: 1px solid red;
-  background-color: white;
-  color: black;
-}*/

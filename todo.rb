@@ -28,7 +28,7 @@ CSS styling.
 .data(post.get('id'))
 
 
-<form class="comment-form">
+<form class="post-form">
   <ul class="errors">
   </ul>
     <textarea name="body"></textarea>

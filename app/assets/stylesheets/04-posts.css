@@ -13,7 +13,36 @@
 }
 
 
-.comment-form  {
-  display: block;
+.post-form  {
+  margin: 0 auto;
+  width: 500px;
   border: 1px solid red;
+}
+
+.post-area  {
+  margin: 0 auto;
+  font-size: 20px;
+  height: 150px;
+  width: 450px;
+  background-color: white;
+  border: 1px solid blue;
+}
+
+
+/*this button is margin moved from the red post-form container*/
+
+.post-submit {
+  border: 1px solid #3b5998;
+  background-color: #3b5998;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 20px 50px 20px 20px;
+
+  border-radius: 5px;
+  float:right;
+  /*bottom: 0;
+  right: 0;*/
+
 }
