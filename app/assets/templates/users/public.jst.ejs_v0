@@ -7,28 +7,11 @@
 </div>
 
 
-<% if (
-  user.friendships().findWhere({
-    user_id: user.get('id'),
-    friend_id: myfacebook.currentUser.get('id')
-  })){ %>
-
-  <div class="approve_friend">
-    <button>Approve Friend</button>
-  </div>
-
-  <div class="deny_friend">
-    <button>Deny Friend</button>
-  </div>
-
-<% } else if (
-  user.requests().findWhere({ id: myfacebook.currentUser.get('id') }))
-    { %>
-
+<% if (user.requests().findWhere({ id: myfacebook.currentUser.get('id') })) { %>
  <p class='request_sent'>Friend Request Sent.</p>
-<% } else {
+<% } else { %>
 
-  if ((user.friends().findWhere({
+  <% if ((user.friends().findWhere({
       user_id: user.get('id'),
       friend_id: myfacebook.currentUser.get('id')
      }) === undefined)
@@ -55,6 +38,24 @@
         <button>Add Friend</button>
       </div>
 
+    <% } else { %>
+
+      <% if (user.friends().length !== 0 &&
+
+        user.friends().findWhere({
+        user_id: user.get('id'),
+        friend_id: myfacebook.currentUser.get('id')})
+        .get('approved') === false) { %>
+
+        <div class="approve_friend">
+          <button>Approve Friend</button>
+        </div>
+
+        <div class="deny_friend">
+          <button>Deny Friend</button>
+        </div>
+
+      <% } %>
     <% } %>
 
 <% } %>
