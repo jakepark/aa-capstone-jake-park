@@ -16,13 +16,14 @@
 .post-form  {
   margin: 0 auto;
   width: 500px;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
+  float: left;
 }
 
 .post-area  {
   margin: 0 auto;
   font-size: 20px;
-  height: 150px;
+  height: 200px;
   width: 450px;
   background-color: white;
   border: 1px solid blue;
@@ -48,13 +49,16 @@
 
 
 .profile-post {
+  float: left;
   border: 1px solid blue;
   background-color: white;
   color: black;
   font-size: 18px;
   display: block;
   width: 450px;
-  margin: 50px;
+  /*margin: 50px;*/
+  margin: 25px;
+  padding: 25px;
 }
 
 .delete_post {
