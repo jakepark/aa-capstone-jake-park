@@ -74,6 +74,15 @@ myfacebook.Models.User = Backbone.Model.extend({
     return this._pending;
   },
 
+  posts: function () {
+
+    if (!this._posts) {
+      this._posts = new myfacebook.Collections.Posts([], { user: this });
+    }
+
+    return this._posts;
+  },
+
 
   parse: function (response) {
 
@@ -96,6 +105,11 @@ myfacebook.Models.User = Backbone.Model.extend({
     if (response.pending) {
       this.pending().set(response.pending, { parse: true });
       delete response.pending;
+    }
+
+    if (response.posts) {
+      this.posts().set(response.posts, { parse: true });
+      delete response.posts;
     }
 
     return response;
