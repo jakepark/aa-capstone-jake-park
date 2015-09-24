@@ -54,7 +54,9 @@ body {
   background-color: #293e6a;
 }
 
-
+.avatar_icon {
+  text-transform:capitalize;
+}
 
 .sign_in_twitter {
   /*display: block;*/

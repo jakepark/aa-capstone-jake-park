@@ -1,5 +1,5 @@
 u1 = User.create(email: 'alpha@mail.com',
-  name_first: 'alpha', name_last: 'up', password: 'password',
+  name_first: 'alpha', name_last: 'dog', password: 'password',
   birth_month: 'Jan', birth_day: '1', birth_year: '2010',
   gender: 'm')
 

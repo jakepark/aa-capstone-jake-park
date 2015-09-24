@@ -32,7 +32,7 @@ img {
 .profile_preview > p {
   margin: 0 auto;
   text-align: center;
-
+  text-transform:capitalize;
 }
 
 .profile_pic {
@@ -110,7 +110,7 @@ img {
 }
 
 .profile_name {
-  
+
 }
 
 .user-info {
@@ -130,7 +130,7 @@ img {
 .users-index {
   width: 600px;
   margin: 0 auto;
-
+  text-transform:capitalize;
 
 }
 
