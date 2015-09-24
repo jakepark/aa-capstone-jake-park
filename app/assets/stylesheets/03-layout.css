@@ -100,7 +100,7 @@ img {
 /* USER SHOW */
 .profile-main {
   margin: 0 auto;
-
+  width: 1080px;
 }
 
 .user-show {
@@ -110,7 +110,7 @@ img {
 }
 
 .profile_name {
-
+  text-transform:capitalize;
 }
 
 .user-info {
