@@ -24,7 +24,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       "click .gohome": "goHome",
       "click .header-logo": "goHome",
       "click .edit_profile": "goEdit",
-      "submit .comment-form": "addPost"
+      "submit .comment-form": "addPost",
+      "click .delete_post": "deletePost",
     },
 
 
@@ -41,6 +42,17 @@ myfacebook.Views.UserShow = Backbone.View.extend({
           Backbone.history.loadUrl();
         }
       });
+
+      this.render();
+    },
+
+    deletePost: function (event) {
+      event.preventDefault();
+
+      debugger
+      var attrs = $(event.currentTarget).serializeJSON();
+      var post = this.model.posts().getOrFetch(id);
+      post.destroy()
 
       this.render();
     },
@@ -100,13 +112,18 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       if (d) {
         this.$el.html(view)
 
+
+        // appending posts to profile !
         var that = this;
 
         this.model.posts().forEach(function(post) {
-          var $profile_post = $('<div>').addClass('profile-post').text(post.get('body'))
+          // var $profile_post = $('<div>').addClass('profile-post')
+          // .text(post.get('body')).data(post.get('id'))
           that.$el.append($profile_post)
+          var $delete_post = $('<div>').addClass('delete_post')
+          var $delete_button = $('<button>').text('Remove Post')
+          that.$el.append($delete_post.append($delete_button))
         })
-
 
         this.$el.append(
         "<div class='remove_friend'><button>Remove Friend</button></div>"
@@ -149,6 +166,18 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       } else {      // this is your page
 
         this.$el.append(view)
+        // appending posts to profile !
+        var that = this;
+
+
+
+        this.model.posts().forEach(function(post) {
+          var $profile_post = $('<div>').addClass('profile-post').text(post.get('body'))
+
+          var $delete_post = $('<div>').addClass('delete_post')
+          var $delete_button = $('<button>').attr('data', post.get('id')).text('Remove Post')
+          that.$el.append($profile_post.append($delete_post.append($delete_button)))
+        })
 
       }
 

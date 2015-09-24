@@ -23,23 +23,15 @@ CREATE is done..
 DELETE posts
 UPDATE posts
 
-Posts are visible ..
+CSS styling.
+
+.data(post.get('id'))
 
 
-<div class='user-show'>
-  <div class='user-info group'>
+<form class="comment-form">
+  <ul class="errors">
+  </ul>
+    <textarea name="body"></textarea>
 
-  <% if (user.id !== myfacebook.currentUser.id) { %>
-    <p class="profile_name">
-  <img class = "profile_pic_main" src="<%= user.get("image_url") %>" width="100px">
-  <%= user.escape('name_first') %> <%= user.escape('name_last') %></p>
-
-  <% } %>
-
-  <br>Birth Date: <%= user.escape('birth_month') %>
-    <%= user.escape('birth_day') %>
-    <%= user.escape('birth_year') %><br>Gender: <%= user.escape('gender') %> <br>
-
-
-  </div>
-</div>
+  <input type="submit">
+</form>
