@@ -20,10 +20,10 @@ hard page refresh fixes problem.
 
 CREATE is done..
 
-DELETE posts
-UPDATE posts
+DELETE posts DONE
+UPDATE posts NEXT TIME
 
-CSS styling.
+CSS styling. REDID SOME NESTED DIVS
 
 .data(post.get('id'))
 

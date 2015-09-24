@@ -1,6 +1,20 @@
 class Api::PostsController < ApplicationController
   # before_action :require_signed_in!
 
+  # def index
+  #
+  #   @users = User.order(:name_first)
+  #   render :index
+  # end
+
+
+
+  def index
+    @posts = current_user.posts
+
+    render :index
+  end
+
   def create
     @post = current_user.posts.new(post_params)
 

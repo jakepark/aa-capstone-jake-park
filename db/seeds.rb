@@ -28,13 +28,9 @@ u6 = User.create(email: 'russell@mail.com',
   birth_month: 'Oct', birth_day: '17', birth_year: '2007',
   gender: 'm')
 
-# create_table "posts", force: :cascade do |t|
-#   t.text     "body",                     null: false
-#   t.integer  "user_id",                  null: false
-#   t.float    "ord",        default: 0.0
-#   t.datetime "created_at"
-#   t.datetime "updated_at"
-# end
+f1 = Friendship.create(user_id: 4, friend_id: 3, approved: true)
+f2 = Friendship.create(user_id: 4, friend_id: 6, approved: true)
+f3 = Friendship.create(user_id: 1, friend_id: 4, approved: false)
 
 # oh ruby, it needs bind and sendthis method..
 # idx = 1
