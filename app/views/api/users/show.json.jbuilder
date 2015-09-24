@@ -11,7 +11,9 @@ json.friends @user.friends do |friend|
   json.email friend.email
   json.name_first friend.name_first
   json.name_last friend.name_last
+  json.image_url asset_path(friend.avatar.url(:original))
 end
+
 
 
 json.friendships @user.friendships do |friendship|

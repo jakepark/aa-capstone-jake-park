@@ -106,20 +106,11 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     // // if this is the currentUser page
     if (parseInt(this.model.id) === myfacebook.currentUser.id) {
       return this.renderSelfie();
-
     // // if this userPage is a friendOf currentUser
-    } else if (
-
-      this.isFriend()
-
-    ){
-
+    } else if ( this.isFriend() ){
       return this.renderFriend();
-
     } else {
-
       return this.renderPublic();
-
     }
 
     return this;
@@ -261,6 +252,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     this.model.saveFormData(formData, {
       success: function(){
+        this.$('#edit_button').removeClass()
         that.collection.add(that.model);
         Backbone.history.navigate("", { trigger: true });
       }
@@ -269,6 +261,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   fileInputChange: function(event){
     console.log(event.currentTarget.files[0]);
+
+    this.$('#button-save').removeClass()
+    this.$('#button-cancel').removeClass()
+    this.$('#edit_button').addClass('hidden')
 
     var that = this;
     var file = event.currentTarget.files[0];
@@ -283,10 +279,12 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     } else {
       that._updatePreview("");
     }
+
   },
 
   _updatePreview: function(src){
     this.$el.find("#preview-post-image").attr("src", src);
+
   },
 
   goHome: function(){

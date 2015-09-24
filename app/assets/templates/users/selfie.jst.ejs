@@ -1,8 +1,8 @@
-<div class="user-public-info-group">
+<div class="user-public-info group">
   <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
   <p class="profile_name">
     <%= user.escape('name_first')%> <%=user.escape('name_last')%>
-    (This is you!)
+
   </p>
 </div>
 
@@ -12,11 +12,20 @@
   <input type="file" class="hidden" name="user[image]" id="input-user-avatar">
   <label class="button-avatar-select" for="input-user-avatar">New Avatar</label>
   <img id="preview-post-image">
-  <button class="button-save">Save</button>
-  <a class="button-cancel" href="#">Cancel</a>
+  <button id="button-save" class="hidden">Save</button>
+  <a id="button-cancel" href="#" class="hidden">Cancel</a>
 </form>
 
 <% } %>
+
+<form class="post-form">
+  <ul class="errors">
+  </ul>
+    <textarea name="body" class="post-area" placeholder="What's on your mind?"></textarea>
+
+  <input type="submit" class="post-submit" value="Post">
+</form>
+
 
 <div class="user-show group">
   <br>Birth Date:
@@ -27,18 +36,12 @@
     <%= user.escape('gender') %>
   <br>
   <div class="edit_profile">
-    <button>Edit Profile</button>
+    <button id="edit_button">Edit Profile</button>
   </div>
 
 </div>
 
-<form class="post-form">
-  <ul class="errors">
-  </ul>
-    <textarea name="body" class="post-area" placeholder="What's on your mind?"></textarea>
 
-  <input type="submit" class="post-submit" value="Post">
-</form>
 
 <div id="section-break">
 </div>

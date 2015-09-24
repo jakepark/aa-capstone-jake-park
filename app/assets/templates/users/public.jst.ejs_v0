@@ -1,4 +1,4 @@
-<div class="user-public-info-group">
+<div class="user-public-info group">
   <p class="profile_name">
     <%= user.escape('name_first')%> <%=user.escape('name_last')%>
   <img class="profile_pic" src= <%=user.escape('image_url')%> ></img>

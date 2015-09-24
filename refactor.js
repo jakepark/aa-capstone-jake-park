@@ -8,7 +8,7 @@
 //
 //   $para.append($profile_pic)
 //
-//   <div class="user-public-info-group">
+//   <div class="user-public-info group">
 //     <p class="profile_name">
 //       <%= this.model.escape('name_first')%> <%=this.model.escape('name_last')%>
 //     <img class="profile_pic" src= <%=this.model.escape('image_url')%> ></img>
