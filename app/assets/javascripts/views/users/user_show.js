@@ -92,7 +92,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     this.model.posts().forEach(function(post) {
       var postShow = JST['posts/show']({ post: post })
-      this.$('div.profile-posts').append(postShow)
+      this.$('div.profile-posts').prepend(postShow)
     })
 
     this.model.friends().forEach(function(friend) {

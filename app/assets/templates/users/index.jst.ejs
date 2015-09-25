@@ -1,6 +1,6 @@
 
 <div class='users-index'>
-  <h3>Friends</h3>
+  <h3>Meet Everybody</h3>
 
 
 
@@ -8,7 +8,7 @@
   <% users.each(function (user) { %>
     <li>
       <a href="#/users/<%= user.id %>">
-        <img src="<%= user.escape("image_url") %>" width="100px">
+        <img class="friends_list_pics" src="<%= user.escape("image_url") %>" width="100px">
         <span class="friends_list_preview">
           <%= user.escape("name_first") %> <%= user.escape("name_last") %>
         </span>
