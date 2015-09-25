@@ -11,11 +11,11 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     this.listenTo(this.model, 'sync change add destroy', this.render)
     this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
+    this.listenTo(this.collection, 'sync change add destroy', this.render);
+    // this.listenTo(this.model.friendships(), 'change add create destroy', this.model.fetch())
     // this.listenTo(this.model, 'newAvatar', myfacebook.currentUser.fetch())
-    // this.listenTo(this.model.friendships(), 'sync change add create destroy', this.render)
     // this.collection = this.model.posts();     // might break new Avatar upload
     // this.listenTo(this.model, 'sync', this.render);
-    // this.listenTo(this.collection, 'add', this.addPost);
   },
 
   events: {
@@ -174,10 +174,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     friendship.set( "approved", true )
 
-
+    debugger
     friendship.save({}, {
       success: function () {
-
+        this.model.friendships().add(friendship)
         this.renderFriend()
       }.bind(this)
     });
