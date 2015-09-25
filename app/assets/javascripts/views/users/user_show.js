@@ -230,14 +230,24 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     formData.append("user[avatar]", file);
     var that = this;
 
-    
-    this.model.saveFormData(formData, {
-      success: function(){
 
-        that.collection.add(that.model);
+    this.model.saveFormData(formData, {
+      success: function () {
         Backbone.history.loadUrl()
-      }
+      },
     });
+
+    this.render();
+
+    //
+    // this.model.saveFormData(formData, {
+    //   success: function(){
+    //
+    //     that.collection.add(that.model);
+    //     Backbone.history.loadUrl()
+    //   },
+    //
+    // });
   },
 
   fileInputChange: function(event){
