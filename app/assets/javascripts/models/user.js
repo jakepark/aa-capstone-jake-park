@@ -83,13 +83,13 @@ myfacebook.Models.User = Backbone.Model.extend({
     return this._posts;
   },
 
-  friendposts: function () {
+  friends_posts: function () {
 
-    if (!this._friendposts) {
-      this._friendposts = new myfacebook.Collections.Posts([], { user: this });
+    if (!this._friends_posts) {
+      this._friends_posts = new myfacebook.Collections.Posts([], { user: this });
     }
 
-    return this._friendposts;
+    return this._friends_posts;
   },
 
 
@@ -121,9 +121,9 @@ myfacebook.Models.User = Backbone.Model.extend({
       delete response.posts;
     }
 
-    if (response.friendposts) {
-      this.friendposts().set(response.friendposts, { parse: true });
-      delete response.friendposts;
+    if (response.friends_posts) {
+      this.friends_posts().set(response.friends_posts, { parse: true });
+      delete response.friends_posts;
     }
 
     return response;

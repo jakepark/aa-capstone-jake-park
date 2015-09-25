@@ -20,21 +20,6 @@ json.friends @user.friends do |friend|
   # end
 end
 
-#
-# <--SQL
-# SELECT
-#   *
-# FROM
-#   friendships
-# JOIN
-#   posts
-# ON
-#   posts.user_id = friendships.friend_id
-#
-# WHERE
-#   (approved = true) AND (friendships.user_id = 4)
-# ;
-# -->
 
 
 json.friendships @user.friendships do |friendship|
@@ -63,6 +48,11 @@ json.posts @user.posts do |post|
   #   json.extract! comment, :id, :title, :ord, :created_at, :updated_at
   # end
 end
+
+json.friends_posts @user.friends_posts do |post|
+  json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
+end
+
 #
 #
 # json.posts @user.posts do |post|

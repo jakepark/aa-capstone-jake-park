@@ -22,6 +22,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     "users/:id": "show",
     "users/:id/edit": "edit",
     "session/new": "signIn",
+    "posts": "posts"
   },
 
   edit: function (id) {
@@ -46,6 +47,15 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
+  posts: function () {
+    var callback = this.index.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var view = new myfacebook.Views.PostsIndex({
+      collection: this.collection
+    });
+    this._swapView(view);
+  },
 
   new: function(){
     if (!this._requireSignedOut()) { return; }

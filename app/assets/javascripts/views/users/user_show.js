@@ -104,6 +104,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
+    
     var view = this.template({ user: this.model })
 
     // // if this is the currentUser page

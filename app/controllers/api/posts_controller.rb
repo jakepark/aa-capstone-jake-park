@@ -10,8 +10,8 @@ class Api::PostsController < ApplicationController
   def index
     # @friends = current_user.friends
     # render json: @friends ## this gets me all the friends haha
-
-    @friends = current_user.friends
+    @user = current_user
+    # @posts = current_user.friends_posts
     render :index
   end
 
