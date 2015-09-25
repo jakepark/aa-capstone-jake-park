@@ -74,7 +74,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     this.model.posts().forEach(function(post) {
       var postShow = JST['posts/show']({ post: post })
-      this.$('div.profile-posts').append(postShow)
+      this.$('div.profile-posts').prepend(postShow)
     })
 
     this.model.friends().forEach(function(friend) {
@@ -230,11 +230,12 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     formData.append("user[avatar]", file);
     var that = this;
 
+    
     this.model.saveFormData(formData, {
       success: function(){
-        this.$('#edit_button').removeClass()
+
         that.collection.add(that.model);
-        Backbone.history.navigate("", { trigger: true });
+        Backbone.history.loadUrl()
       }
     });
   },

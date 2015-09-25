@@ -57,17 +57,17 @@ p2 = Post.create(user_id: 4, body: 'I so ever do want the ball!')
 p3 = Post.create(user_id: 4, body: 'Oh boy, a ball!')
 p4 = Post.create(user_id: 4, body: 'My name is Dug. I have just met you, and I love you.')
 
-p5 = Post.create(user_id: 3, body: 'Tell your boss he can have my house.')
-p6 = Post.create(user_id: 3, body: "When I'm dead.")
+p5 = Post.create(user_id: 3, body: "When I'm dead.")
+p6 = Post.create(user_id: 3, body: 'Tell your boss he can have my house.')
 
 p7 = Post.create(user_id: 6, body: 'I found the snipe!')
 p8 = Post.create(user_id: 6, body: "Kevin's a GIRL?")
 p9 = Post.create(user_id: 6, body: "But it's a TALKING DOG!")
 p10 = Post.create(user_id: 6, body: 'A wilderness explorer is a friend to all.')
 
-p11 = Post.create(user_id: 1, body: "Now, you must wear the cone of shame.")
-p12 = Post.create(user_id: 1, body: "Why's he with that small mailman?")
+p11 = Post.create(user_id: 1, body: "Why's he with that small mailman?")
+p12 = Post.create(user_id: 1, body: "Now, you must wear the cone of shame.")
 
-p13 = Post.create(user_id: 2, body: "To infinity, and beyond!")
+p13 = Post.create(user_id: 2, body: "I've set my laser from stun to kill.")
 p14 = Post.create(user_id: 2, body: "¿Amigo? O enemigo?")
-p15 = Post.create(user_id: 2, body: "I've set my laser from stun to kill.")
+p15 = Post.create(user_id: 2, body: "To infinity, and beyond!")
