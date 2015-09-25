@@ -20,7 +20,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   events: {
     "click .add_friend": "createFriendship",
     "click .approve_friend": "approveFriendship",
-    "click .deny_friend": "denyFriendship",
+    "click .deny_friend": "removeFriendship",
     "click .remove_friend": "removeFriendship",
     "submit .avatar": "newAvatar",
     "change #input-user-avatar": "fileInputChange",
@@ -151,6 +151,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
         this.renderPublic()
         this.$('div.add_friend').remove()
         this.$('div.deny_friend').remove()
+
       }.bind(this)
     });
 
@@ -185,32 +186,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     return false;
   },
 
-  denyFriendship: function (event) {
-    event.preventDefault();
-
-    $( ".add_friend" ).remove();
-    $( ".deny_friend" ).remove();
-
-    var target = this.model
-    var target_id = target.get('id')
-
-
-    var friendship = this.model.friendships().findWhere({
-      user_id: target_id,
-      friend_id: parseInt(myfacebook.currentUser.id)
-
-    })
-
-
-    friendship.destroy({}, {
-      success: function () {
-        this.renderPublic()
-      }.bind(this)
-    });
-    return false;
-  },
-
-
+  
   removeFriendship: function (e) {
     e.preventDefault();
 
