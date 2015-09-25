@@ -37,7 +37,7 @@ myfacebook.Views.SignUp = Backbone.View.extend({
         Backbone.history.navigate("", { trigger: true })
       },
       error: function(data){
-        alert("Form invalid.");
+        alert("Please choose another email and a password greater than 8 characters.");
         console.log(data);
       }
     });
