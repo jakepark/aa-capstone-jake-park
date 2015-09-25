@@ -163,6 +163,7 @@ img {
 
 /*right*/
 .user-show {
+  text-transform:capitalize;
   /*margin: 0 auto;*/
   width: 250px;
   float: left;
@@ -313,19 +314,4 @@ img {
   font-size: 12px;
   font-weight: normal;
   color: grey;
-}
-
-#section-break {
-  display: block;
-}
-
-
-
-.profile-posts {
-  width: 500px;
-  float: left;
-}
-
-.profile-friends {
-  float: right;
 }

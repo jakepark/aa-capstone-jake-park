@@ -1,9 +1,9 @@
 <div class="profile-post group"><%= post.escape('body') %>
   <div class="delete_post">
 
-    
+
     <% if (parseInt(post.get('user_id')) === myfacebook.currentUser.id) { %>
-    <button data="<%= post.id %>">Delete</button>
+    <button data="<%= post.id %>">X</button>
     <% } %>
   </div>
 </div>
