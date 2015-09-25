@@ -117,6 +117,7 @@
   font-size: 16px;
   color: #fff;
   background: #0c0;
+  position: absolute;
 }
 
 #button-cancel {
