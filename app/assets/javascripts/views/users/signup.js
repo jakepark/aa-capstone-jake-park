@@ -28,7 +28,6 @@ myfacebook.Views.SignUp = Backbone.View.extend({
     var that = this;
 
     var model = this.collection.getOrFetch(this.model.id)
-
     model.set(userData);
 
     model.save({}, {
@@ -38,7 +37,7 @@ myfacebook.Views.SignUp = Backbone.View.extend({
         Backbone.history.navigate("", { trigger: true })
       },
       error: function(data){
-        alert("Form invalid. Let the user know what went wrong.");
+        alert("Form invalid.");
         console.log(data);
       }
     });

@@ -10,7 +10,6 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
   render: function () {
 
-
     var view = this.template({ users: this.collection })
     this.$el.html(view).addClass('content-container group');
     return this;
