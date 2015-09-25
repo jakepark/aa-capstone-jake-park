@@ -39,10 +39,32 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def friends
     active_friends | passive_friends
   end
+
+
+  def friends_posts
+
+    Post.find_by_sql(<<-SQL)
+      SELECT
+        *
+      FROM
+        posts
+      JOIN
+        friendships
+      ON
+        posts.user_id = friendships.user_id
+      WHERE
+        (approved = true) AND (friendships.friend_id = #{self.id})
+    SQL
+  end
+
+
+
+
 
   attr_reader :password
   after_initialize :ensure_session_token
