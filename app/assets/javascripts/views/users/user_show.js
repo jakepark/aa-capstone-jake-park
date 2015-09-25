@@ -40,10 +40,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     var post = new myfacebook.Models.Post();
 
     post.set(attrs);
-    post.save({
+    post.save({}, {
       success: function () {
-        Backbone.history.loadUrl();
-      }
+        Backbone.history.loadUrl()
+      },
     });
 
     this.render();

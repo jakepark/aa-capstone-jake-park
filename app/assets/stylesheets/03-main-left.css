@@ -77,7 +77,7 @@ img {
 .profile_name {
   text-transform:capitalize;
   float: left;
-  
+
   font-size: 18px;
 }
 
@@ -159,12 +159,6 @@ img {
   width: 1080px;
 }
 
-/*left*/
-/*.user-public-info {
-  margin: 0 auto;
-  width: 250px;
-  float: left;
-}*/
 
 
 /*right*/
