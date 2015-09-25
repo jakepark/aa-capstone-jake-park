@@ -7,7 +7,9 @@
 
     <li class= "header-nav-icon">
       <a href="#/users/<%= myfacebook.currentUser.id %>">
-    <img id="avatar_pic" src="<%= myfacebook.currentUser.get("image_url") %>">
+
+          <img id="avatar_pic" src="<%= myfacebook.currentUser.get("image_url") %>">
+        
         <span class="avatar_icon">
           <%= myfacebook.currentUser.escape("name_first") %></a>
         </span>

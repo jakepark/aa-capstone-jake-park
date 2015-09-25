@@ -11,6 +11,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     this.listenTo(this.model, 'sync change add destroy', this.render)
     this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
+    // this.listenTo(this.model, 'newAvatar', myfacebook.currentUser.fetch())
     // this.listenTo(this.model.friendships(), 'sync change add create destroy', this.render)
     // this.collection = this.model.posts();     // might break new Avatar upload
     // this.listenTo(this.model, 'sync', this.render);
@@ -104,7 +105,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-    
+
     var view = this.template({ user: this.model })
 
     // // if this is the currentUser page
@@ -234,8 +235,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     this.model.saveFormData(formData, {
       success: function () {
+
+        myfacebook.currentUser.set({image_url: this.model.get('image_url')});
         Backbone.history.loadUrl()
-      },
+      }.bind(this),
     });
 
     this.render();
