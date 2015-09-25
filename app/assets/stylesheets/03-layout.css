@@ -51,6 +51,17 @@ img {
   position: absolute;
 }
 
+.avatar_click {
+  width: 200px;
+  /*margin: 0 auto;*/
+
+  margin: 0 60px 0 0;
+  text-align: center;
+  position: relative;
+  top: -100px;
+  left: 150px;
+  zoom: 200%;
+}
 
 .user-public-info {
   width: 250px;

@@ -145,16 +145,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       user_id: myfacebook.currentUser.id,
       friend_id: target_id,
     })
+
     friendship.save({
-      }, {
       success: function () {
+
         this.renderPublic()
-        this.$('div.add_friend').remove()
-        this.$('div.deny_friend').remove()
-
       }.bind(this)
-    });
-
+    })
 
     return false;
   },
@@ -186,7 +183,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     return false;
   },
 
-  
+
   removeFriendship: function (e) {
     e.preventDefault();
 
@@ -248,6 +245,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     this.$('#button-save').removeClass()
     this.$('#button-cancel').removeClass()
     this.$('#edit_button').addClass('hidden')
+    this.$('.button-avatar-select').addClass('hidden')
+    this.$('.avatar').addClass("avatar_click")
 
     var that = this;
     var file = event.currentTarget.files[0];
