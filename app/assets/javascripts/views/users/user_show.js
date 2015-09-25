@@ -174,7 +174,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     friendship.set( "approved", true )
 
-    debugger
+    
     friendship.save({}, {
       success: function () {
         this.model.friendships().add(friendship)

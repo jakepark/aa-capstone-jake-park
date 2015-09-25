@@ -7,6 +7,8 @@
 <ul class='users'>
 
   <% users.each(function (user) { %>
+    <% if (user.id !== undefined) { %>
+
     <li>
       <a href="#/users/<%= user.id %>">
         <img class="friends_list_pics" src="<%= user.escape("image_url") %>" width="100px">
@@ -15,6 +17,9 @@
         </span>
       </a>
     </li>
+
+    <%  } %>
+
   <% }); %>
 </ul>
 </div>
