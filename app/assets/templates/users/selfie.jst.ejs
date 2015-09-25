@@ -1,22 +1,44 @@
-<div class="user-public-info group">
-  <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
-  <p class="profile_name">
-    <%= user.escape('name_first')%> <%=user.escape('name_last')%>
+<div class="profile-main-left">
+  <div class="user-public-info group">
+    <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
+    <p class="profile_name">
+      <%= user.escape('name_first')%> <%=user.escape('name_last')%>
 
-  </p>
+    </p>
+  </div>
+
+  <% if (user.get('image_url') === 'default_profile.jpg') { %>
+
+  <form class="avatar">
+    <input type="file" class="hidden" name="user[image]" id="input-user-avatar">
+    <label class="button-avatar-select" for="input-user-avatar">New Avatar</label>
+    <img id="preview-post-image">
+    <button id="button-save" class="hidden">Save</button>
+    <a id="button-cancel" href="#" class="hidden">Cancel</a>
+  </form>
+
+  <% } %>
+
+
+
+  <div class="user-show group">
+    <br>Birth Date:
+      <%= user.escape('birth_month') %>
+      <%= user.escape('birth_day') %>
+      <%= user.escape('birth_year') %>
+    <br>Gender:
+      <%= user.escape('gender') %>
+    <br>
+    <div class="edit_profile">
+      <button id="edit_button">Edit Profile</button>
+    </div>
+
+  </div>
+
 </div>
 
-<% if (user.get('image_url') === 'default_profile.jpg') { %>
 
-<form class="avatar">
-  <input type="file" class="hidden" name="user[image]" id="input-user-avatar">
-  <label class="button-avatar-select" for="input-user-avatar">New Avatar</label>
-  <img id="preview-post-image">
-  <button id="button-save" class="hidden">Save</button>
-  <a id="button-cancel" href="#" class="hidden">Cancel</a>
-</form>
-
-<% } %>
+<div class="profile-main-center">
 
 <form class="post-form">
   <ul class="errors">
@@ -26,29 +48,16 @@
   <input type="submit" class="post-submit" value="Post">
 </form>
 
-
-<div class="user-show group">
-  <br>Birth Date:
-    <%= user.escape('birth_month') %>
-    <%= user.escape('birth_day') %>
-    <%= user.escape('birth_year') %>
-  <br>Gender:
-    <%= user.escape('gender') %>
-  <br>
-  <div class="edit_profile">
-    <button id="edit_button">Edit Profile</button>
-  </div>
-
-</div>
-
-
-
-<div id="section-break">
-</div>
+<!-- <div id="section-break">
+</div> -->
 
 <div class="profile-posts">
 
 </div>
+
+</div>
+
+
 
 <div class="profile-friends">Friends
 
