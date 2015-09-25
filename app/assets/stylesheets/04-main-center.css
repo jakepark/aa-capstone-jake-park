@@ -78,14 +78,15 @@
 
 .delete_post {
   width: 20px;
-  border: 1px solid red;
-  background-color: red;
-  color: white;
+  border: 1px solid #dfe3ee;
+  background-color: white;
+  color: #dfe3ee;
   font-weight: bold;
   position: relative;
   top: -42px;
-  left: 440px;
+  left: 448px;
   text-align: center;
+  border-radius: 3px;
 
 }
 
