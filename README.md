@@ -19,7 +19,7 @@ myfacebook is a clone of Facebook built on Rails and Backbone. Users can:
 - [x] Deny Friend
 - [x] Remove Friend
 - [x] View Friend profile
-- [ ] Search for Friends by Name
+- [x] Create profile posts
 
 
 ## Design Docs
@@ -75,8 +75,8 @@ but they will fetch from the new `search` routes.
 
 ### Bonus Features (TBD)
 
+- [ ] Search for Friends by Name
 - [ ] Post types (image posts, quote posts, etc)
-- [x] Create profile posts
 - [ ] Tag profile posts
 - [ ] Search for posts by tag
 - [ ] "Like" button and counter for posts
