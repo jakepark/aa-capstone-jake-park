@@ -64,13 +64,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
   renderPublic: function () {
     var public_view = JST['users/public']({ user: this.model })
-    this.$el.html(public_view).addClass("profile-main")
+    this.$el.html(public_view).addClass("profile-main group")
     return this;
   },
 
   renderSelfie: function () {
     var selfie_view = JST['users/selfie']({ user: this.model })
-    this.$el.html(selfie_view).addClass("profile-main")
+    this.$el.html(selfie_view).addClass("profile-main group")
 
     this.model.posts().forEach(function(post) {
       var postShow = JST['posts/show']({ post: post })
@@ -88,7 +88,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   renderFriend: function () {
 
     var friend_view = JST['users/friend']({ user: this.model })
-    this.$el.html(friend_view).addClass("profile-main")
+    this.$el.html(friend_view).addClass("profile-main group")
 
     this.model.posts().forEach(function(post) {
       var postShow = JST['posts/show']({ post: post })

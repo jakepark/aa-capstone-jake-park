@@ -1,7 +1,7 @@
 <div class="user-public-info group">
+  <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
   <p class="profile_name">
     <%= user.escape('name_first')%> <%=user.escape('name_last')%>
-  <img class="profile_pic" src= <%=user.escape('image_url')%> ></img>
   </p>
   <p class="authorized">In order to view this profile, you must Add Friend
     and be confirmed.</p>
