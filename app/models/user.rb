@@ -45,12 +45,12 @@ class User < ActiveRecord::Base
     active_friends | passive_friends
   end
 
-
   def friends_posts
-
     Post.find_by_sql(<<-SQL)
       SELECT
-        *
+        *,
+        posts.id AS posts_id
+
       FROM
         posts
       JOIN
@@ -62,6 +62,22 @@ class User < ActiveRecord::Base
     SQL
   end
 
+
+  #
+  # def friends_posts
+  #   Post.find_by_sql(<<-SQL)
+  #     SELECT
+  #       *
+  #     FROM
+  #       posts
+  #     JOIN
+  #       friendships
+  #     ON
+  #       posts.user_id = friendships.user_id
+  #     WHERE
+  #       (approved = true) AND (friendships.friend_id = #{self.id})
+  #   SQL
+  # end
 
 
 
