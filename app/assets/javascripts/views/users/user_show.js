@@ -174,7 +174,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     friendship.set( "approved", true )
 
-    
+
     friendship.save({}, {
       success: function () {
         this.model.friendships().add(friendship)
@@ -262,6 +262,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     this.$('#edit_button').addClass('hidden')
     this.$('.button-avatar-select').addClass('hidden')
     this.$('.avatar').addClass("avatar_click")
+    this.$('#preview-post-image').addClass("preview-post-image-click")
 
     var that = this;
     var file = event.currentTarget.files[0];

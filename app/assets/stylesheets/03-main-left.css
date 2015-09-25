@@ -52,16 +52,17 @@
   position: absolute;
 }
 
-.avatar_click {
-  width: 200px;
-  /*margin: 0 auto;*/
 
-  margin: 0 60px 0 0;
-  text-align: center;
-  position: relative;
-  top: -100px;
-  left: 150px;
-  zoom: 200%;
+.avatar_click {
+    width: 500px;
+    margin: 0 60px 0 0;
+    text-align: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    zoom: 200%;
+    background-color: black;
+    Z-INDEX: 1;
 }
 
 .user-public-info {
@@ -104,6 +105,15 @@
   margin: 0 auto;
   z-index: 1;
 }
+
+.preview-post-image-click {
+    width: 100px;
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+    right: 70px;
+}
+
 
 .button-avatar-select:hover {
   cursor: pointer;
