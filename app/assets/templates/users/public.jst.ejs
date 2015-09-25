@@ -1,61 +1,74 @@
-<div class="user-public-info group">
-  <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
-  <p class="profile_name">
-    <%= user.escape('name_first')%> <%=user.escape('name_last')%>
-  </p>
-  <p class="authorized">In order to view this profile, you must Add Friend
-    and be confirmed.</p>
+<div class="profile-main-left">
+  <div class="user-public-info group">
+    <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
+    <p class="profile_name">
+      <%= user.escape('name_first')%> <%=user.escape('name_last')%>
+    </p>
+
+  </div>
 </div>
 
 
-<% if (
-  user.friendships().findWhere({
-    user_id: user.get('id'),
-    friend_id: myfacebook.currentUser.get('id')
-  })){ %>
+<div class="profile-main-center">
+  <p class="authorized">In order to view this profile, you must Add Friend
+    and be confirmed.</p>
 
-  <div class="approve_friend">
-    <button>Approve Friend</button>
-  </div>
-
-  <div class="deny_friend">
-    <button>Deny Friend</button>
-  </div>
-
-<% } else if (
-  user.requests().findWhere({ id: myfacebook.currentUser.get('id') }))
-    { %>
-
- <p class='request_sent'>Friend Request Sent.</p>
-<% } else {
-
-  if ((user.friends().findWhere({
+  <% if (
+    user.friendships().findWhere({
       user_id: user.get('id'),
       friend_id: myfacebook.currentUser.get('id')
-     }) === undefined)
-      &&
-     (user.friends().findWhere({
-       user_id: myfacebook.currentUser.get('id'),
-       friend_id: user.get('id')
-     }) === undefined)
-     &&
-     (myfacebook.currentUser.friends().findWhere({
-       user_id: user.get('id'),
-       friend_id: myfacebook.currentUser.get('id')
-     }) === undefined)
-     &&
-     (myfacebook.currentUser.friends().findWhere({
-       user_id: myfacebook.currentUser.get('id'),
-       friend_id: user.get('id')
-     }) === undefined)
-    )
+    })){ %>
 
-    { %>
+    <div class="approve_friend">
+      <button>Approve Friend</button>
+    </div>
 
-      <div class="add_friend">
-        <button>Add Friend</button>
-      </div>
+    <div class="deny_friend">
+      <button>Deny Friend</button>
+    </div>
 
-    <% } %>
+  <% } else if (
+    user.requests().findWhere({ id: myfacebook.currentUser.get('id') }))
+      { %>
 
-<% } %>
+   <p class='authorized'>Friend Request Sent.</p>
+  <% } else {
+
+    if ((user.friends().findWhere({
+        user_id: user.get('id'),
+        friend_id: myfacebook.currentUser.get('id')
+       }) === undefined)
+        &&
+       (user.friends().findWhere({
+         user_id: myfacebook.currentUser.get('id'),
+         friend_id: user.get('id')
+       }) === undefined)
+       &&
+       (myfacebook.currentUser.friends().findWhere({
+         user_id: user.get('id'),
+         friend_id: myfacebook.currentUser.get('id')
+       }) === undefined)
+       &&
+       (myfacebook.currentUser.friends().findWhere({
+         user_id: myfacebook.currentUser.get('id'),
+         friend_id: user.get('id')
+       }) === undefined)
+      )
+
+      { %>
+
+        <div class="add_friend">
+          <button>Add Friend</button>
+        </div>
+
+      <% } %>
+
+  <% } %>
+
+</div>
+
+
+
+<div class="profile-friends">Friends
+
+</div>
