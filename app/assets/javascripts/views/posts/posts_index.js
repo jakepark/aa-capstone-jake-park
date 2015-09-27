@@ -1,22 +1,17 @@
 myfacebook.Views.PostsIndex = Backbone.View.extend({
   template: JST['posts/index'],
 
-  initialize: function () {
-    var users = new myfacebook.Collections.Users();
-    users.fetch();
-    this.users = users
+  initialize: function (options) {
+    this.users = options.users
 
     this.listenTo(this.currentPost, 'sync', this.render)
     this.listenTo(this.collection, 'sync', this.render)
-    this.listenTo(this.users, 'sync', this.render)
+    this.listenToOnce(this.users, 'sync', this.render)
 
   },
 
   render: function () {
-    // var users = new myfacebook.Collections.Users
-    // users.fetch();
-
-
+    // debugger
     var view = this.template({
       posts: this.collection,
       users: this.users
