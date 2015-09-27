@@ -29,10 +29,10 @@ u6 = User.create(email: 'russell@mail.com',
   gender: 'm')
 
 f1 = Friendship.create(user_id: 1, friend_id: 4, approved: false)
-f2 = Friendship.create(user_id: 2, friend_id: 4, approved: false)
-f3 = Friendship.create(user_id: 3, friend_id: 4, approved: false)
-f4 = Friendship.create(user_id: 5, friend_id: 4, approved: false)
-f5 = Friendship.create(user_id: 6, friend_id: 4, approved: false)
+f2 = Friendship.create(user_id: 2, friend_id: 4, approved: true)
+f3 = Friendship.create(user_id: 3, friend_id: 4, approved: true)
+f4 = Friendship.create(user_id: 5, friend_id: 4, approved: true)
+f5 = Friendship.create(user_id: 6, friend_id: 4, approved: true)
 
 
 # oh ruby, it needs bind and sendthis method..
@@ -51,23 +51,22 @@ f5 = Friendship.create(user_id: 6, friend_id: 4, approved: false)
 #   return posts
 # end
 
+p1 = Post.create(user_id: 1, body: "Why's he with that small mailman?")
+p2 = Post.create(user_id: 1, body: "Now, you must wear the cone of shame.")
 
-p1 = Post.create(user_id: 4, body: "Squirrel!")
-p2 = Post.create(user_id: 4, body: 'I so ever do want the ball!')
-p3 = Post.create(user_id: 4, body: 'Oh boy, a ball!')
-p4 = Post.create(user_id: 4, body: 'My name is Dug. I have just met you, and I love you.')
+p3 = Post.create(user_id: 2, body: "I've set my laser from stun to kill.")
+p4 = Post.create(user_id: 2, body: "¿Amigo? O enemigo?")
+p5 = Post.create(user_id: 2, body: "To infinity, and beyond!")
 
-p5 = Post.create(user_id: 3, body: "When I'm dead.")
-p6 = Post.create(user_id: 3, body: 'Tell your boss he can have my house.')
+p6 = Post.create(user_id: 3, body: "When I'm dead.")
+p7 = Post.create(user_id: 3, body: 'Tell your boss he can have my house.')
 
-p7 = Post.create(user_id: 6, body: 'I found the snipe!')
-p8 = Post.create(user_id: 6, body: "Kevin's a GIRL?")
-p9 = Post.create(user_id: 6, body: "But it's a TALKING DOG!")
-p10 = Post.create(user_id: 6, body: 'A wilderness explorer is a friend to all.')
+p8 = Post.create(user_id: 4, body: "Squirrel!")
+p9 = Post.create(user_id: 4, body: 'I so ever do want the ball!')
+p10 = Post.create(user_id: 4, body: 'Oh boy, a ball!')
+p11 = Post.create(user_id: 4, body: 'My name is Dug. I have just met you, and I love you.')
 
-p11 = Post.create(user_id: 1, body: "Why's he with that small mailman?")
-p12 = Post.create(user_id: 1, body: "Now, you must wear the cone of shame.")
-
-p13 = Post.create(user_id: 2, body: "I've set my laser from stun to kill.")
-p14 = Post.create(user_id: 2, body: "¿Amigo? O enemigo?")
-p15 = Post.create(user_id: 2, body: "To infinity, and beyond!")
+p12 = Post.create(user_id: 6, body: 'I found the snipe!')
+p13 = Post.create(user_id: 6, body: "Kevin's a GIRL?")
+p14 = Post.create(user_id: 6, body: "But it's a TALKING DOG!")
+p15 = Post.create(user_id: 6, body: 'A wilderness explorer is a friend to all.')
