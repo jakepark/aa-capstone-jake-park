@@ -2,11 +2,11 @@
 <div class='posts-index'>
   <h3>Friends Posts</h3>
 
-      <% debugger %>
+      
 <ul class='posts'>
   <% posts.each(function (post) { %>
     <li>
-    <%= post.escape('author_id') %>
+    <%= users.getOrFetch(post.escape('author_id')).get('name_first') %>:
       <%= post.escape('body') %>
 
     </li>
