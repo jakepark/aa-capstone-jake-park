@@ -1,6 +1,6 @@
-# very close
+
 SELECT
-*
+*, posts.id AS posts_id
 FROM
 posts
 JOIN
@@ -8,10 +8,16 @@ friendships
 ON
 posts.user_id = friendships.user_id
 WHERE
-posts.user_id != 4 AND friendships.approved = true
+((posts.user_id != 4 AND friendships.approved = true)
+AND
+(friendships.friend_id = 4))
+OR
+((posts.user_id != 4 AND friendships.approved = true)
+AND
+(friendships.user_id = 4))
 UNION ALL
 SELECT
-*
+*, posts.id AS posts_id
 FROM
 posts
 JOIN
@@ -19,7 +25,13 @@ friendships
 ON
 posts.user_id = friendships.friend_id
 WHERE
-posts.user_id != 4 AND friendships.approved = true
+((posts.user_id != 4 AND friendships.approved = true)
+AND
+(friendships.user_id = 4))
+OR
+((posts.user_id != 4 AND friendships.approved = true)
+AND
+(friendships.friend_id = 4))
 #
 #
 # # very close

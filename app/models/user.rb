@@ -47,39 +47,60 @@ class User < ActiveRecord::Base
 
   def friends_posts
     Post.find_by_sql(<<-SQL)
-    SELECT
-    	*, posts.id AS posts_id
-    FROM
-    	posts
-    LEFT OUTER JOIN
-    	friendships
-    	ON
-    	posts.user_id = friendships.user_id
 
-    WHERE
-    	(friendships.approved = true AND posts.user_id != #{self.id})
-    OR
-    	(friendships.approved = true AND friendships.friend_id = #{self.id})
+      SELECT
+      *, posts.id AS posts_id
+      FROM
+      posts
+      JOIN
+      friendships
+      ON
+      posts.user_id = friendships.user_id
+      WHERE
+      ((posts.user_id != #{self.id} AND friendships.approved = true)
+      AND
+      (friendships.friend_id = #{self.id}))
+      OR
+      ((posts.user_id != #{self.id} AND friendships.approved = true)
+      AND
+      (friendships.user_id = #{self.id}))
+      UNION ALL
+      SELECT
+      *, posts.id AS posts_id
+      FROM
+      posts
+      JOIN
+      friendships
+      ON
+      posts.user_id = friendships.friend_id
+      WHERE
+      ((posts.user_id != #{self.id} AND friendships.approved = true)
+      AND
+      (friendships.user_id = #{self.id}))
+      OR
+      ((posts.user_id != #{self.id} AND friendships.approved = true)
+      AND
+      (friendships.friend_id = #{self.id}))
   SQL
 end
 
-# bugged. selecting wrong cells. but fixed post ID
-  def friends_posts
-    Post.find_by_sql(<<-SQL)
-      SELECT
-        *,
-        posts.id AS posts_id
-
-      FROM
-        posts
-      JOIN
-        friendships
-      ON
-        posts.user_id = friendships.user_id
-      WHERE
-        (approved = true) AND (friendships.friend_id = #{self.id})
-    SQL
-  end
+# # bugged. selecting wrong cells. but fixed post ID
+#   def friends_posts
+#     Post.find_by_sql(<<-SQL)
+#       SELECT
+#         *,
+#         posts.id AS posts_id
+#
+#       FROM
+#         posts
+#       JOIN
+#         friendships
+#       ON
+#         posts.user_id = friendships.user_id
+#       WHERE
+#         (approved = true) AND (friendships.friend_id = #{self.id})
+#     SQL
+#   end
 
 
   #
