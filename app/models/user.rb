@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
     Post.find_by_sql(<<-SQL)
 
       SELECT
-      *, posts.id AS posts_id
+      *, posts.id AS posts_id, posts.user_id AS author_id
       FROM
       posts
       JOIN
@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
       (friendships.user_id = #{self.id}))
       UNION ALL
       SELECT
-      *, posts.id AS posts_id
+      *, posts.id AS posts_id, posts.user_id AS author_id
       FROM
       posts
       JOIN
