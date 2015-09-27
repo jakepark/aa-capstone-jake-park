@@ -52,7 +52,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
     var collection = new myfacebook.Collections.Posts();
     collection.fetch();
-    
+
 
     var view = new myfacebook.Views.PostsIndex({
       collection: collection

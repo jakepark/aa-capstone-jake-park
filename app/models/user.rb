@@ -45,6 +45,8 @@ class User < ActiveRecord::Base
     active_friends | passive_friends
   end
 
+# DO NOT TRY TO REFACTOR THIS. ENTRIES ARE ONLY ENTERED ONCE IN THE DATABASE
+
   def friends_posts
     Post.find_by_sql(<<-SQL)
 
@@ -103,7 +105,7 @@ end
 #   end
 
 
-  #
+  ## naively wrong. oh so naive
   # def friends_posts
   #   Post.find_by_sql(<<-SQL)
   #     SELECT
