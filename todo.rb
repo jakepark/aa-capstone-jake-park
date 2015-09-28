@@ -28,28 +28,63 @@ CSS styling. REDID SOME NESTED DIVS
 .data(post.get('id'))
 
 
-<form class="post-form">
-  <ul class="errors">
-  </ul>
-    <textarea name="body"></textarea>
+def friends_posts
+  Post.find_by_sql(<<-SQL)
+    SELECT
+      *,
+      posts.id AS posts_id
 
-  <input type="submit">
-</form>
+    FROM
+      posts
+    JOIN
+      friendships
+    ON
+      posts.user_id = friendships.user_id
+    WHERE
+      (friendships.approved = true) AND (friendships.friend_id = #{self.id})
+  SQL
+end
+
+#{self.id})
+OR posts.user_id = friendships.friend_id
 
 
 
+SELECT
+  *
+FROM
+  posts
+JOIN
+  friendships
+ON
+  posts.user_id = friendships.user_id
+WHERE
+  (friendships.approved = true)
+      AND
+    ((friendships.friend_id = 4)
+      OR
+    (friendships.user_id = 4))
 
-<div class="approve_friend">
-  <button>Approve Friend</button>
-</div>
-
-<div class="deny_friend">
-  <button>Deny Friend</button>
-</div>
-
- <p class='request_sent'>Friend Request Sent.</p>
 
 
-<div class="add_friend">
-  <button>Add Friend</button>
-</div>
+    SELECT
+      *
+    FROM
+      posts
+    JOIN
+      friendships
+    ON
+      posts.user_id = friendships.user_id
+
+    JOIN
+      (
+
+      SELECT
+        *
+      FROM
+        posts
+      JOIN
+        friendships
+      ON
+        posts.user_id = friendships.friend_id
+      ) AS other_posts

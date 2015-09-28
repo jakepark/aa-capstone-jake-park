@@ -5,11 +5,13 @@
 
 <ul class='posts'>
   <% posts.each(function (post) { %>
+  <a href='#/users/<%= post.escape('author_id') %>'>
     <li>
     <%= users.getOrFetch(post.escape('author_id')).get('name_first') %>:
       <%= post.escape('body') %>
 
     </li>
+    </a>
   <% }); %>
 </ul>
 </div>
