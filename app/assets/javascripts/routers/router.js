@@ -22,7 +22,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     "users/:id": "show",
     "users/:id/edit": "edit",
     "session/new": "signIn",
-    "posts": "posts"
+    "users": "users_index"
   },
 
   edit: function (id) {
@@ -36,31 +36,40 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-
-
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-    var view = new myfacebook.Views.UsersIndex({
-      collection: this.collection
-    });
-    this._swapView(view);
-  },
-
-  posts: function () {
-    var callback = this.index.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
     var collection = new myfacebook.Collections.Posts();
     collection.fetch();
     var users = new myfacebook.Collections.Users();
     users.fetch();
-
 
     var view = new myfacebook.Views.PostsIndex({
       collection: collection,
       users: users
     });
     this._swapView(view);
+  },
+
+  // index: function () {
+  //   var callback = this.index.bind(this);
+  //   if (!this._requireSignedIn(callback)) { return; }
+  //
+  //   var view = new myfacebook.Views.UsersIndex({
+  //     collection: this.collection
+  //   });
+  //   this._swapView(view);
+  // },
+
+
+  users_index: function () {
+    var callback = this.index.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+      var view = new myfacebook.Views.UsersIndex({
+        collection: this.collection
+      });
+      this._swapView(view);
   },
 
   new: function(){
