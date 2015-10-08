@@ -23,13 +23,19 @@
 
 
 .index-post-form  {
-  padding: 20px 0 0 0;
-
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   width: 500px;
   float: left;
   display: block;
+  background-color: white;
+  border: 2px solid #dfe3ee;
+  border-radius: 5px;
+}
 
+.index-post-form h3 {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0 10px 20px;
 }
 
 .index-post-area  {
@@ -39,8 +45,9 @@
   height: 60px;
   width: 460px;
   background-color: white;
-  border: 2px solid #dfe3ee;
-  border-radius: 5px;
+  border-top: 2px solid #dfe3ee;
+  border-bottom: 2px solid #dfe3ee;
+
 }
 
 
@@ -51,7 +58,7 @@
   font-size: 18px;
   font-weight: bold;
   padding: 6px 16px;
-  margin: 20px 0 0 0;
+  margin: 20px 10px -7px 0;
   position: relative;
   top: -20px;
   border-radius: 5px;
@@ -90,6 +97,7 @@
 .index-author-preview-name {
   margin: 10px;
   text-transform: capitalize;
+  font-weight: bold;
 }
 
 .index-author-preview-name:hover {
