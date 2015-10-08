@@ -75,7 +75,7 @@ body {
 
 
 .friends_list_pics img {
-  
+
   width: 60px;
   height: 60px;
 }
@@ -85,21 +85,26 @@ a span {
 
 }
 
-
-.header-nav-right > li {
+.header-nav-right a {
   display: block;
   float: left;
   font-size: 12px;
   margin: 25px 0 0 0;
   padding: 10px 10px;
+  /*border: 1px solid green;*/
+}
 
+.header-nav-right a:hover {
+  background-color: #293e6a;
+}
 
+.header-nav-right > li {
 
 }
 
 
 .header-nav-right > li:hover {
-  background-color: #293e6a;
+
 }
 
 .log_in_email {
