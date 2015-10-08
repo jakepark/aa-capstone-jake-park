@@ -10,6 +10,10 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
 
   },
 
+  events: {
+    "submit .index-post-form": "addPost",
+  },
+
   render: function () {
     // debugger
     var view = this.template({
@@ -18,6 +22,24 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
     })
     this.$el.html(view).addClass('content-container group');
     return this;
-  }
+  },
+
+
+  addPost: function (event) {
+    event.preventDefault();
+
+    var attrs = $(event.currentTarget).serializeJSON();
+
+    var post = new myfacebook.Models.Post();
+
+    post.set(attrs);
+    post.save({}, {
+      success: function () {
+        Backbone.history.loadUrl()
+      },
+    });
+
+    this.render();
+  },
 
 });

@@ -20,7 +20,7 @@ myfacebook is a clone of Facebook built on Rails and Backbone. Users can:
 - [x] Remove Friend
 - [x] View Friend profile
 - [x] Create profile posts
-
+- [x] View Friend's posts as Newsfeed
 
 ## Design Docs
 * [View Wireframes][views]
@@ -65,31 +65,9 @@ see after logging in.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Profiles (~2 days)
-I'll need to add `search` routes to the Profiles controller. On
-the Backbone side, there will be a `SearchResults` composite view with a
-`ProfilesIndex` subview. These views will use plain old `profiles` collections,
-but they will fetch from the new `search` routes.
-
-[Details][phase-five]
-
-### Bonus Features (TBD)
-
-- [ ] Search for Friends by Name
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Tag profile posts
-- [ ] Search for posts by tag
-- [ ] "Like" button and counter for posts
-- [ ] View a feed of subscribed accounts
-- [ ] Poke notification feature; no discernible use case
-- [ ] Custom profile urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, taggings)
-- [ ] Multiple sessions/session management
 
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
