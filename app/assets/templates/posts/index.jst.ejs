@@ -1,17 +1,36 @@
 
-<div class='posts-index'>
+<div class='index'>
   <h3>Newsfeed</h3>
 
 
-<ul class='posts'>
-  <% posts.each(function (post) { %>
-  <a href='#/users/<%= post.escape('author_id') %>'>
-    <li>
-    <%= users.getOrFetch(post.escape('author_id')).get('name_first') %>:
-      <%= post.escape('body') %>
+    <form class="index-post-form group">
+      <ul class="errors">
+      </ul>
+        <textarea name="body" class="index-post-area" placeholder="What's on your mind?"></textarea>
 
-    </li>
-    </a>
+      <input type="submit" class="index-post-submit" value="Post">
+    </form>
+
+
+
+<ul class='index-posts group'>
+  <% posts.each(function (post) { %>
+
+    <div class="index-post">
+
+      <div class="index-author group">
+        <a href='#/users/<%= post.escape('author_id') %>'>
+        <img class="index-author-preview" src="<%=users.getOrFetch(post.escape('author_id')).get('image_url')%>"></img></a>
+        <a class="index-author-preview-name" href='#/users/<%= post.escape('author_id') %>'>
+        <%= users.getOrFetch(post.escape('author_id')).get('name_first') %>
+        <%= users.getOrFetch(post.escape('author_id')).get('name_last') %></a>
+      </div>
+
+
+      <li><%= post.escape('body') %></li>
+
+    </div>
+
   <% }); %>
 </ul>
 </div>

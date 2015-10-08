@@ -1,0 +1,120 @@
+.index {
+  /*width: 500px;
+  float: left;*/
+}
+
+.index-posts {
+  width: 500px;
+  /*float: left;*/
+  font-weight: lighter;
+}
+
+.index-display {
+  background-color: #e3e3e3;
+  width: 260px;
+  margin: 0 5px;
+  border-radius: 3px;
+  max-height: 100%;
+  padding: 4px 3px 3px;
+  border: 1px solid gray;
+  display: block;
+  border: 10px solid red;
+}
+
+
+.index-post-form  {
+  padding: 20px 0 0 0;
+
+  margin: 0 auto;
+  width: 500px;
+  float: left;
+  display: block;
+
+}
+
+.index-post-area  {
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 20px;
+  height: 60px;
+  width: 460px;
+  background-color: white;
+  border: 2px solid #dfe3ee;
+  border-radius: 5px;
+}
+
+
+.index-post-submit {
+  border: 1px solid #dfe3ee;
+  background-color: #3b5998;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 6px 16px;
+  margin: 20px 0 0 0;
+  position: relative;
+  top: -20px;
+  border-radius: 5px;
+  float: right;
+}
+
+
+
+/*actual index post*/
+.index-post {
+  float: left;
+  border: 2px solid #dfe3ee;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  display: block;
+  width: 450px;
+  margin: 25px 25px 25px 0;
+  padding: 25px;
+}
+
+.index-author {
+  /*border: 1px solid green;*/
+}
+
+
+.index-author-preview {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    background-color: grey;
+    float: left;
+}
+
+.index-author-preview-name {
+  margin: 10px;
+  text-transform: capitalize;
+}
+
+.index-author-preview-name:hover {
+  margin: 10px;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
+/* post message */
+.index-post li {
+  /*border: 1px solid red;*/
+  margin: 10px 0 0 0;
+}
+
+
+
+
+
+.caption {
+    display: block;
+}
+
+.profile-friends-label {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 0 20px 0;
+}
