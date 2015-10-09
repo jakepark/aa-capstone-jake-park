@@ -40,6 +40,9 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
 
     var collection = new myfacebook.Collections.Posts();
+
+    collection.comparator = 'created_at';
+
     collection.fetch();
     var users = new myfacebook.Collections.Users();
     users.fetch();

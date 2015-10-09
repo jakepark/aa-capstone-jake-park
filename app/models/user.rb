@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
     Post.find_by_sql(<<-SQL)
 
       SELECT
-      *, posts.id AS posts_id, posts.user_id AS author_id
+      *, posts.id AS posts_id, posts.user_id AS author_id, posts.created_at AS posts_created_at
       FROM
       posts
       JOIN
@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
       (friendships.user_id = #{self.id}))
       UNION ALL
       SELECT
-      *, posts.id AS posts_id, posts.user_id AS author_id
+      *, posts.id AS posts_id, posts.user_id AS author_id, posts.created_at AS posts_created_at
       FROM
       posts
       JOIN
@@ -85,6 +85,42 @@ class User < ActiveRecord::Base
       (friendships.friend_id = #{self.id}))
   SQL
 end
+
+      #
+      # SELECT
+      # *, posts.id AS posts_id, posts.user_id AS author_id, posts.created_at AS posts_created_at
+      # FROM
+      # posts
+      # JOIN
+      # friendships
+      # ON
+      # posts.user_id = friendships.user_id
+      # WHERE
+      # ((posts.user_id != 6 AND friendships.approved = true)
+      # AND
+      # (friendships.friend_id = 6))
+      # OR
+      # ((posts.user_id != 6 AND friendships.approved = true)
+      # AND
+      # (friendships.user_id = 6))
+      # UNION ALL
+      # SELECT
+      # *, posts.id AS posts_id, posts.user_id AS author_id, posts.created_at AS posts_created_at
+      # FROM
+      # posts
+      # JOIN
+      # friendships
+      # ON
+      # posts.user_id = friendships.friend_id
+      # WHERE
+      # ((posts.user_id != 6 AND friendships.approved = true)
+      # AND
+      # (friendships.user_id = 6))
+      # OR
+      # ((posts.user_id != 6 AND friendships.approved = true)
+      # AND
+      # (friendships.friend_id = 6))
+
 
 # # bugged. selecting wrong cells. but fixed post ID
 #   def friends_posts
