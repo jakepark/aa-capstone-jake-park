@@ -37,16 +37,11 @@ body {
   font-weight: 700;
   padding: 20px 300px 0 0;
 
-
-
 }
 
 .header-nav-icon {
   float: left;
   font-size: 16px;
-  margin-right: 20px;
-  margin-left: 75px;
-
 
 }
 
@@ -56,6 +51,8 @@ body {
 
 .avatar_icon {
   text-transform:capitalize;
+  position: relative;
+  top: -8px;
 }
 
 .sign_in_twitter {
@@ -69,8 +66,8 @@ body {
 
 #avatar_pic {
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  width: 25px;
+  height: 25px;
 }
 
 
@@ -85,27 +82,52 @@ a span {
 
 }
 
+.header-nav-right :first-child{
+
+}
+
 .header-nav-right a {
   display: block;
   float: left;
   font-size: 12px;
-  margin: 25px 0 0 0;
+  margin: 10px 0 0 0;
   padding: 10px 10px;
   /*border: 1px solid green;*/
 }
 
-.header-nav-right a:hover {
+.header-nav a:hover {
   background-color: #293e6a;
 }
 
-.header-nav-right > li {
-
+/* logged in */
+.header-logged {
+  background: #3b5998;
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+  height: 42px;
+  /*padding: 20px;*/
 }
 
-
-.header-nav-right > li:hover {
-
+.header-nav-right-logged a {
+    display: block;
+    float: left;
+    font-size: 12px;
+    /* margin: 10px 0 0 0; */
+    padding: 5px 10px 5px 10px;
+    /* border: 1px solid green; */
 }
+
+.header-logo-logged {
+    height: 32px;
+    float: left;
+    font-size: 39px;
+    font-weight: 700;
+    padding: 0px 300px 0 0;
+}
+
+/*logged in*/
+
+
 
 .log_in_email {
   float: left;

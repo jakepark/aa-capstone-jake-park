@@ -5,29 +5,31 @@
 
     <% if (myfacebook.currentUser.isSignedIn()) { %>
 
-    <li class= "header-nav-icon">
-      <a href="#/users/<%= myfacebook.currentUser.id %>">
-
-          <img id="avatar_pic" src="<%= myfacebook.currentUser.get("image_url") %>">
-
-        <span class="avatar_icon">
-          <%= myfacebook.currentUser.escape("name_first") %></a>
-        </span>
-      </a>
-    </li>
-
     <ul class="header-nav-right">
+
+        <li class= "header-nav-right">
+      <a href="#/users/<%= myfacebook.currentUser.id %>">
+            <img id="avatar_pic" src="<%= myfacebook.currentUser.get("image_url") %>">
+          <span class="avatar_icon">
+            <%= myfacebook.currentUser.escape("name_first") %></a>
+          </span>
+      </a>
+          </li>
       <a href="#" class="gohome">
         <li class= "header-nav-right">
           Home
+          </li>
+      </a>
+      <a href="#/users">
+        <li class= "header-nav-right">
+          Find Friends
         </li>
       </a>
-      <li class= "header-nav-right">
-        <a href="#/users">Find Friends</a>
-      </li>
-      <li class= "header-nav-right">
-        <a href="#" id="sign-out-link">Sign Out</a>
-      </li>
+      <a href="#" id="sign-out-link">
+        <li class= "header-nav-right">
+          Sign Out
+        </li>
+      </a>
 
     <% } else { %>
 
