@@ -34,7 +34,13 @@
 
         </a>
 
-        <%= post.escape('posts_created_at') %>
+        <p>
+          <% var date = new Date(post.escape('posts_created_at')) %>
+          <%= date.toLocaleDateString() %>
+          at
+          <%= date.toLocaleTimeString() %>
+        </p>
+
 
   <% } %>
 

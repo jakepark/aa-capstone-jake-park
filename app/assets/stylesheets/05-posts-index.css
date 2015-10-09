@@ -85,6 +85,12 @@
   /*border: 1px solid green;*/
 }
 
+.index-post p {
+
+  float: left;
+  display: block;
+  margin: 0 50px 0 10px;
+}
 
 .index-author-preview {
     text-align: center;
@@ -95,13 +101,15 @@
 }
 
 .index-author-preview-name {
-  margin: 10px;
+  margin: 0 50px 0 10px;
   text-transform: capitalize;
+  float: left;
+  display: block;
   font-weight: bold;
 }
 
 .index-author-preview-name:hover {
-  margin: 10px;
+
   text-transform: capitalize;
   text-decoration: underline;
 }
