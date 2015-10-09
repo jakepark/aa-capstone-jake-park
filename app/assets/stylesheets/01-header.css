@@ -82,15 +82,15 @@ a span {
 
 }
 
-.header-nav-right :first-child{
-
+.header-nav-right a:first-child{
+  margin: 15px 0 0 0;
 }
 
 .header-nav-right a {
   display: block;
   float: left;
   font-size: 12px;
-  margin: 10px 0 0 0;
+  margin: 21px 0 0 0;
   padding: 10px 10px;
   /*border: 1px solid green;*/
 }
