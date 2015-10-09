@@ -227,22 +227,6 @@
     /*border: 1px solid black;*/
 }
 
-.demo {
-  padding: 20px 0 0 0;
-  color: red;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.demo_sign_up {
-  font-size: 18px;
-  color: white;
-  background-color: #62A24F;
-  padding: 10px 30px 10px 50px;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 100px;
-}
 
 .content-signup {
     /*margin:0 auto;*/

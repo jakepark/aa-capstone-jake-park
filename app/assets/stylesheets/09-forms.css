@@ -120,6 +120,26 @@
   box-shadow: none;
 }
 
+.demo {
+  padding: 20px 0 0 0;
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.demo_sign_up {
+  font-size: 18px;
+  color: white;
+  /*background-color: #62A24F;*/
+  background-color: #3b5998;
+  padding: 10px 30px 10px 50px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100px;
+}
+form#log_in_guest {
+  margin: 0 100px;
+}
 
 .log_in_form_email_guest{
   visibility: hidden;
