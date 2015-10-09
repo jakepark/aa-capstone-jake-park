@@ -10,7 +10,8 @@ myfacebook.Views.SignUp = Backbone.View.extend({
   template: JST['users/sign_up'],
 
   events: {
-    "submit form": "submit"
+    "submit #form_sign_up": "submit",
+    "submit #log_in_guest": "submitsignIn"
   },
 
   render: function(){
@@ -49,7 +50,22 @@ myfacebook.Views.SignUp = Backbone.View.extend({
     } else {
       Backbone.history.navigate("", { trigger: true });
     }
-  }
+  },
+
+  submitsignIn: function(event){
+    event.preventDefault();
+    var $form = $(event.currentTarget);
+    var formData = $form.serializeJSON().user;
+
+    myfacebook.currentUser.signIn({
+      email: formData.email,
+      password: formData.password,
+      error: function(){
+        alert("Wrong username/password combination. Please try again.");
+      }
+    });
+  },
+
 });
 
 
