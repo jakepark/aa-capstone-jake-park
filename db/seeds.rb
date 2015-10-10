@@ -51,22 +51,22 @@ f5 = Friendship.create(user_id: 6, friend_id: 4, approved: true)
 #   return posts
 # end
 
-p1 = Post.create(user_id: 1, body: "Why's he with that small mailman?")
-p2 = Post.create(user_id: 1, body: "Now, you must wear the cone of shame.")
+p1 = Post.create(user_id: 1, body: "Why's he with that small mailman?", created_at: "2015-10-04T20:11:11.158Z")
+p2 = Post.create(user_id: 1, body: "Now, you must wear the cone of shame.", created_at: "2015-10-06T20:11:11.158Z")
 
-p3 = Post.create(user_id: 2, body: "I've set my laser from stun to kill.")
-p4 = Post.create(user_id: 2, body: "¿Amigo? O enemigo?")
-p5 = Post.create(user_id: 2, body: "To infinity, and beyond!")
+p3 = Post.create(user_id: 2, body: "I've set my laser from stun to kill.", created_at: "2015-09-03T20:11:11.158Z")
+p4 = Post.create(user_id: 2, body: "¿Amigo? O enemigo?", created_at: "2015-10-08T20:11:11.158Z")
+p5 = Post.create(user_id: 2, body: "To infinity, and beyond!", created_at: "2015-10-03T20:11:11.158Z")
 
-p6 = Post.create(user_id: 3, body: "When I'm dead.")
-p7 = Post.create(user_id: 3, body: 'Tell your boss he can have my house.')
+p6 = Post.create(user_id: 3, body: "When I'm dead.", created_at: "2015-10-03T20:11:17.158Z")
+p7 = Post.create(user_id: 3, body: 'Tell your boss he can have my house.', created_at: "2015-10-03T20:11:10.158Z")
 
-p8 = Post.create(user_id: 4, body: "Squirrel!")
-p9 = Post.create(user_id: 4, body: 'I so ever do want the ball!')
-p10 = Post.create(user_id: 4, body: 'Oh boy, a ball!')
-p11 = Post.create(user_id: 4, body: 'My name is Dug. I have just met you, and I love you.')
+p8 = Post.create(user_id: 4, body: "Squirrel!", created_at: "2015-10-01T20:11:11.158Z")
+p9 = Post.create(user_id: 4, body: 'I so ever do want the ball!', created_at: "2015-10-04T20:11:13.158Z")
+p10 = Post.create(user_id: 4, body: 'Oh boy, a ball!', created_at: "2015-10-04T20:11:15.158Z")
+p11 = Post.create(user_id: 4, body: 'My name is Dug. I have just met you, and I love you.', created_at: "2015-10-07T20:11:17.158Z")
 
-p12 = Post.create(user_id: 6, body: 'I found the snipe!')
-p13 = Post.create(user_id: 6, body: "Kevin's a GIRL?")
-p14 = Post.create(user_id: 6, body: "But it's a TALKING DOG!")
-p15 = Post.create(user_id: 6, body: 'A wilderness explorer is a friend to all.')
+p12 = Post.create(user_id: 6, body: 'I found the snipe!', created_at: "2015-10-02T20:11:17.158Z")
+p13 = Post.create(user_id: 6, body: "Kevin's a GIRL?", created_at: "2015-10-04T20:11:17.158Z")
+p14 = Post.create(user_id: 6, body: "But it's a TALKING DOG!", created_at: "2015-10-06T20:11:17.158Z")
+p15 = Post.create(user_id: 6, body: 'A wilderness explorer is a friend to all.', created_at: "2015-10-07T25:10:17.158Z")
