@@ -40,10 +40,28 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
 
     var collection = new myfacebook.Collections.Posts();
-
-    collection.comparator = 'created_at';
-
     collection.fetch();
+
+    collection.comparator = function (model) {
+      return model.get('posts_created_at');
+    };
+
+    function reverseSortBy (sortByFunction) {
+      return function (left, right) {
+        var l = sortByFunction(left);
+        var r = sortByFunction(right);
+
+        if (l === void 0) return -1;
+        if (l === void 0) return 1;
+
+        return l < r ? 1 : l > r ? - 1 : 0;
+      };
+    }
+
+    collection.comparator = reverseSortBy(collection.comparator)
+
+    collection.sort();
+
     var users = new myfacebook.Collections.Users();
     users.fetch();
 
