@@ -82,6 +82,14 @@
   </form>
 
 
+  <% if (this.model.id === myfacebook.currentUser.id) {  %>
+    <div class="delete_user">
+    Really Delete Profile??
+      <button data="">Delete</button>
+    </div>
+  <% }  %>
+
+
   </div>
 
 <% } %>

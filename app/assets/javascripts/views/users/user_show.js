@@ -61,6 +61,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     this.render();
   },
 
+
+
 // !! DO NOT MESS WITH THE RENDER CODE !! //
 
   renderPublic: function () {

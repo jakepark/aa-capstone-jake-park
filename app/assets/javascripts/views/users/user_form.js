@@ -10,7 +10,9 @@ myfacebook.Views.UserForm = Backbone.View.extend({
   template: JST['users/edit'],
 
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "click .delete_user": "deleteUser",
+
   },
 
   render: function(){
@@ -43,6 +45,19 @@ myfacebook.Views.UserForm = Backbone.View.extend({
       }
     });
   },
+
+  deleteUser: function (event) {
+    event.preventDefault();
+
+    myfacebook.currentUser.signOut();
+
+    var user = this.collection.getOrFetch(this.model.id);
+    user.destroy()
+
+    Backbone.history.navigate("", { trigger: true })
+  },
+
+
 
   signInCallback: function(event){
     if(this.callback) {

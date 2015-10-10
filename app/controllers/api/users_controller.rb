@@ -39,6 +39,12 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_url
+  end
+
 
   private
 

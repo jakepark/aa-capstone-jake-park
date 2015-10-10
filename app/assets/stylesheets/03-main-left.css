@@ -314,6 +314,17 @@
   /*width: 100px;*/
 }
 
+
+.delete_user button {
+  color: black;
+  background-color: #D3D3D3;
+  padding: 10px 30px 10px 30px;
+  border: 2px dashed black;
+  border-radius: 5px;
+  /*width: 100px;*/
+}
+
+
 .submit > button {
   position: relative;
   padding: 10px 20px;
