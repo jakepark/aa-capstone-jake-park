@@ -86,8 +86,7 @@
 
 
 .hidden {
-  opacity: 0;
-  width: 0;
+  display: none;
 }
 
 .button-avatar-select {
@@ -314,16 +313,63 @@
   /*width: 100px;*/
 }
 
+/*DELETION*/
+
+.deletion {
+  font-family: 'Open Sans', sans-serif;
+  width: 400px;
+  padding: 22px 0 0 0;
+  margin: 0 auto;
+}
+
+
+.delete_unhide {
+  color: black;
+  background-color: yellow;
+  padding: 10px 30px 10px 30px;
+  border: 2px dashed black;
+  border-radius: 5px;
+  width: 200px;
+}
+
+
+.delete_modal{
+  display: none;
+}
+
+
+
+.delete_user{
+  padding: 20px;
+}
 
 .delete_user button {
   color: black;
-  background-color: #D3D3D3;
+  background-color: yellow;
   padding: 10px 30px 10px 30px;
   border: 2px dashed black;
   border-radius: 5px;
   /*width: 100px;*/
 }
 
+.cancel {
+  float: left;
+  padding: 20px;
+}
+.cancel button {
+  color: black;
+  background-color: #white;
+  padding: 10px 30px 10px 30px;
+  border: 2px solid black;
+  border-radius: 5px;
+  /*width: 100px;*/
+}
+
+.caution {
+  width:60px;
+  position: relative;
+  top: 10px;
+}
 
 .submit > button {
   position: relative;

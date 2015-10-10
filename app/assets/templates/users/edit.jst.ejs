@@ -82,14 +82,32 @@
   </form>
 
 
-  <% if (this.model.id === myfacebook.currentUser.id) {  %>
-    <div class="delete_user">
-    Really Delete Profile??
-      <button data="">Delete</button>
-    </div>
-  <% }  %>
+  </div>
 
+  <% if ((this.model.id === myfacebook.currentUser.id) && (myfacebook.currentUser.id != 4)) {  %>
+
+  <div class="deletion">
+
+
+    <div class='delete_unhide'>
+      <button name="button">Delete User</button>
+    </div>
+
+    <div id="delete_modal" class="hidden">
+      Are you sure you want to delete your account?
+      <div class='delete_user'>
+        <button id='deleteUser' data="">Delete</button>
+      </div>
+
+      <div class='cancel'>
+        <a href="#/users/<%= myfacebook.currentUser.id %>">
+          <button data="">Cancel</button>
+        </a>
+      </div>
+    </div>
 
   </div>
+  <% }  %>
+
 
 <% } %>

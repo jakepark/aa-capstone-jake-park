@@ -31,11 +31,11 @@ body {
 }
 
 .header-logo {
-  height: 64px;
+  height: 44px;
   float: left;
   font-size: 39px;
   font-weight: 700;
-  padding: 20px 300px 0 0;
+  margin: 20px 300px 20px 0;
 
 }
 

@@ -11,7 +11,8 @@ myfacebook.Views.UserForm = Backbone.View.extend({
 
   events: {
     "submit form": "submit",
-    "click .delete_user": "deleteUser",
+    "click .delete_unhide": "confirmDelete",
+    "click #deleteUser": "deleteUser",
 
   },
 
@@ -46,15 +47,31 @@ myfacebook.Views.UserForm = Backbone.View.extend({
     });
   },
 
+  confirmDelete: function (e){
+    e.preventDefault();
+    var $target = $(e.currentTarget);
+    $target.addClass('hidden')
+
+    var $body = $(document.getElementsByClassName('content-signup-edit'))
+    $body.addClass('hidden')
+
+    var $hidden = $(document.getElementById('delete_modal'))
+    $hidden.removeClass('hidden')
+
+
+  },
+
   deleteUser: function (event) {
     event.preventDefault();
-
-    myfacebook.currentUser.signOut();
-
     var user = this.collection.getOrFetch(this.model.id);
+
+    myfacebook.currentUser.signOut({
+      success: function(){
+        Backbone.history.navigate("/session/new", { trigger: true });
+      }
+    });
     user.destroy()
 
-    Backbone.history.navigate("", { trigger: true })
   },
 
 
