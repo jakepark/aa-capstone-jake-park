@@ -1,12 +1,7 @@
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 myfacebook.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
 
   initialize: function () {
-
     this.model.fetch();
 
     this.listenTo(this.model, 'sync change add destroy', this.render)
@@ -72,11 +67,17 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   renderSelfie: function () {
+
     var selfie_view = JST['users/selfie']({ user: this.model })
     this.$el.html(selfie_view).addClass("profile-main group")
 
+    var that = this;
+
     this.model.posts().forEach(function(post) {
-      var postShow = JST['posts/show']({ post: post })
+      var postShow = JST['posts/show']({
+        post: post,
+        users: that.collection
+      })
       this.$('div.profile-posts').prepend(postShow)
     })
 
