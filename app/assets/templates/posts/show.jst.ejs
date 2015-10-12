@@ -1,4 +1,6 @@
-<div class="profile-post group">
+<div class="index-post group">
+  <div class="index-author group">
+    <a href='#/users/<%= post.escape('user_id') %>'>
 
     <% var author = users.where({id: parseInt(post.escape('user_id'))}) %>
 
@@ -17,8 +19,14 @@
       at
       <%= date.toLocaleTimeString() %>
     </p>
+  </div>
 
   <%= post.escape('body') %>
+
+  <div class="post-comments">
+  </div>
+
+
   <% if (parseInt(post.get('user_id')) === myfacebook.currentUser.id) { %>
     <div class="delete_post">
       <button data="<%= post.id %>">X</button>

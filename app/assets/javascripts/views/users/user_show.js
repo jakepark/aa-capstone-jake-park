@@ -73,13 +73,32 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     var that = this;
 
+    var idx = 0;
+
+    debugger
+
     this.model.posts().forEach(function(post) {
+
       var postShow = JST['posts/show']({
         post: post,
         users: that.collection
       })
-      this.$('div.profile-posts').prepend(postShow)
+      this.$('div.index-posts').prepend(postShow)
+
+      console.log(idx);
+      idx++;
+      // if (post._comments.length > 0) {
+      //   post._comments.forEach(function(comment){
+      //     var commentShow = JST['posts/show']({
+      //       post: comment,
+      //       users: that.collection,
+      //     });
+      //     this.$('div.post-comments').append(commentShow);
+      //   })
+      // }
     })
+
+
 
     this.model.friends().forEach(function(friend) {
       var friendShow = JST['friends/show']({ friend: friend })
@@ -94,8 +113,13 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     var friend_view = JST['users/friend']({ user: this.model })
     this.$el.html(friend_view).addClass("profile-main group")
 
+    var that = this;
+
     this.model.posts().forEach(function(post) {
-      var postShow = JST['posts/show']({ post: post })
+      var postShow = JST['posts/show']({
+         post: post,
+         users: that.collection
+       })
       this.$('div.profile-posts').prepend(postShow)
     })
 
