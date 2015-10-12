@@ -3,7 +3,7 @@ myfacebook.Models.Post = Backbone.Model.extend({
 
   comments: function () {
     if (!this._comments) {
-      this._comments = new myfacebook.Collections.Items([], { post: this });
+      this._comments = new myfacebook.Collections.Comments([], { post: this });
     }
     return this._comments;
   },

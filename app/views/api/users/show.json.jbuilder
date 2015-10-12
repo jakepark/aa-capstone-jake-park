@@ -44,10 +44,12 @@ end
 json.posts @user.posts do |post|
   json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
 
-  # json.cards post.comments do |comment|
-  #   json.extract! comment, :id, :title, :ord, :created_at, :updated_at
-  # end
+  json.comments post.comments do |comment|
+    json.extract! comment, :body, :user_id, :post_id, :created_at, :updated_at
+  end
+
 end
+
 
 json.friends_posts @user.friends_posts do |post|
   json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
