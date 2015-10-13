@@ -166,8 +166,18 @@ myfacebook.Views.UserShow = Backbone.View.extend({
           var div = document.createElement('div')
           $(div).addClass('post-comments').append(commentShow);
           that.$('div.index-post').first().append(div)
+
         })
       }
+
+      var commentForm = JST['comments/form']({
+        post: post,
+        users: that.collection,
+      });
+
+      that.$('div.index-post').first().append(commentForm);
+
+
     })
 
   },
