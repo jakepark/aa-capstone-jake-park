@@ -125,12 +125,12 @@
 .comment-post {
   float: left;
   border-top: 2px solid #dfe3ee;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   background-color: white;
   color: black;
   font-size: 18px;
   display: block;
-  width: 450px;
+  width: 425px;
   /*margin: 25px 25px 25px 0;*/
   /*padding: 25px;*/
 }

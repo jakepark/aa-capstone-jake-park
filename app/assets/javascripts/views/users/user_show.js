@@ -169,6 +169,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
             // in progress
           if (parseInt(comment.get('user_id')) === myfacebook.currentUser.id) {
+            
             var $div = $(document.createElement('div'))
             $div.addClass('delete_comment')
 
@@ -176,7 +177,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
             jQuery.data($button, comment.id)
             $button.text("X")
             $div.append($button)
-            that.$('div.index-post').first().append(div)
+            that.$('div.index-post').first().append($div)
+
           }
 
         })

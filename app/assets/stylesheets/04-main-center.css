@@ -130,12 +130,12 @@
   background-color: white;
   color: #dfe3ee;
   font-weight: bold;
-  position: relative;
+  /*position: relative;
   top: -42px;
-  left: 448px;
+  left: 448px;*/
   text-align: center;
   border-radius: 3px;
-
+  float: left;
 }
 
 .profile-friends {
