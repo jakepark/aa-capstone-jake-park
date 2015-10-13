@@ -83,6 +83,17 @@ myfacebook.Models.User = Backbone.Model.extend({
     return this._posts;
   },
 
+
+  comments: function () {
+
+    if (!this._comments) {
+      this._comments = new myfacebook.Collections.Comments([], { user: this });
+    }
+
+    return this._comments;
+  },
+
+
   friends_posts: function () {
 
     if (!this._friends_posts) {
@@ -119,6 +130,11 @@ myfacebook.Models.User = Backbone.Model.extend({
     if (response.posts) {
       this.posts().set(response.posts, { parse: true });
       delete response.posts;
+    }
+
+    if (response.comments) {
+      this.comments().set(response.comments, { parse: true });
+      delete response.comments;
     }
 
     if (response.friends_posts) {
