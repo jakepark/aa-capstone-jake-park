@@ -6,7 +6,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     this.idx = 0;
     this.post = 0;
-    // debugger
+
     // this.model === user
     // // this.collection === all the users
 
@@ -17,11 +17,6 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     // this.listenTo(this.model, 'sync change add destroy', this.render)
     // this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
     // this.listenTo(this.collection, 'sync change add destroy', this.render);
-
-    // this.listenTo(this.model.friendships(), 'change add create destroy', this.model.fetch())
-    // this.listenTo(this.model, 'newAvatar', myfacebook.currentUser.fetch())
-    // this.collection = this.model.posts();     // might break new Avatar upload
-    // this.listenTo(this.model, 'sync', this.render);
   },
 
   events: {
@@ -42,7 +37,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
   addComment: function (event) {
     event.preventDefault();
-    debugger
+
     var attrs = $(event.currentTarget).serializeJSON();
 
     var comment = new myfacebook.Models.Comment();
@@ -112,13 +107,43 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     this.$el.html(selfie_view).addClass("profile-main group")
 
     var that = this;
-
-
-
     this.showPosts(that);
     this.showFriends(that);
     return this;
   },
+
+  renderFriend: function () {
+    var friend_view = JST['users/friend']({ user: this.model })
+    this.$el.html(friend_view).addClass("profile-main group")
+
+    var that = this;
+
+    this.showPosts(that);
+    this.showFriends(that);
+
+    return this;
+  },
+
+  render: function () {
+
+    var view = this.template({ user: this.model })
+
+
+    // // if this is the currentUser page
+    if (parseInt(this.model.id) === myfacebook.currentUser.id) {
+      return this.renderSelfie();
+    // // if this userPage is a friendOf currentUser
+    } else if ( this.isFriend() ){
+      return this.renderFriend();
+    } else {
+      return this.renderPublic();
+    }
+
+    return this;
+  },
+  // !! END OF RENDER CODE !! //
+
+
 
   showPosts: function (that) {
     that.model.posts().forEach(function(post) {
@@ -154,47 +179,6 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     })
 
   },
-
-  renderFriend: function () {
-
-    var friend_view = JST['users/friend']({ user: this.model })
-    this.$el.html(friend_view).addClass("profile-main group")
-
-    var that = this;
-
-    this.model.posts().forEach(function(post) {
-      var postShow = JST['posts/show']({
-         post: post,
-         users: that.collection
-       })
-      this.$('div.profile-posts').prepend(postShow)
-    })
-
-    this.model.friends().forEach(function(friend) {
-      var friendShow = JST['friends/show']({ friend: friend })
-      this.$('div.profile-friends').append(friendShow)
-    })
-
-    return this;
-  },
-
-  render: function () {
-
-    var view = this.template({ user: this.model })
-
-
-    // // if this is the currentUser page
-    if (parseInt(this.model.id) === myfacebook.currentUser.id) {
-      return this.renderSelfie();
-    // // if this userPage is a friendOf currentUser
-    } else if ( this.isFriend() ){
-      return this.renderFriend();
-    } else {
-      return this.renderPublic();
-    }
-
-    return this;
-  },   // End of render code //
 
   isFriend: function () {
     if (this.model.friends().findWhere({
