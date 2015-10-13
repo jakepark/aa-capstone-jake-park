@@ -10,6 +10,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     // this.model === user
     // // this.collection === all the users
 
+
     this.listenTo(this.model, 'change', this.render)
     this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
     this.listenTo(this.model.comments(), 'sync destroy', this.render)
@@ -55,21 +56,26 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   deleteComment: function (event) {
     event.preventDefault();
 
-    debugger
+    var target_id = $(event.target).attr('data')
+    var comments = this.model.comments()
+    var comment = this.model.comments().getOrFetch(target_id);
+
     if (confirm("Are you sure you want to delete this comment?")){
-      var target_id = $(event.target).attr('data')
-      var comment = this.model.comments().getOrFetch(target_id);
-
+      comments.remove(comment);
       comment.destroy();
-
-      this.model.fetch();
-      this.model.posts().fetch();
-
-      this.collection.fetch();
-
     }
 
-    // this.render();
+    var posts = this.model.posts()
+    var post = this.model.posts().getOrFetch(comment.get('post_id'))
+    post.comments().remove(comment)
+
+    // debugger
+    // this.model.posts().fetch({
+    //   success: function(){
+    //     debugger
+    //   }
+    // });
+    this.render();
   },
 
   addPost: function (event) {
@@ -117,6 +123,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     this.$el.html(selfie_view).addClass("profile-main group")
 
     var that = this;
+
+
     this.showPosts(that);
     this.showFriends(that);
     return this;
@@ -156,6 +164,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
 
   showPosts: function (that) {
+
     that.model.posts().forEach(function(post) {
       var postShow = JST['posts/show']({
         post: post,
@@ -167,8 +176,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
       if (post.comments().length > 0) {
         // debugger
-        post.comments().forEach(function(comment){
 
+        post.comments().forEach(function(comment){
           // console.log("comment: " + that.idx);
           // that.idx++;
           var commentShow = JST['comments/show']({
@@ -192,10 +201,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
             $button.text("X")
             $div.append($button)
             that.$('div.index-post').first().append($div)
-
           }
-
-        })
+        });
       }
 
       var commentForm = JST['comments/form']({
