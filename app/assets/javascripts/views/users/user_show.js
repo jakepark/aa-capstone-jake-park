@@ -4,9 +4,15 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   initialize: function () {
     this.model.fetch();
 
-    this.listenTo(this.model, 'sync change add destroy', this.render)
-    this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
-    this.listenTo(this.collection, 'sync change add destroy', this.render);
+
+    this.listenTo(this.model, 'change add destroy', this.render)
+    this.listenTo(this.model.posts(), 'change add destroy', this.render)
+    this.listenTo(this.collection, 'change add destroy', this.render);
+
+    // this.listenTo(this.model, 'sync change add destroy', this.render)
+    // this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
+    // this.listenTo(this.collection, 'sync change add destroy', this.render);
+
     // this.listenTo(this.model.friendships(), 'change add create destroy', this.model.fetch())
     // this.listenTo(this.model, 'newAvatar', myfacebook.currentUser.fetch())
     // this.collection = this.model.posts();     // might break new Avatar upload
@@ -66,29 +72,29 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     return this;
   },
 
-  renderSelfie: function () {
 
+  renderSelfie: function () {
     var selfie_view = JST['users/selfie']({ user: this.model })
     this.$el.html(selfie_view).addClass("profile-main group")
 
     var that = this;
 
-    var idx = 0;
+    this.showPosts(that);
+    this.showFriends(that);
+    return this;
+  },
 
-    debugger
+  showPosts: function (that) {
 
-    this.model.posts().forEach(function(post) {
-
+    that.model.posts().forEach(function(post) {
       var postShow = JST['posts/show']({
         post: post,
         users: that.collection
       })
-      this.$('div.index-posts').prepend(postShow)
+      that.$('div.index-posts').prepend(postShow)
 
-      console.log(idx);
-      idx++;
-      // if (post._comments.length > 0) {
-      //   post._comments.forEach(function(comment){
+      // if (post.comments().length > 0) {
+      //   post.comments().forEach(function(comment){
       //     var commentShow = JST['posts/show']({
       //       post: comment,
       //       users: that.collection,
@@ -98,14 +104,14 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       // }
     })
 
+  },
 
-
-    this.model.friends().forEach(function(friend) {
+  showFriends: function (that) {
+    that.model.friends().forEach(function(friend) {
       var friendShow = JST['friends/show']({ friend: friend })
-      this.$('div.profile-friends').append(friendShow)
+      that.$('div.profile-friends').append(friendShow)
     })
 
-    return this;
   },
 
   renderFriend: function () {
