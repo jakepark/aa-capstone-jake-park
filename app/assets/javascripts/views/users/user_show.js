@@ -36,8 +36,37 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     "click .edit_profile": "goEdit",
     "submit .post-form": "addPost",
     "click .delete_post": "deletePost",
+    "submit .comment-form": "addComment",
+    "click .delete_comment": "deleteComment",
+
+  },
+  addComment: function (event) {
+    event.preventDefault();
+    debugger
+    var attrs = $(event.currentTarget).serializeJSON();
+
+    var comment = new myfacebook.Models.Comment();
+
+    comment.set(attrs);
+    comment.save({}, {
+      success: function () {
+        Backbone.history.loadUrl()
+      },
+    });
+
+    this.render();
   },
 
+  deleteComment: function (event) {
+    event.preventDefault();
+
+
+    var target_id = $(event.target).attr('data')
+    var comment = this.model.comments().getOrFetch(target_id);
+    comment.destroy()
+
+    this.render();
+  },
 
   addPost: function (event) {
     event.preventDefault();
@@ -153,7 +182,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     var view = this.template({ user: this.model })
 
-    
+
     // // if this is the currentUser page
     if (parseInt(this.model.id) === myfacebook.currentUser.id) {
       return this.renderSelfie();

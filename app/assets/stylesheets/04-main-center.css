@@ -44,6 +44,40 @@
 }
 
 
+.comment-form  {
+  padding: 20px 0 0 0;
+  margin: 0 auto;
+  width: 500px;
+  float: left;
+  display: block;
+
+}
+
+.comment-area  {
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 20px;
+  height: 30px;
+  width: 460px;
+  background-color: white;
+  border: 2px solid #dfe3ee;
+  border-radius: 5px;
+}
+.comment-submit {
+  border: 1px solid #dfe3ee;
+  background-color: #3b5998;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 6px 16px;
+  margin: 20px 0 0 0;
+  position: relative;
+  top: -20px;
+  border-radius: 5px;
+  float: right;
+}
+
+
 /*this button is margin moved from the red post-form container*/
 
 .post-submit {
