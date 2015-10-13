@@ -39,7 +39,6 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.currentTarget).serializeJSON();
-
     var comment = new myfacebook.Models.Comment();
 
     comment.set(attrs);
@@ -55,8 +54,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   deleteComment: function (event) {
     event.preventDefault();
 
-
     var target_id = $(event.target).attr('data')
+
     var comment = this.model.comments().getOrFetch(target_id);
     comment.destroy()
 
@@ -156,6 +155,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       that.$('div.index-posts').prepend(postShow)
       if (post.comments().length > 0) {
         post.comments().forEach(function(comment){
+
           // console.log("comment: " + that.idx);
           // that.idx++;
           var commentShow = JST['comments/show']({
@@ -166,6 +166,18 @@ myfacebook.Views.UserShow = Backbone.View.extend({
           var div = document.createElement('div')
           $(div).addClass('post-comments').append(commentShow);
           that.$('div.index-post').first().append(div)
+
+            // in progress
+          if (parseInt(comment.get('user_id')) === myfacebook.currentUser.id) {
+            var $div = $(document.createElement('div'))
+            $div.addClass('delete_comment')
+
+            var $button = $(document.createElement('button'))
+            jQuery.data($button, comment.id)
+            $button.text("X")
+            $div.append($button)
+            that.$('div.index-post').first().append(div)
+          }
 
         })
       }

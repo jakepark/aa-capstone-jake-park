@@ -124,8 +124,19 @@
 
 }
 
+.delete_comment {
+  width: 20px;
+  border: 1px solid #dfe3ee;
+  background-color: white;
+  color: #dfe3ee;
+  font-weight: bold;
+  position: relative;
+  top: -42px;
+  left: 448px;
+  text-align: center;
+  border-radius: 3px;
 
-
+}
 
 .profile-friends {
   width: 225px;

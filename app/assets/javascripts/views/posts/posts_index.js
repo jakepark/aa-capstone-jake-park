@@ -2,7 +2,7 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
   template: JST['posts/index'],
 
   initialize: function (options) {
-    
+
     this.users = options.users
     this.users.fetch();
 
@@ -14,6 +14,9 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
 
   events: {
     "submit .index-post-form": "addPost",
+
+    "submit .comment-form": "addComment",
+    "click .delete_comment": "deleteComment",
   },
 
   render: function () {
@@ -26,6 +29,33 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
     return this;
   },
 
+  addComment: function (event) {
+    event.preventDefault();
+
+    var attrs = $(event.currentTarget).serializeJSON();
+
+    var comment = new myfacebook.Models.Comment();
+
+    comment.set(attrs);
+    comment.save({}, {
+      success: function () {
+        Backbone.history.loadUrl()
+      },
+    });
+
+    this.render();
+  },
+
+  deleteComment: function (event) {
+    event.preventDefault();
+
+
+    var target_id = $(event.target).attr('data')
+    var comment = this.model.comments().getOrFetch(target_id);
+    comment.destroy()
+
+    this.render();
+  },
 
   addPost: function (event) {
     event.preventDefault();
