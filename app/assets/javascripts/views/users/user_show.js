@@ -4,10 +4,15 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   initialize: function () {
     this.model.fetch();
 
+    this.idx = 0;
+    this.post = 0;
+    // debugger
+    // this.model === user
+    // // this.collection === all the users
 
-    this.listenTo(this.model, 'change add destroy', this.render)
-    this.listenTo(this.model.posts(), 'change add destroy', this.render)
-    this.listenTo(this.collection, 'change add destroy', this.render);
+    // this.listenTo(this.model, 'change', this.render)
+    // this.listenTo(this.model.posts(), 'change add destroy', this.render)
+    // this.listenTo(this.collection, 'change add destroy', this.render);
 
     // this.listenTo(this.model, 'sync change add destroy', this.render)
     // this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
@@ -79,6 +84,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     var that = this;
 
+
+
     this.showPosts(that);
     this.showFriends(that);
     return this;
@@ -87,21 +94,35 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   showPosts: function (that) {
 
     that.model.posts().forEach(function(post) {
+
       var postShow = JST['posts/show']({
         post: post,
         users: that.collection
       })
+      console.log("post: " + that.post);
+      that.post++;
       that.$('div.index-posts').prepend(postShow)
 
-      // if (post.comments().length > 0) {
-      //   post.comments().forEach(function(comment){
-      //     var commentShow = JST['posts/show']({
-      //       post: comment,
-      //       users: that.collection,
-      //     });
-      //     this.$('div.post-comments').append(commentShow);
-      //   })
-      // }
+      if (post.comments().length > 0) {
+
+        post.comments().forEach(function(comment){
+
+          console.log("comment: " + that.idx);
+          that.idx++;
+
+          var commentShow = JST['posts/show']({
+            post: comment,
+            users: that.collection,
+          });
+
+          var div = document.createElement('div')
+          $(div).addClass('post-comments').append(commentShow);
+          
+          that.$('div.index-post').first().append(div)
+
+          // that.$('div.post-comments').append(commentShow);
+        })
+      }
     })
 
   },

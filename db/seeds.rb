@@ -64,9 +64,12 @@ p7 = Post.create(user_id: 3, body: 'Tell your boss he can have my house.', creat
 p8 = Post.create(user_id: 4, body: "Squirrel!", created_at: "2015-10-01T20:11:11.158Z")
 p9 = Post.create(user_id: 4, body: 'I so ever do want the ball!', created_at: "2015-10-04T20:11:13.158Z")
 p10 = Post.create(user_id: 4, body: 'Oh boy, a ball!', created_at: "2015-10-04T20:11:15.158Z")
-p11 = Post.create(user_id: 4, body: 'My name is Dug. I have just met you, and I love you.', created_at: "2015-10-07T20:11:17.158Z")
+p11 = Post.create(user_id: 4, body: 'My name is Dug. I have just met you, and I love you.', created_at: "2015-10-06T20:07:17.158Z")
 
 p12 = Post.create(user_id: 6, body: 'I found the snipe!', created_at: "2015-10-02T20:11:17.158Z")
 p13 = Post.create(user_id: 6, body: "Kevin's a GIRL?", created_at: "2015-10-04T20:11:17.158Z")
-p14 = Post.create(user_id: 6, body: "But it's a TALKING DOG!", created_at: "2015-10-06T20:11:17.158Z")
-p15 = Post.create(user_id: 6, body: 'A wilderness explorer is a friend to all.', created_at: "2015-10-07T25:10:17.158Z")
+p14 = Post.create(user_id: 6, body: 'A wilderness explorer is a friend to all.', created_at: "2015-10-07T25:10:17.158Z")
+
+c1 = Comment.create(user_id: 6, post_id: 11, body: "Can we keep him?", created_at: "2015-10-06T20:09:17.158Z")
+c2 = Comment.create(user_id: 3, post_id: 11, body: "No.", created_at: "2015-10-06T20:10:17.158Z")
+c3 = Comment.create(user_id: 6, post_id: 11, body: "But it's a TALKING DOG!", created_at: "2015-10-06T20:11:17.158Z")
