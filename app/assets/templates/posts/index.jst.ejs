@@ -6,9 +6,15 @@
 
       <ul class="errors">
       </ul>
-        <textarea name="body" class="index-post-area" placeholder="What's on your mind?"></textarea>
 
-      <input type="submit" class="index-post-submit" value="Post">
+      <div class="author-post">
+        <img id="currentUser-preview" src="<%= myfacebook.currentUser.get("image_url") %>">
+        <textarea name="body" class="index-post-area" placeholder="What's on your mind?"></textarea>
+      </div>
+
+      <div class="submit-row">
+        <input type="submit" class="index-post-submit" value="Post">
+      </div>
     </form>
 
 

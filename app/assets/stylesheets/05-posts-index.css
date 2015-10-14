@@ -36,6 +36,11 @@
   font-size: 18px;
   font-weight: bold;
   padding: 10px 0 10px 20px;
+    border-bottom: 2px solid #dfe3ee;
+}
+
+.author-post {
+  overflow: hidden;
 }
 
 .index-post-area  {
@@ -43,13 +48,17 @@
   padding: 20px;
   font-size: 20px;
   height: 60px;
-  width: 460px;
+  width: 380px;
   background-color: white;
-  border-top: 2px solid #dfe3ee;
-  border-bottom: 2px solid #dfe3ee;
+  /* border-top: 2px solid #dfe3ee; */
+  /*border-bottom: 2px solid #dfe3ee;*/
+  float: left;
 
 }
 
+.submit-row {
+   border-top: 2px solid #dfe3ee;
+}
 
 .index-post-submit {
   border: 1px solid #dfe3ee;
@@ -58,9 +67,9 @@
   font-size: 18px;
   font-weight: bold;
   padding: 6px 16px;
-  margin: 20px 10px -7px 0;
+  /*margin: 20px 10px -7px 0;
   position: relative;
-  top: -20px;
+  top: -20px;*/
   border-radius: 5px;
   float: right;
 }
@@ -99,6 +108,16 @@
     height: 50px;
     background-color: grey;
     float: left;
+    /*margin: 20px 0 0 20px;*/
+}
+
+#currentUser-preview {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  background-color: grey;
+  float: left;
+  margin: 20px 0 0 20px;
 }
 
 .index-author-preview-name {
