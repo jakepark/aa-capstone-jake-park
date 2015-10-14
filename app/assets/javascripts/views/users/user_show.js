@@ -66,8 +66,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     if (confirm("Are you sure you want to delete this comment?")){
       comments.remove(comment);
-      comment.destroy();
       post.comments().remove(comment)
+      comment.destroy();
     }
 
 
@@ -103,7 +103,10 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     if (confirm("Are you sure you want to delete this post?")){
       var target_id = $(event.target).attr('data')
+      // var posttest = this.model.posts().get("42")
+      // posttest.destroy();
       var post = this.model.posts().getOrFetch(target_id);
+      debugger
       post.destroy()
     }
 
@@ -178,7 +181,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       that.$('div.index-posts').prepend(postShow)
 
       if (post.comments().length > 0) {
-        
+
 
         post.comments().forEach(function(comment){
           // console.log("comment: " + that.idx);

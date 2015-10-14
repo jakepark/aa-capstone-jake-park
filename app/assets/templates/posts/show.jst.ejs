@@ -3,7 +3,7 @@
     <a href='#/users/<%= post.escape('user_id') %>'>
 
     <% var author = users.where({id: parseInt(post.escape('user_id'))}) %>
-
+    < debugger >
     <img class="index-author-preview" src="<%=author[0].attributes['image_url']%>"></img></a>
 
     <a class="index-author-preview-name" href='#/users/<%= post.escape('user_id') %>'>
@@ -28,8 +28,8 @@
 
 
   <% if (parseInt(post.get('user_id')) === myfacebook.currentUser.id) { %>
-    <div class="delete_post" data="<%= post.id %>">
-      <button class="delete_post_button" >X</button>
+    <div class="delete_post" >
+      <button class="delete_post_button" data="<%= post.id %>">X</button>
     </div>
   <% } %>
 
