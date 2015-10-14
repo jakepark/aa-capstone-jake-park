@@ -57,29 +57,43 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     event.preventDefault();
 
 
-
+    // these callbacks are refreshing the friends view with old data..
     var target_id = $(event.target).attr('data')
     var comments = this.model.comments()
     var comment = this.model.comments().getOrFetch(target_id);
-    var posts = this.model.posts()
-    var post = this.model.posts().getOrFetch(comment.get('post_id'))
 
     if (confirm("Are you sure you want to delete this comment?")){
+      var posts = this.model.posts()
+      var post = this.model.posts().getOrFetch(comment.get('post_id'))
+
       comments.remove(comment);
       post.comments().remove(comment)
+      // // var target_id = $(event.target).attr('data')
+      // var comment = this.model.comments().getOrFetch(target_id);
       comment.destroy();
     }
-
-
-
-    // debugger
-    // this.model.posts().fetch({
-    //   success: function(){
-    //     debugger
-    //   }
-    // });
     this.render();
   },
+
+  // deleteComment: function (event) {
+  //   event.preventDefault();
+  //
+  //
+  //   // these callbacks are refreshing the friends view with old data..
+  //   // var target_id = $(event.target).attr('data')
+  //   // var comments = this.model.comments()
+  //   // var comment = this.model.comments().getOrFetch(target_id);
+  //   // var posts = this.model.posts()
+  //   // var post = this.model.posts().getOrFetch(comment.get('post_id'))
+  //
+  //   if (confirm("Are you sure you want to delete this comment?")){
+  //     comments.remove(comment);
+  //     post.comments().remove(comment)
+  //     comment.destroy();
+  //   }
+  //   this.render();
+  // },
+
 
   addPost: function (event) {
     event.preventDefault();
@@ -106,7 +120,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       // var posttest = this.model.posts().get("42")
       // posttest.destroy();
       var post = this.model.posts().getOrFetch(target_id);
-      
+
       post.destroy()
     }
 
@@ -137,6 +151,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   renderFriend: function () {
+
     var friend_view = JST['users/friend']({ user: this.model })
     this.$el.html(friend_view).addClass("profile-main group")
 
@@ -224,6 +239,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   showFriends: function (that) {
+    debugger
     that.model.friends().forEach(function(friend) {
       var friendShow = JST['friends/show']({ friend: friend })
       that.$('div.profile-friends').append(friendShow)
