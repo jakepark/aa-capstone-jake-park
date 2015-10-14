@@ -28,8 +28,8 @@
 
 
   <% if (parseInt(post.get('user_id')) === myfacebook.currentUser.id) { %>
-    <div class="delete_post">
-      <button data="<%= post.id %>">X</button>
+    <div class="delete_post" data="<%= post.id %>">
+      <button class="delete_post_button" >X</button>
     </div>
   <% } %>
 

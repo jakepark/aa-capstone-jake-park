@@ -7,24 +7,21 @@ myfacebook.Collections.Posts = Backbone.Collection.extend({
     // this.user = options.user
   },
 
-  getOrFetch: function (model) {
-    var post = this.get(model);
-    var posts = this;
-
-    if (post) {
-      post.fetch();
-    } else {
-      post = model;
-      posts.add(post);
+  getOrFetch: function (id) {
+    var post = this.get(id),
+      posts = this;
+    if (!post) {
+      post = new myfacebook.Models.Post({ id: id });
       post.fetch({
-        error: function () {
-          posts.remove(post);
-        }
-      })
+        success: function () {
+          posts.add(post);
+        },
+      });
+    } else {
+      post.fetch();
     }
-    return post
+    return post;
   }
-
 });
 
 myfacebook.Collections.posts = new myfacebook.Collections.Posts

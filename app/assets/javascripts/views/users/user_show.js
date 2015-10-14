@@ -11,7 +11,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     // // this.collection === all the users
 
 
-    this.listenTo(this.model, 'change', this.render)
+    this.listenTo(this.model, 'sync change add destroy', this.render)
     this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
     this.listenTo(this.model.comments(), 'sync destroy', this.render)
     this.listenTo(this.collection, 'change add destroy', this.render);
@@ -32,9 +32,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     "click .header-logo": "goHome",
     "click .edit_profile": "goEdit",
     "submit .post-form": "addPost",
-    "click .delete_post": "deletePost",
+    "click .delete_post_button": "deletePost",
     "submit .comment-form": "addComment",
-    "click .delete_comment": "deleteComment",
+    "click .delete_comment_button": "deleteComment",
 
   },
   addComment: function (event) {
@@ -56,18 +56,21 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   deleteComment: function (event) {
     event.preventDefault();
 
+
+
     var target_id = $(event.target).attr('data')
     var comments = this.model.comments()
     var comment = this.model.comments().getOrFetch(target_id);
+    var posts = this.model.posts()
+    var post = this.model.posts().getOrFetch(comment.get('post_id'))
 
     if (confirm("Are you sure you want to delete this comment?")){
       comments.remove(comment);
       comment.destroy();
+      post.comments().remove(comment)
     }
 
-    var posts = this.model.posts()
-    var post = this.model.posts().getOrFetch(comment.get('post_id'))
-    post.comments().remove(comment)
+
 
     // debugger
     // this.model.posts().fetch({
@@ -175,7 +178,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       that.$('div.index-posts').prepend(postShow)
 
       if (post.comments().length > 0) {
-        // debugger
+        
 
         post.comments().forEach(function(comment){
           // console.log("comment: " + that.idx);
@@ -196,7 +199,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
             $div.addClass('delete_comment')
 
             var $button = $(document.createElement('button'))
-            $button.attr('data', comment.id)
+            $button.attr('data', comment.id).addClass('delete_comment_button')
 
             $button.text("X")
             $div.append($button)
