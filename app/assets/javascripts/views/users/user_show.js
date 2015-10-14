@@ -106,7 +106,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
       // var posttest = this.model.posts().get("42")
       // posttest.destroy();
       var post = this.model.posts().getOrFetch(target_id);
-      debugger
+      
       post.destroy()
     }
 
