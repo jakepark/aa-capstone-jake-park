@@ -68,6 +68,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
       comments.remove(comment);
       post.comments().remove(comment)
+
       // // var target_id = $(event.target).attr('data')
       // var comment = this.model.comments().getOrFetch(target_id);
       comment.destroy();
@@ -75,9 +76,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     this.render();
   },
 
-  // deleteComment: function (event) {
-  //   event.preventDefault();
-  //
+  // deleteComm
   //
   //   // these callbacks are refreshing the friends view with old data..
   //   // var target_id = $(event.target).attr('data')
@@ -164,7 +163,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-
+    debugger
     var view = this.template({ user: this.model })
 
 
@@ -175,6 +174,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     } else if ( this.isFriend() ){
       return this.renderFriend();
     } else {
+
       return this.renderPublic();
     }
 
@@ -239,7 +239,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   showFriends: function (that) {
-    debugger
+    // debugger
     that.model.friends().forEach(function(friend) {
       var friendShow = JST['friends/show']({ friend: friend })
       that.$('div.profile-friends').append(friendShow)

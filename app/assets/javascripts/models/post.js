@@ -5,7 +5,12 @@ myfacebook.Models.Post = Backbone.Model.extend({
     if (!this._comments) {
       this._comments = new myfacebook.Collections.Comments([], { post: this });
     }
-    return this._comments;
+
+    this._comments.comparator = function (model) {
+      return model.get('created_at');
+    };
+
+    return this._comments.sort();
   },
 
   parse: function (resp) {
