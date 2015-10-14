@@ -152,7 +152,7 @@ div.profile-friend {
     display: inline-block;
     text-align: center;
     width: 100px;
-    margin: 0 0 20px 0;
+    /*margin: 0 0 20px 0;*/
 }
 .profile_pic_friend img {
     text-align: center;
@@ -161,7 +161,10 @@ div.profile-friend {
     background-color: grey;
 }
 .caption {
-    display: block;
+  display: block;
+  position: relative;
+  top: -30px;
+  font-size: 12px;
 }
 
 .profile-friends-label {
