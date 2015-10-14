@@ -65,11 +65,11 @@
 }
 .comment-submit {
   border: 1px solid #dfe3ee;
-  background-color: #3b5998;
+  background-color: #8b9dc3;
   color: white;
   font-size: 18px;
   font-weight: bold;
-  padding: 6px 16px;
+  padding: 6px 6px;
   margin: 20px 0 0 0;
   position: relative;
   top: -20px;
@@ -139,7 +139,7 @@
 }
 
 .profile-friends {
-  width: 225px;
+  width: 330px;
   text-align: center;
   float: right;
   text-transform: capitalize;
@@ -151,7 +151,7 @@ div.profile-friend {
     vertical-align: top;
     display: inline-block;
     text-align: center;
-    width: 200px;
+    width: 100px;
     margin: 0 0 20px 0;
 }
 .profile_pic_friend img {
