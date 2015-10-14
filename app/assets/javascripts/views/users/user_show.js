@@ -163,7 +163,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-    debugger
+
     var view = this.template({ user: this.model })
 
 
