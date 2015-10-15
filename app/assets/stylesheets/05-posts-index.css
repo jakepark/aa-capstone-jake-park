@@ -3,6 +3,32 @@
   float: left;*/
 }
 
+.lonely {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.noposts{
+  color: grey;
+  font-weight: bold;
+  font-size: 42px;
+  text-align: center;
+  margin: 50px 0;
+}
+
+#find_friends{
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 0 auto;
+  color: black;
+  background-color: white;
+  padding: 10px 20px;
+  position: relative;
+  left: 75px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .index-posts {
   width: 500px;
   /*float: left;*/

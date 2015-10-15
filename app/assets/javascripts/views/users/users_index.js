@@ -73,6 +73,11 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
     friendship.set( "approved", true )
 
     friendship.save();
+    target.fetch({
+      success: function(){
+          this.render();
+      }.bind(this)
+    });
     // friendship.save({}, {
     //   success: function () {
     //     target.friendships().add(friendship)
@@ -108,6 +113,11 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
     // };
 
     friendship.destroy();
+    target.fetch({
+      success: function(){
+          this.render();
+      }.bind(this)
+    });
     // friendship.destroy({
     //   success: function () {
     //

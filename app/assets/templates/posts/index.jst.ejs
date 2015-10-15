@@ -17,7 +17,15 @@
       </div>
     </form> -->
 
+<% if (posts.length === 0) { %>
+  <div class="lonely">
+    <p class="noposts">No posts to show</p>
 
+    <a href="#/users" id="find_friends">
+        Find Friends
+    </a>
+  </div>
+<% } %>
 
 
 <ul class='index-posts group'>
@@ -52,7 +60,7 @@
 
       </div>
 
-  
+
       <li><%= post.escape('body') %></li>
 
     </div>
