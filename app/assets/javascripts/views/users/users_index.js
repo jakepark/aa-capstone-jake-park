@@ -4,8 +4,8 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
   initialize: function () {
     this.collection.fetch();
 
-    this.listenTo(this.currentUser, 'sync', this.render)
-    this.listenTo(this.collection, 'sync', this.render)
+    this.listenTo(this.currentUser, 'add update remove', this.render)
+    this.listenTo(this.collection, 'add update remove', this.render)
 
   },
 
@@ -18,6 +18,7 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
 
   render: function () {
+
 
     var view = this.template({ users: this.collection })
     this.$el.html(view).addClass('content-container group');
@@ -38,12 +39,18 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
       friend_id: parseInt(target_id)
     })
 
-    friendship.save({
-      success: function () {
-
-        this.renderPublic()
+    friendship.save();
+    target.fetch({
+      success: function(){
+          this.render();
       }.bind(this)
-    })
+    });
+    // friendship.save({
+    //   success: function () {
+    //
+    //     this.render()
+    //   }.bind(this)
+    // })
 
     return false;
   },
@@ -65,13 +72,13 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
     friendship.set( "approved", true )
 
-
-    friendship.save({}, {
-      success: function () {
-        target.friendships().add(friendship)
-        this.render
-      }.bind(this)
-    });
+    friendship.save();
+    // friendship.save({}, {
+    //   success: function () {
+    //     target.friendships().add(friendship)
+    //     this.render
+    //   }.bind(this)
+    // });
 
     return false;
   },
@@ -100,13 +107,13 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
     //   });
     // };
 
-
-    friendship.destroy({
-      success: function () {
-
-        this.renderPublic()
-      }.bind(this)
-    })
+    friendship.destroy();
+    // friendship.destroy({
+    //   success: function () {
+    //
+    //     this.render()
+    //   }.bind(this)
+    // })
     return false;
 
   },
