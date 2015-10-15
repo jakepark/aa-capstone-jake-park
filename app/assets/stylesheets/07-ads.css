@@ -1,5 +1,22 @@
 .index-banner-right {
   width: 200px;
   float: right;
-  
+  margin: 0 100px 0 0 ;
+}
+
+.index-banner-right p {
+  font-size: 14px;
+
+}
+.homepage {
+
+}
+
+.homepage:hover {
+  text-decoration: underline;
+}
+
+
+.asteroids-gif {
+  width: 200px;
 }
