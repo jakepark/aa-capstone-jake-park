@@ -94,6 +94,8 @@
 .remove_friend {
   /*margin: 20px 0 0 0;*/
   padding: 0 0 3px 0;
+  position: relative;
+  top: 175px;
 }
 
 .remove_friend > button {

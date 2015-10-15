@@ -39,11 +39,11 @@
 }
 
 .profile_pic {
-  width: 200px;
+  width: 160px;
   float: left;
 }
 
-.avatar {
+#avatar {
   width: 200px;
   /*margin: 0 auto;*/
 
@@ -66,7 +66,7 @@
 }
 
 .user-public-info {
-
+  width: 160px;
   float: left;
   /*border: 1px solid red;*/
 }
@@ -90,14 +90,28 @@
   display: none;
 }
 
-.button-avatar-select {
+.user-public-info:hover #button-avatar-select{
+  opacity: .3;
+}
+
+#button-avatar-select {
   position: absolute;
-  padding: 5px;
+  padding: 15px;
   font-size: 16px;
   color: #fff;
-  background: #0c0;
-  position: relative;
-  top: 150px;
+  background: black;
+  opacity: 0;
+  /* position: relative; */
+  bottom: -120px;
+  left: 0px;
+  width: 130px;
+  height: 30px;
+}
+
+#button-avatar-select:hover {
+  opacity: 1;
+  cursor: pointer;
+  /* position: relative; */
 }
 
 #preview-post-image {
@@ -115,10 +129,7 @@
 }
 
 
-.button-avatar-select:hover {
-  cursor: pointer;
 
-}
 
 
 #button-save {
@@ -156,11 +167,25 @@
 
 #edit_button {
   position: absolute;
-  border-style: dashed;
-  border: 2px dashed black;
-  background-color: #D3D3D3;
+  left: 250px;
+  top: 275px;
+  border: 1px solid grey;
+  background-color: white;
   margin: 10px 0 0 0;
   padding: 5px 10px;
+}
+
+
+
+
+.profile-friends-label {
+text-align: center;
+font-size: 16px;
+font-weight: bold;
+padding: 0 0 20px 0;
+text-transform: uppercase;
+float: left;
+margin: 0 200px 0 10px;
 }
 
 /* USER SHOW container */
@@ -180,209 +205,4 @@
   font-size: 18px;
   /*border: 1px solid red;*/
   /*display: block;*/
-}
-
-
-
-
-/* CONTENT CONTAINER */
-
-.users-index {
-  width: 600px;
-  margin: 0 auto;
-  text-transform:capitalize;
-
-}
-
-.users-index > h3 {
-  font-size: 36px;
-  text-align: center;
-  font-weight: bold;
-  color: black;
-}
-
-
-.content-container {
-  width: 1080px;
-  margin: 0 auto;
-  /*text-transform:capitalize;*/
-}
-
-.content-intro {
-  float: left;
-  width: 500px;
-  font-size: 27px;
-  font-weight: bold;
-
-  padding: 60px 0 0 40px;
-    /*border: 1px solid black;*/
-
-}
-
-.content-welcome {
-  float: left;
-  width: 450px;
-  font-size: 17px;
-  padding: 20px 0 0 20px;
-    /*border: 1px solid black;*/
-}
-
-
-.content-signup {
-    /*margin:0 auto;*/
-    /*border: 1px solid black;*/
-  font-family: 'Open Sans', sans-serif;
-  float: right;
-  width: 400px;
-  padding: 22px 0 0 0;
-  margin-right: 50px;
-}
-
-.content-signup-edit {
-    /*margin:0 auto;*/
-    /*border: 1px solid black;*/
-  font-family: 'Open Sans', sans-serif;
-
-  width: 400px;
-  padding: 22px 0 0 0;
-  margin: 0 auto;
-}
-
-.blurb1 {
-  font-size: 18px;
-  font-weight: 100;
-  color: black;
-
-}
-
-
-
-
-
-.sign_up_input_first {
-  width: 190px;
-  color: black;
-  border: 1px solid grey;
-  background: white;
-  border-radius: 3px;
-  margin: 0 0 15px 0;
-}
-
-.sign_up_input_last {
-  float: right;
-  width: 190px;
-  color: black;
-  border: 1px solid grey;
-  background: white;
-  border-radius: 3px;
-}
-
-
-.sign_up_input {
-  width: 400px;
-  color: black;
-  margin: 0 0 15px 0;
-  background: white;
-  border: 1px solid grey;
-  border-radius: 3px;
-}
-
-
-#form_sign_up {
-  float: left;
-  padding: 20px 0 0 0;
-  font-size: 20px;
-}
-
-.button_sign_up {
-  color: white;
-  background-color: #62A24F;
-  padding: 10px 30px 10px 70px;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 100px;
-}
-
-
-
-.button_edit_up {
-  color: black;
-  background-color: #D3D3D3;
-  padding: 10px 30px 10px 30px;
-  border: 2px dashed black;
-  border-radius: 5px;
-  /*width: 100px;*/
-}
-
-/*DELETION*/
-
-.deletion {
-  font-family: 'Open Sans', sans-serif;
-  width: 400px;
-  padding: 22px 0 0 0;
-  margin: 0 auto;
-}
-
-
-.delete_unhide {
-  color: black;
-  background-color: yellow;
-  padding: 10px 30px 10px 30px;
-  border: 2px dashed black;
-  border-radius: 5px;
-  width: 200px;
-}
-
-
-.delete_modal{
-  display: none;
-}
-
-
-
-.delete_user{
-  padding: 20px;
-}
-
-.delete_user button {
-  color: black;
-  background-color: yellow;
-  padding: 10px 30px 10px 30px;
-  border: 2px dashed black;
-  border-radius: 5px;
-  /*width: 100px;*/
-}
-
-.cancel {
-  float: left;
-  padding: 20px;
-}
-.cancel button {
-  color: black;
-  background-color: #white;
-  padding: 10px 30px 10px 30px;
-  border: 2px solid black;
-  border-radius: 5px;
-  /*width: 100px;*/
-}
-
-.caution {
-  width:60px;
-  position: relative;
-  top: 10px;
-}
-
-.submit > button {
-  position: relative;
-  padding: 10px 20px;
-  color: #f00;
-}
-
-
-
-
-.toc {
-  font-size: 12px;
-  font-weight: normal;
-  color: grey;
 }

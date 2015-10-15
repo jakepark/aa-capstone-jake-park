@@ -5,19 +5,22 @@
       <%= user.escape('name_first')%> <%=user.escape('name_last')%>
 
     </p>
+
+
+    <% if (user.get('image_url') === 'default_profile.jpg') { %>
+
+    <form id="avatar">
+      <input type="file" class="hidden" name="user[image]" id="input-user-avatar">
+      <label id="button-avatar-select" for="input-user-avatar">Update Profile Picture</label>
+      <img id="preview-post-image">
+      <button id="button-save" class="hidden">Save</button>
+      <a id="button-cancel" href="#" class="hidden">Cancel</a>
+    </form>
+
+    <% } %>
+
   </div>
 
-  <% if (user.get('image_url') === 'default_profile.jpg') { %>
-
-  <form class="avatar">
-    <input type="file" class="hidden" name="user[image]" id="input-user-avatar">
-    <label class="button-avatar-select" for="input-user-avatar">New Avatar</label>
-    <img id="preview-post-image">
-    <button id="button-save" class="hidden">Save</button>
-    <a id="button-cancel" href="#" class="hidden">Cancel</a>
-  </form>
-
-  <% } %>
 
 
 

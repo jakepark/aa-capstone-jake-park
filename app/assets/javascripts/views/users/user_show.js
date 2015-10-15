@@ -395,7 +395,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     this.$('#button-save').removeClass()
     this.$('#button-cancel').removeClass()
     this.$('#edit_button').addClass('hidden')
-    this.$('.button-avatar-select').addClass('hidden')
+    this.$('#button-avatar-select').addClass('hidden')
     this.$('.avatar').addClass("avatar_click")
     this.$('#preview-post-image').addClass("preview-post-image-click")
 
