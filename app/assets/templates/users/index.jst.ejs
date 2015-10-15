@@ -16,6 +16,52 @@
           <%= user.escape("name_first") %> <%= user.escape("name_last") %>
         </span>
       </a>
+
+
+        <% if (
+          user.friendships().findWhere({
+            user_id: user.get('id'),
+            friend_id: myfacebook.currentUser.get('id')
+          })){ %>
+
+          <div class="approve_friend">
+            <button>Approve Friend</button>
+          </div>
+
+          <div class="deny_friend">
+            <button>Deny Friend</button>
+          </div>
+
+        <% } else if (
+          user.requests().findWhere({ id: myfacebook.currentUser.get('id') }))
+            { %>
+
+         <p class='authorized'>Friend Request Sent.</p>
+        <% } else {
+         if (
+              user.friends().findWhere({id: myfacebook.currentUser.id})
+            ) { %>
+
+              <div class="friended">
+                Friends!
+              </div>
+                
+
+          <%  } else { %>
+
+              <div class="add_friend">
+                <button>Add Friend</button>
+              </div>
+
+            <% } %>
+
+        <% } %>
+
+
+
+
+
+
     </li>
 
     <%  } %>

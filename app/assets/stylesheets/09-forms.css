@@ -1,31 +1,51 @@
 /*103 x 28*/
+.friended{
+  position: relative;
+  bottom: 50px;
+  left: 75px;
+  padding: 5px 20px;
+  color: black;
+  background: #dfe3ee;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 3px;
+  /*box-shadow: 0 3px 0 0 #3b5998;*/
+  margin: 0 auto;
+  display: block;
+  width: 50px;
+}
+
 
 .add_friend {
   /*margin: 20px 0 0 0;*/
-  padding: 0 0 3px 0;
+  /*padding: 0 0 3px 0;*/
+  position: relative;
+  bottom: 50px;
+  left: 75px;
 }
 
 .add_friend > button {
 
   /*position: relative;*/
   padding: 5px 20px;
-  color: #fff;
-  background: #0c0;
+  color: white;
+  background: #3b5998;
   font-size: 12px;
   font-weight: 500;
   border-radius: 3px;
-  box-shadow: 0 3px 0 0 #070;
+  box-shadow: 0 3px 0 0 #3b5998;
   margin: 0 auto;
   display: block;
+  width: 60px;
 }
 
 .add_friend > button:hover {
-  background: #0b0;
+  background: #8b9dc3;
 }
 
 .add_friend > button:active {
   top: 3px;
-  background: #0a0;
+  background: #dfe3ee;
   box-shadow: none;
 }
 
