@@ -17,7 +17,6 @@
         </span>
       </a>
 
-      < debugger >
 
       <% if (
            user.friends().findWhere({id: myfacebook.currentUser.id})
@@ -49,7 +48,9 @@
               user.requests().findWhere({ id: myfacebook.currentUser.get('id') })
             )
           { %>
-              <p class='authorized'>Friend Request Sent.</p>
+            <div class="requested">
+              Friend request sent!
+            </div>
        <% } else { %>
 
              <div class="add_friend" data="<%= user.id%>">

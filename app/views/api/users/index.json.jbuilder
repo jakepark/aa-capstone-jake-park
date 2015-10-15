@@ -11,6 +11,10 @@ json.array! @users do |user|
 
   json.friendships user.friendships do |friendship|
     json.extract! friendship, :id, :user_id, :friend_id, :approved
-
   end
+
+  json.requests user.requested_friendships do |request|
+    json.extract! request, :id, :name_first, :name_last
+  end
+
 end

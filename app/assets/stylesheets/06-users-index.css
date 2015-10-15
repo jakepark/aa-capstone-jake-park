@@ -19,6 +19,7 @@
 
 .users li {
   width: 430px;
+  height: 100px;
   float: left;
   border: 1px solid #dfe3ee;
   margin: 7px;

@@ -26,6 +26,17 @@
 
 }
 
+p.authorized  {
+
+  /*text-align: center;*/
+  font-size: 36px;
+  position: relative;
+  bottom: 0px;
+  left: -50px;
+  width: 300px;
+
+}
+
 .profile_preview {
   margin: 0 auto;
   /*width: 500px;*/
