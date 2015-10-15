@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
   SQL
 end
 
-
+# SELECT * FROM posts WHERE posts.user_id = #{self.id}
 
   attr_reader :password
   after_initialize :ensure_session_token
