@@ -5,7 +5,7 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
     this.collection.fetch();
 
     this.listenTo(this.currentUser, 'add update remove', this.render)
-    this.listenTo(this.collection, 'add update remove', this.render)
+    this.listenTo(this.collection, 'sync add update remove', this.render)
 
   },
 
