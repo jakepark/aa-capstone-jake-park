@@ -17,12 +17,13 @@
         </span>
       </a>
 
+      < debugger >
 
       <% if (
            user.friends().findWhere({id: myfacebook.currentUser.id})
          ) { %>
 
-           <div class="friended">
+           <div class="friended" data="<%= user.id%>">
              Friends!
            </div>
 
@@ -30,16 +31,17 @@
        <%  } else if (
               user.friendships().findWhere({
                 user_id: user.get('id'),
-                friend_id: myfacebook.currentUser.get('id')
+                friend_id: myfacebook.currentUser.get('id'),
+                approved: false
               })
             )
           { %>
 
-          <div class="approve_friend">
+          <div class="approve_friend" data="<%= user.id%>">
             <button>Approve Friend</button>
           </div>
 
-          <div class="deny_friend">
+          <div class="deny_friend" data="<%= user.id%>">
             <button>Deny Friend</button>
           </div>
 
@@ -50,7 +52,7 @@
               <p class='authorized'>Friend Request Sent.</p>
        <% } else { %>
 
-             <div class="add_friend">
+             <div class="add_friend" data="<%= user.id%>">
                <button>Add Friend</button>
              </div>
 

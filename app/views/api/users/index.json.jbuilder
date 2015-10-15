@@ -8,4 +8,9 @@ json.array! @users do |user|
     json.extract! friend, :id, :email, :name_first, :name_last
     json.image_url asset_path(friend.avatar.url(:original))
   end
+
+  json.friendships user.friendships do |friendship|
+    json.extract! friendship, :id, :user_id, :friend_id, :approved
+
+  end
 end
