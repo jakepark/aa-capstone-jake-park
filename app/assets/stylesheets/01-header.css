@@ -55,6 +55,10 @@ body {
   top: -7px;
 }
 
+.avatar_icon:hover {
+  text-decoration: none;
+}
+
 .sign_in_twitter {
   /*display: block;*/
   /*width: auto !important;*/
