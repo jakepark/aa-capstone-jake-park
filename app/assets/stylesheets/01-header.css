@@ -78,8 +78,14 @@ body {
 }
 
 a span {
+  font-size: 14px;
   display: inline-block;
-
+  position: relative;
+  top: -40px;
+  font-weight: bold;
+}
+a span:hover {
+  text-decoration: underline;
 }
 
 .header-nav-right a:first-child{

@@ -1,18 +1,5 @@
 /* CONTENT CONTAINER */
 
-.users-index {
-  width: 600px;
-  margin: 0 auto;
-  text-transform:capitalize;
-
-}
-
-.users-index > h3 {
-  font-size: 36px;
-  text-align: center;
-  font-weight: bold;
-  color: black;
-}
 
 
 .content-container {

@@ -166,9 +166,9 @@
 }
 
 #edit_button {
-  position: absolute;
-  left: 250px;
-  top: 275px;
+  position: relative;
+  left: 150px;
+  top: -100px;
   border: 1px solid grey;
   background-color: white;
   margin: 10px 0 0 0;

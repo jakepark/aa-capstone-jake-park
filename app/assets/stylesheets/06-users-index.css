@@ -1,0 +1,25 @@
+
+.users-index {
+  width: 900px;
+  margin: 0 auto;
+  text-transform:capitalize;
+  /*border: 1px solid green;*/
+}
+
+.users-index > h3 {
+  font-size: 24px;
+  text-align: left;
+  font-weight: bold;
+  color: black;
+}
+
+.users {
+  /*border: 1px solid blue;*/
+}
+
+.users li {
+  width: 430px;
+  float: left;
+  border: 1px solid #dfe3ee;
+  margin: 7px;
+}
