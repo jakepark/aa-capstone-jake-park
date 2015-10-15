@@ -7,7 +7,7 @@
 <ul class='users'>
 
   <% users.each(function (user) { %>
-    <% if (user.id !== undefined) { %>
+    <% if (user.id !== undefined && user.id !== myfacebook.currentUser.id) { %>
 
     <li>
       <a href="#/users/<%= user.id %>">
@@ -18,11 +18,22 @@
       </a>
 
 
-        <% if (
-          user.friendships().findWhere({
-            user_id: user.get('id'),
-            friend_id: myfacebook.currentUser.get('id')
-          })){ %>
+      <% if (
+           user.friends().findWhere({id: myfacebook.currentUser.id})
+         ) { %>
+
+           <div class="friended">
+             Friends!
+           </div>
+
+
+       <%  } else if (
+              user.friendships().findWhere({
+                user_id: user.get('id'),
+                friend_id: myfacebook.currentUser.get('id')
+              })
+            )
+          { %>
 
           <div class="approve_friend">
             <button>Approve Friend</button>
@@ -33,34 +44,19 @@
           </div>
 
         <% } else if (
-          user.requests().findWhere({ id: myfacebook.currentUser.get('id') }))
-            { %>
+              user.requests().findWhere({ id: myfacebook.currentUser.get('id') })
+            )
+          { %>
+              <p class='authorized'>Friend Request Sent.</p>
+       <% } else { %>
 
-         <p class='authorized'>Friend Request Sent.</p>
-        <% } else {
-         if (
-              user.friends().findWhere({id: myfacebook.currentUser.id})
-            ) { %>
-
-              <div class="friended">
-                Friends!
-              </div>
-                
-
-          <%  } else { %>
-
-              <div class="add_friend">
-                <button>Add Friend</button>
-              </div>
-
-            <% } %>
-
-        <% } %>
+             <div class="add_friend">
+               <button>Add Friend</button>
+             </div>
 
 
 
-
-
+       <% } %>
 
     </li>
 

@@ -53,6 +53,9 @@
 .approve_friend {
   /*margin: 20px 0 0 0;*/
   padding: 0 0 3px 0;
+  position: relative;
+  bottom: 80px;
+  left: 75px;
 }
 
 .approve_friend > button {
@@ -81,8 +84,10 @@
 
 
 .deny_friend {
-  margin: 20px 0 0 0;
-  padding: 0 0 3px 0;
+
+  position: relative;
+  bottom: 80px;
+  left: 75px;
 }
 
 .deny_friend > button {
