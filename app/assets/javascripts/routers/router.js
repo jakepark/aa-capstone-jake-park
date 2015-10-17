@@ -4,17 +4,9 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl
     this.collection = new myfacebook.Collections.Users
     this.collection.fetch();
-
+    
     // this.currentUser = this.collection.getOrFetch(myfacebook.currentUser.get('id'));
   },
-
-  // routes: {  // editing names
-  //   "": "index",
-  //   "session/new": "new",
-  //   "users/:id": "show",
-  //   "users/:id/edit": "edit",
-  //   // "session/new": "signUp",
-  // },
 
   routes: {
     "": "index",
@@ -105,6 +97,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
   },
 
   show: function (id) {
+
     var callback = this.show.bind(this, id);
     if (!this._requireSignedIn(callback)) { return; }
 

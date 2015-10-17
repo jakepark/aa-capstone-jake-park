@@ -3,11 +3,10 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.includes(:friendships)
-      .includes(:requested_friendships)
-      .includes(:pending_friends)
       .includes(posts: :comments)
       .find(params[:id])
-
+      # .includes(:requested_friendships)
+      # .includes(:pending_friends)
 
     if @user
       render :show
@@ -19,6 +18,7 @@ class Api::UsersController < ApplicationController
   def index
 
     @users = User.order(:name_first).includes(:friendships)
+      .includes(posts: :comments)
       .includes(:requested_friendships)
     render :index
   end
