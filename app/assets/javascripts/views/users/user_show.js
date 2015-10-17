@@ -56,15 +56,17 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   confirmDelete: function (event) {
     event.preventDefault();
     var target_id = $(event.target).attr('data')
+    var post_id = $(event.target).attr('post_id')
 
     var comments = this.model.comments()
     var comment = this.model.comments().getOrFetch(target_id);
     var posts = this.model.posts()
-    
+
+
     if (confirm("Are you sure you want to delete this comment?")){
 
-      var post = this.model.posts().getOrFetch(comment.get('post_id'))
-
+      var post = posts.getOrFetch(post_id)
+      
       this.deleteComment(post, comments, comment)
     }
 
@@ -224,6 +226,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
             var $button = $(document.createElement('button'))
             $button.attr('data', comment.id).addClass('delete_comment_button')
+            $button.attr('post_id', post.id)
 
             $button.text("X")
             $div.append($button)
