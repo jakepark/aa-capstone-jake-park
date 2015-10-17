@@ -6,8 +6,8 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
     this.users = options.users
     this.users.fetch();
 
-    this.listenTo(this.currentPost, 'sync', this.render)
-    this.listenTo(this.collection, 'refresh sync', this.render)
+    // this.listenTo(this.currentPost, 'sync', this.render)
+    // this.listenTo(this.collection, 'refresh sync', this.render)
     this.listenToOnce(this.users, 'sync', this.render)
 
   },
@@ -20,7 +20,7 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
   },
 
   render: function () {
-
+    // debugger
     var view = this.template({
       posts: this.collection,
       users: this.users

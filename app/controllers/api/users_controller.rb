@@ -2,7 +2,12 @@ class Api::UsersController < ApplicationController
   wrap_parameters false
 
   def show
-    @user = User.includes(:friendships).find(params[:id])
+    @user = User.includes(:friendships)
+      .includes(:requested_friendships)
+      .includes(:pending_friends)
+      .includes(posts: :comments)
+      .find(params[:id])
+
 
     if @user
       render :show
@@ -13,7 +18,8 @@ class Api::UsersController < ApplicationController
 
   def index
 
-    @users = User.order(:name_first)
+    @users = User.order(:name_first).includes(:friendships)
+      .includes(:requested_friendships)
     render :index
   end
 
