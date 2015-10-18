@@ -34,6 +34,7 @@
   width: 500px;
   float: left;
   font-weight: lighter;
+  margin: 0 0 0 50px;
 }
 
 .index-display {
@@ -50,7 +51,7 @@
 
 
 .index-post-form  {
-  margin: 10px auto 0 auto;
+  margin: 10px auto 0 50px;
   width: 500px;
   float: left;
   display: block;
