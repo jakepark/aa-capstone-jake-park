@@ -12,14 +12,14 @@
   <form class="form_sign_up" action="/users" method="post">
 
       <input class= "sign_up_input_first" name="user[name_first]"
-        type="text" value="<%=myfacebook.currentUser.get('name_first')%>"/>
+        type="text" value="<%=myfacebook.currentUser.escape('name_first')%>"/>
 
       <input class= "sign_up_input_last" name="user[name_last]"
-        type="text" value="<%=myfacebook.currentUser.get('name_last')%>"/><br>
+        type="text" value="<%=myfacebook.currentUser.escape('name_last')%>"/><br>
 
 
       <input class= "sign_up_input" name="user[email]"
-        type="text" value="<%=myfacebook.currentUser.get('email')%>"/><br>
+        type="text" value="<%=myfacebook.currentUser.escape('email')%>"/><br>
 
       <!-- <input class= "sign_up_input" name="user[password]"
         type="password" placeholder="New Password"/><br>
@@ -28,8 +28,8 @@
       <label for="user_birthday">Birthday</label><br>
       <select name="user[birth_month]" id="birth_month">
 
-        <option selected="<%=myfacebook.currentUser.get('birth_month')%>">
-          <%=myfacebook.currentUser.get('birth_month')%></option>
+        <option selected="<%=myfacebook.currentUser.escape('birth_month')%>">
+          <%=myfacebook.currentUser.escape('birth_month')%></option>
         <option value="Jan">January</option>
         <option value="Feb">February</option>
         <option value="Mar">March</option>
@@ -46,8 +46,8 @@
 
 
       <select name="user[birth_day]" id="birth_day">
-        <option selected="<%=myfacebook.currentUser.get('birth_day')%>">
-          <%=myfacebook.currentUser.get('birth_day')%></option>
+        <option selected="<%=myfacebook.currentUser.escape('birth_day')%>">
+          <%=myfacebook.currentUser.escape('birth_day')%></option>
         <% for (var i=1; i < 32; i++) { %>
           <option value="<%= i %>"><%=i%></option>
 
@@ -55,8 +55,8 @@
       </select>
 
       <select name="user[birth_year]" id="birth_year">
-        <option selected="<%=myfacebook.currentUser.get('birth_year')%>">
-          <%=myfacebook.currentUser.get('birth_year')%></option>
+        <option selected="<%=myfacebook.currentUser.escape('birth_year')%>">
+          <%=myfacebook.currentUser.escape('birth_year')%></option>
         <% for (var i=2002; i >= 1905; i--) {%>
           <option value="<%= i %>"><%=i%></option>
 
