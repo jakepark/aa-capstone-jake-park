@@ -12,7 +12,7 @@
       <%- author[0].attributes['name_last'] %>
 
     </a>
-      <%- post.escape('body') %>
+      <%- post.get('body') %>
       <br>
     <p>
       <% var date = new Date(post.escape('created_at')) %>
