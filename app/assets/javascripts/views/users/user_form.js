@@ -28,6 +28,7 @@ myfacebook.Views.UserForm = Backbone.View.extend({
 
     var $form = $(event.currentTarget);
     var userData = $form.serializeJSON().user;
+    
     var that = this;
 
     var model = this.collection.getOrFetch(this.model.id)

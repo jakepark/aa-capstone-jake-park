@@ -8,11 +8,11 @@
 
     <a class="index-author-preview-name" href='#/users/<%= post.escape('user_id') %>'>
 
-      <%= author[0].attributes['name_first'] %>
-      <%= author[0].attributes['name_last'] %>
+      <%- author[0].attributes['name_first'] %>
+      <%- author[0].attributes['name_last'] %>
 
     </a>
-      <%= post.escape('body') %>
+      <%- post.escape('body') %>
       <br>
     <p>
       <% var date = new Date(post.escape('created_at')) %>

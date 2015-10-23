@@ -3,13 +3,13 @@
     <a href='#/users/<%= post.escape('user_id') %>'>
 
     <% var author = users.where({id: parseInt(post.escape('user_id'))}) %>
-    
-    <img class="index-author-preview" src="<%=author[0].attributes['image_url']%>"></img></a>
+
+    <img class="index-author-preview" src="<%-author[0].attributes['image_url']%>"></img></a>
 
     <a class="index-author-preview-name" href='#/users/<%= post.escape('user_id') %>'>
 
-      <%= author[0].attributes['name_first'] %>
-      <%= author[0].attributes['name_last'] %>
+      <%- author[0].attributes['name_first'] %>
+      <%- author[0].attributes['name_last'] %>
 
     </a>
 
@@ -21,7 +21,7 @@
     </p>
   </div>
 
-  <%= post.escape('body') %>
+  <%- post.escape('body') %>
 
   <!-- <div class="post-comments">
   </div> -->

@@ -3,8 +3,8 @@
 
   <% if (user.id !== myfacebook.currentUser.id) { %>
     <p class="profile_name">
-  <img class = "profile_pic_main" src="<%= user.get("image_url") %>" width="100px">
-  <%= user.escape('name_first') %> <%= user.escape('name_last') %></p>
+  <img class = "profile_pic_main" src="<%= user.escape("image_url") %>" width="100px">
+  <%- user.escape('name_first') %> <%- user.escape('name_last') %></p>
 
   <% } %>
 
