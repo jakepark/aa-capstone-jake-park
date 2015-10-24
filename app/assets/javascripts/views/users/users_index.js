@@ -33,7 +33,7 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
     var target_id = $(e.currentTarget).attr('data')
     var target = this.collection.getOrFetch(target_id)
 
-    var friendship = new myfacebook.Models.Friend()
+    var friendship = new myfacebook.Models.Friendship()
     friendship.set({
       user_id: parseInt(myfacebook.currentUser.id),
       friend_id: parseInt(target_id)

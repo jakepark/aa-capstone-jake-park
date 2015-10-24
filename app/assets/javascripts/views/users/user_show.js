@@ -279,7 +279,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
 
     var target = this.model
     var target_id = target.get('id')
-    var friendship = new myfacebook.Models.Friend()
+    var friendship = new myfacebook.Models.Friendship()
     friendship.set({
       user_id: myfacebook.currentUser.id,
       friend_id: target_id,
