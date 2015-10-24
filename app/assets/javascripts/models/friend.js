@@ -1,5 +1,5 @@
-myfacebook.Models.Friendship = Backbone.Model.extend({
-  urlRoot: '/api/friendships',
+myfacebook.Models.Friend = Backbone.Model.extend({
+  urlRoot: '/api/friend',
 
   toJSON: function () {
     var json = { friendship: _.clone(this.attributes)};
