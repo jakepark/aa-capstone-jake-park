@@ -4,7 +4,7 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl
     this.collection = new myfacebook.Collections.Users
     this.collection.fetch();
-    
+
     // this.currentUser = this.collection.getOrFetch(myfacebook.currentUser.get('id'));
   },
 
@@ -57,9 +57,14 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     var users = new myfacebook.Collections.Users();
     users.fetch();
 
+    var friends = new myfacebook.Collections.Friends();
+    friends.fetch();
+
+
     var view = new myfacebook.Views.PostsIndex({
       collection: collection,
-      users: users
+      users: users,
+      friends: friends
     });
     this._swapView(view);
   },

@@ -3,12 +3,15 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
 
   initialize: function (options) {
 
+    this.friends = options.friends
+    this.friends.fetch();
     this.users = options.users
     this.users.fetch();
 
     // this.listenTo(this.currentPost, 'sync', this.render)
     // this.listenTo(this.collection, 'refresh sync', this.render)
     this.listenToOnce(this.users, 'sync', this.render)
+    this.listenToOnce(this.friends, 'sync', this.render)
 
   },
 
@@ -20,14 +23,75 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
   },
 
   render: function () {
-    // debugger
+
     var view = this.template({
       posts: this.collection,
-      users: this.users
+      users: this.users,
+      friends: this.friends
     })
     this.$el.html(view).addClass('content-container group');
+
+    var that = this;
+
+    this.showPosts(that);
     return this;
   },
+
+
+  showPosts: function (that) {
+
+      debugger
+    that.collection.models.forEach(function(post) {
+      var postShow = JST['posts/show']({
+        post: post,
+        users: that.users
+      })
+      // console.log("post: " + that.post);
+      // that.post++;
+      that.$('div.index-posts').prepend(postShow)
+
+      if (post.comments().length > 0) {
+        post.comments().forEach(function(comment){
+          // console.log("comment: " + that.idx);
+          // that.idx++;
+          var commentShow = JST['comments/show']({
+            post: comment,
+            users: that.collection,
+          });
+
+          var div = document.createElement('div')
+          $(div).addClass('post-comments').append(commentShow);
+          that.$('div.index-post').first().append(div)
+
+
+          if (parseInt(comment.get('user_id')) === myfacebook.currentUser.id) {
+
+            var $div = $(document.createElement('div'))
+            $div.addClass('delete_comment')
+
+            var $button = $(document.createElement('button'))
+            $button.attr('data', comment.id).addClass('delete_comment_button')
+            $button.attr('post_id', post.id)
+
+            $button.text("X")
+            $div.append($button)
+            that.$('div.index-post').first().append($div)
+          }
+        });
+      }
+
+      var commentForm = JST['comments/form']({
+        post: post,
+        users: that.collection,
+      });
+
+      that.$('div.index-post').first().append(commentForm);
+
+
+    })
+
+  },
+
 
   addComment: function (event) {
     event.preventDefault();
