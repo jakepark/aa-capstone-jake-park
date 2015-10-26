@@ -35,7 +35,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     "submit .comment-form": "addComment",
     "click .delete_comment_button": "confirmDelete",
 
-    "submit .avatar": "newAvatar",
+    "submit #avatar": "newAvatar",
     "change #input-user-avatar": "fileInputChange",
 
   },
@@ -170,7 +170,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-    
+
     var view = this.template({ user: this.model })
 
 
@@ -394,6 +394,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   fileInputChange: function(event){
+    
     console.log(event.currentTarget.files[0]);
 
     this.$('#button-save').removeClass()
