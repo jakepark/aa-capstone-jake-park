@@ -1,6 +1,6 @@
 <div class="profile-main-left">
   <div class="user-public-info group">
-    <img class="profile_pic" src="<%=user.escape('image_url')%>"></img>
+    <img class="profile_pic" src="<%=user.get('image_url')%>"></img>
     <p class="profile_name">
 
       <%- user.escape('name_first')%> <%-user.escape('name_last')%>
@@ -8,7 +8,7 @@
     </p>
 
 
-    <% if (user.escape('image_url') === 'default_profile.jpg') { %>
+    <% if (user.get('image_url') === 'default_profile.jpg') { %>
 
     <form id="avatar">
       <input type="file" class="hidden" name="user[image]" id="input-user-avatar">
