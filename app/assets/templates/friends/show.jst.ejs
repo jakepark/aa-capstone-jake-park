@@ -1,6 +1,6 @@
 <div class="profile-friend group">
   <a href="#/users/<%= friend.id %>">
-  <img class = "profile_pic_friend" src="<%= friend.escape("image_url") %>" width="100px"></a>
+  <img class = "profile_pic_friend" src="<%= friend.get("image_url") %>" width="100px"></a>
   <span class="caption"><%- friend.escape('name_first') %>
   <%- friend.escape('name_last') %></span>
 

@@ -11,7 +11,7 @@
 
     <li>
       <a href="#/users/<%= user.id %>">
-        <img class="friends_list_pics" src="<%= user.escape("image_url") %>" width="100px">
+        <img class="friends_list_pics" src="<%= user.get("image_url") %>" width="100px">
         <span class="friends_list_preview">
           <%= user.escape("name_first") %> <%= user.escape("name_last") %>
         </span>

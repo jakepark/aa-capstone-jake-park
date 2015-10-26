@@ -26,8 +26,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     "click .approve_friend": "approveFriendship",
     "click .deny_friend": "removeFriendship",
     "click .remove_friend": "removeFriendship",
-    "submit .avatar": "newAvatar",
-    "change #input-user-avatar": "fileInputChange",
+
     "click .gohome": "goHome",
     "click .header-logo": "goHome",
     "click .edit_profile": "goEdit",
@@ -35,6 +34,9 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     "click .delete_post_button": "deletePost",
     "submit .comment-form": "addComment",
     "click .delete_comment_button": "confirmDelete",
+
+    "submit .avatar": "newAvatar",
+    "change #input-user-avatar": "fileInputChange",
 
   },
   addComment: function (event) {
@@ -66,7 +68,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     if (confirm("Are you sure you want to delete this comment?")){
 
       var post = posts.getOrFetch(post_id)
-      
+
       this.deleteComment(post, comments, comment)
     }
 
@@ -168,17 +170,17 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-    // debugger
+    
     var view = this.template({ user: this.model })
 
 
     // // if this is the currentUser page
     if (parseInt(this.model.id) === myfacebook.currentUser.id) {
-      // debugger
+
       return this.renderSelfie();
     // // if this userPage is a friendOf currentUser
     } else if ( this.isFriend() ){
-      // debugger
+
       return this.renderFriend();
     } else {
 
@@ -358,8 +360,8 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   newAvatar: function(event){
-    event.preventDefault();
 
+    event.preventDefault();
     $( ".profile_pic" ).remove();
 
     this.model.collection = this.collection;  //instead of initialized

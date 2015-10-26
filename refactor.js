@@ -11,7 +11,7 @@
 
         <% var author = users.where({id: parseInt(post.escape('author_id'))}) %>
 
-        <img class="index-author-preview" src="<%-author[0].attributes['image_url']%>"></img></a>
+        <img class="index-author-preview" src="<%=author[0].attributes['image_url']%>"></img></a>
 
         <a class="index-author-preview-name" href='#/users/<%- post.escape('author_id') %>'>
 
