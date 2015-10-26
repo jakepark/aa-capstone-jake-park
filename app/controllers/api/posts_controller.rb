@@ -8,13 +8,15 @@ class Api::PostsController < ApplicationController
   # end
 
   def index
-    # @friends = current_user.friends
-    # render json: @friends ## this gets me all the friends haha
-    # @friends_posts = current_user.posts
-    @friends_posts = current_user.friends_posts
-    # @posts = current_user.friends_posts
+    @posts = Post.all.includes(:comments)
     render :index
   end
+
+  #
+  # def index
+  #   @friends_posts = current_user.friends_posts
+  #   render :index
+  # end
 
   def create
     @post = current_user.posts.new(post_params)

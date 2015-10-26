@@ -1,6 +1,6 @@
 myfacebook.Collections.Friends = Backbone.Collection.extend({
   model: myfacebook.Models.Friend,
-  url: '/api/friend',
+  url: '/api/friends',
 
   initialize: function (models, options) {
 
