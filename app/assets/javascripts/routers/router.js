@@ -35,7 +35,9 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     collection.fetch();
 
     collection.comparator = function (model) {
-      return model.get('posts_created_at');
+      // return model.get('posts_created_at');
+      // return model.get('created_at');
+     return -Date.parse(model.get('created_at'));
     };
 
     function reverseSortBy (sortByFunction) {

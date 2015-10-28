@@ -50,12 +50,12 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
   },
 
   showPosts: function (that) {
-
+    
     that.collection.models.forEach(function(post) {
 
       var poster_id = post.get('user_id')
       if (that.isFriend(poster_id) || poster_id === myfacebook.currentUser.id){
-        
+
         var postShow = JST['posts/show']({
           post: post,
           users: that.users

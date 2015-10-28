@@ -1,14 +1,8 @@
 class Api::PostsController < ApplicationController
   # before_action :require_signed_in!
 
-  # def index
-  #
-  #   @users = User.order(:name_first)
-  #   render :index
-  # end
-
   def index
-    @posts = Post.all.includes(:comments)
+    @posts = Post.all.order(:created_at).includes(:comments)
     render :index
   end
 
