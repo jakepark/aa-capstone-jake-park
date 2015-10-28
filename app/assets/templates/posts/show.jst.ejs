@@ -17,7 +17,7 @@
     </a>
 
 <% } %>
-
+    <br>
     <p>
       <% var date = new Date(post.escape('created_at')) %>
       <%= date.toLocaleDateString() %>
@@ -25,9 +25,9 @@
       <%= date.toLocaleTimeString() %>
     </p>
   </div>
-
+    <p class="body">
   <%- post.get('body') %>
-
+    </p>
   <!-- <div class="post-comments">
   </div> -->
 

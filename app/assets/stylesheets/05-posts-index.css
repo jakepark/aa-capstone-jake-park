@@ -130,6 +130,13 @@
   margin: 0 50px 0 10px;
 }
 
+.index-post p.body {
+
+  float: left;
+  display: block;
+  margin: 10px 50px 0 0px;  
+}
+
 .index-author-preview {
     text-align: center;
     width: 50px;
@@ -149,7 +156,7 @@
 }
 
 .index-author-preview-name {
-  margin: 0 50px 0 10px;
+  margin: 0 10px 0 10px;
   text-transform: capitalize;
   float: left;
   display: block;
