@@ -43,7 +43,30 @@ class User < ActiveRecord::Base
 
   def friends
     active_friends | passive_friends
+
   end
+
+  # def friends
+  #   User.find_by_sql(<<-SQL)
+  #
+  #
+  #     SELECT
+  #     *
+  #     FROM
+  #     users
+  #     JOIN
+  #     friendships
+  #     ON
+  #     users.id = friendships.user_id
+  #     WHERE
+  #       (friendships.approved = true)
+  #         AND
+  #         ((friendships.friend_id = #{self.id})
+  #           OR
+  #         (friendships.user_id = #{self.id}))
+  #   SQL
+  # end
+
 
 # DO NOT TRY TO REFACTOR THIS. ENTRIES ARE ONLY ENTERED ONCE IN THE DATABASE
 

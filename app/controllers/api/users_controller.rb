@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-
+    # @users = User.all
     @users = User.order(:name_first).includes(:friendships)
       .includes(posts: :comments)
       .includes(:requested_friendships)

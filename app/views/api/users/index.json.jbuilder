@@ -15,19 +15,19 @@ json.array! @users do |user|
     json.image_url asset_path(friend.avatar.url(:original))
   end
 
-  json.posts user.posts do |post|
-    json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
-
-    json.comments post.comments do |comment|
-      json.extract! comment, :id, :body, :user_id, :post_id, :created_at, :updated_at
-    end
-
-  end
-
-
-  json.comments user.comments do |comment|
-    json.extract! comment, :id, :body, :user_id, :post_id, :created_at, :updated_at
-  end
+  # json.posts user.posts do |post|
+  #   json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
+  #
+  #   json.comments post.comments do |comment|
+  #     json.extract! comment, :id, :body, :user_id, :post_id, :created_at, :updated_at
+  #   end
+  #
+  # end
+  #
+  #
+  # json.comments user.comments do |comment|
+  #   json.extract! comment, :id, :body, :user_id, :post_id, :created_at, :updated_at
+  # end
 
 end
 
