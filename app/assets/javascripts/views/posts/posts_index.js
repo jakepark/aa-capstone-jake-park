@@ -54,8 +54,8 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
     that.collection.models.forEach(function(post) {
 
       var poster_id = post.get('user_id')
-      if (that.isFriend(poster_id)){
-
+      if (that.isFriend(poster_id) || poster_id === myfacebook.currentUser.id){
+        
         var postShow = JST['posts/show']({
           post: post,
           users: that.users
@@ -127,7 +127,7 @@ myfacebook.Views.PostsIndex = Backbone.View.extend({
 
   confirmDelete: function (event) {
     event.preventDefault();
-    
+
 
     var target_id = $(event.target).attr('data')
     var post_id = $(event.target).attr('post_id')

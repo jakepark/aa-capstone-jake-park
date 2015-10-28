@@ -4,6 +4,9 @@
 
     <% var author = users.where({id: parseInt(post.escape('user_id'))}) %>
 
+<% if (author.length > 0) { %>
+
+
     <img class="index-author-preview" src="<%=author[0].attributes['image_url']%>"></img></a>
 
     <a class="index-author-preview-name" href='#/users/<%= post.escape('user_id') %>'>
@@ -12,6 +15,8 @@
       <%- author[0].attributes['name_last'] %>
 
     </a>
+
+<% } %>
 
     <p>
       <% var date = new Date(post.escape('created_at')) %>
