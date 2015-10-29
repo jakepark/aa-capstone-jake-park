@@ -20,6 +20,7 @@ class Api::UsersController < ApplicationController
     @users = User.order(:name_first).includes(:friendships)
       .includes(posts: :comments)
       .includes(:requested_friendships)
+    # ActiveRecord::Associations::Preloader.new.preload(@users, :friends)
     render :index
   end
 

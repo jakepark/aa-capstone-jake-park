@@ -1,11 +1,9 @@
 class Api::FriendsController < ApplicationController
   def index
 
-    @friends = current_user.friends
-      # .includes(posts: :comments)
-      # .includes(:requested_friendships)
-#    render json: @friends ## this gets me all the friends haha   .. works.
-
+    @friends = User.find(current_user.id).friends
+    ActiveRecord::Associations::Preloader.new.preload(@friends, [{posts: :comments}, :comments])
+    # @friends = current_user.friends
     render :index
   end
 

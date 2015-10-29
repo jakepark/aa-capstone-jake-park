@@ -55,9 +55,9 @@ json.comments @user.comments do |comment|
   json.extract! comment, :id, :body, :user_id, :post_id, :created_at, :updated_at
 end
 
-json.friends_posts @user.friends_posts do |post|
-  json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
-end
+# json.friends_posts @user.friends_posts do |post|
+#   json.extract! post, :id, :user_id, :body, :ord, :created_at, :updated_at
+# end
 
 #
 #
