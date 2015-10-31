@@ -37,11 +37,6 @@
 
        <%  } else if (
             friendships.findWhere({
-              user_id: myfacebook.currentUser.id,
-              friend_id: user.id,
-              approved: false})
-             ||
-            friendships.findWhere({
               user_id: user.id,
               friend_id: myfacebook.currentUser.id,
               approved: false})

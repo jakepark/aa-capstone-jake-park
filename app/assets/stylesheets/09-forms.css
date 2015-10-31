@@ -37,11 +37,11 @@
   position: relative;
   bottom: 65px;
   left: 75px;
+  width: 100px;
 }
 
 .add_friend > button {
 
-  /*position: relative;*/
   padding: 5px 20px;
   color: white;
   background: #3b5998;
@@ -49,9 +49,11 @@
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 0 3px 0 0 #3b5998;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: block;
   width: 60px;
+  position: relative;
+  left: 200px;
 }
 
 .add_friend > button:hover {
@@ -71,19 +73,24 @@
   position: relative;
   bottom: 80px;
   left: 75px;
+  width: 100px;
 }
+
 
 .approve_friend > button {
   position: relative;
+  left: 200px;
+  top: -5px;
   padding: 5px 20px;
   color: #fff;
-  background: #0c0;
+  background: #3b5998;
   font-size: 12px;
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 0 3px 0 0 #070;
   margin: 0 auto;
   display: block;
+  width: 85px;
 }
 
 .approve_friend > button:hover {
@@ -99,24 +106,28 @@
 
 
 .deny_friend {
-
+  padding: 0 0 3px 0;
   position: relative;
   bottom: 80px;
   left: 75px;
+  width: 100px;
 }
 
 .deny_friend > button {
-
-
+  position: relative;
+  left: 200px;
+  top: 5px;
   padding: 5px 20px;
-  color: #fff;
-  background: #f00;
+  color: black;
+  background: white;
   font-size: 12px;
   font-weight: 500;
   border-radius: 3px;
-  box-shadow: 0 3px 0 0 #070;
+  border: 1px solid #dfe3ee;
+  box-shadow: 0 3px 0 0 #c00;
   margin: 0 auto;
   display: block;
+  width: 85px;
 }
 
 .deny_friend > button:hover {

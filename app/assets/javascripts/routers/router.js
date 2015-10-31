@@ -86,6 +86,8 @@ myfacebook.Routers.Router = Backbone.Router.extend({
 
 
   users_index: function () {
+    this.friendships.fetch();
+    
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
@@ -118,7 +120,8 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     var user = this.collection.getOrFetch(id);
     var view = new myfacebook.Views.UserShow({
       model: user,
-      collection: this.collection
+      collection: this.collection,
+      friendships: this.friendships
     })
     this._swapView(view)
   },

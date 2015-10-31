@@ -1,24 +1,18 @@
 myfacebook.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
 
-  initialize: function () {
+  initialize: function (options) {
     // this.model.fetch();
-
-    // this.idx = 0;
-    // this.post = 0;
 
     // this.model === user
     // // this.collection === all the users
 
+    this.friendships = options.friendships;
 
     this.listenTo(this.model, 'sync change add destroy', this.render)
     this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
     this.listenTo(this.model.comments(), 'sync change add destroy', this.render)
     this.listenTo(this.collection, 'sync change add destroy', this.render);
-
-    // this.listenTo(this.model, 'sync change add destroy', this.render)
-    // this.listenTo(this.model.posts(), 'sync change add destroy', this.render)
-    // this.listenTo(this.collection, 'sync change add destroy', this.render);
   },
 
   events: {
@@ -306,13 +300,19 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     var target = this.model
     var target_id = target.get('id')
 
-    var friendship = this.model.friendships().findWhere({
-      user_id: target_id,
+    var friendship = this.friendships.findWhere({
+      user_id: parseInt(target_id),
       friend_id: parseInt(myfacebook.currentUser.id)
     })
+    if (friendship === undefined) {
+      friendship = this.friendships.findWhere({
+        user_id: parseInt(myfacebook.currentUser.id),
+        friend_id: parseInt(target_id)
+      })
+    }
 
     friendship.set( "approved", true )
-
+    this.friendships.fetch();
 
     friendship.save({}, {
       success: function () {
@@ -333,21 +333,19 @@ myfacebook.Views.UserShow = Backbone.View.extend({
     var target = this.model
     var target_id = target.get('id')
 
-    var friendship = this.model.friendships().findWhere({
-      user_id: target_id,
+    var friendship = this.friendships.findWhere({
+      user_id: parseInt(target_id),
       friend_id: parseInt(myfacebook.currentUser.id)
-
     })
-
-    if (friendship === undefined){
-      var target = this.collection.findWhere({id: myfacebook.currentUser.id})
-
-      friendship = target.friendships().findWhere({
+    if (friendship === undefined) {
+      friendship = this.friendships.findWhere({
         user_id: parseInt(myfacebook.currentUser.id),
-        friend_id: target_id
-      });
-    };
+        friend_id: parseInt(target_id)
+      })
+    }
 
+    this.friendships.remove(friendship)
+    this.friendships.fetch();
 
     friendship.destroy({
       success: function () {
@@ -394,7 +392,7 @@ myfacebook.Views.UserShow = Backbone.View.extend({
   },
 
   fileInputChange: function(event){
-    
+
     console.log(event.currentTarget.files[0]);
 
     this.$('#button-save').removeClass()

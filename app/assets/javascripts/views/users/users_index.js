@@ -118,11 +118,10 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
       })
     }
 
-    debugger
     this.friendships.remove(friendship)
     friendship.destroy();
     this.friendships.fetch();
-    debugger
+    
     target.fetch({
       success: function(){
           this.render();
