@@ -5,6 +5,9 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     this.collection = new myfacebook.Collections.Users
     this.collection.fetch();
 
+    this.friendships = new myfacebook.Collections.Friendships();
+    this.friendships.fetch();
+
     // this.currentUser = this.collection.getOrFetch(myfacebook.currentUser.get('id'));
   },
 
@@ -86,10 +89,13 @@ myfacebook.Routers.Router = Backbone.Router.extend({
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-      var view = new myfacebook.Views.UsersIndex({
-        collection: this.collection
-      });
-      this._swapView(view);
+
+
+    var view = new myfacebook.Views.UsersIndex({
+      collection: this.collection,
+      friendships: this.friendships
+    });
+    this._swapView(view);
   },
 
   new: function(){

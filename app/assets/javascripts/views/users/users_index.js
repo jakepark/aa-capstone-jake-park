@@ -1,11 +1,13 @@
 myfacebook.Views.UsersIndex = Backbone.View.extend({
   template: JST['users/index'],
 
-  initialize: function () {
+  initialize: function (options) {
     this.collection.fetch();
+    this.friendships = options.friendships;
 
     this.listenTo(this.currentUser, 'add update remove', this.render)
-    this.listenTo(this.collection, 'sync add update remove', this.render)
+    this.listenToOnce(this.collection, 'sync add update remove', this.render)
+    this.listenToOnce(this.friendships, 'sync add update remove', this.render)
 
   },
 
@@ -19,8 +21,10 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
   render: function () {
 
-
-    var view = this.template({ users: this.collection })
+    var view = this.template({
+      users: this.collection,
+      friendships: this.friendships
+    })
     this.$el.html(view).addClass('content-container group');
     return this;
   },
@@ -58,20 +62,25 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
   approveFriendship: function (e) {
     e.preventDefault();
 
-
     $( ".approve_friend" ).remove();
     $( ".deny_friend" ).remove();
 
     var target_id = $(e.currentTarget).attr('data')
     var target = this.collection.getOrFetch(target_id)
 
-    var friendship = target.friendships().findWhere({
+    var friendship = this.friendships.findWhere({
       user_id: parseInt(target_id),
       friend_id: parseInt(myfacebook.currentUser.id)
     })
+    if (friendship === undefined) {
+      friendship = this.friendships.findWhere({
+        user_id: parseInt(myfacebook.currentUser.id),
+        friend_id: parseInt(target_id)
+      })
+    }
 
     friendship.set( "approved", true )
-
+    this.friendships.fetch();
     friendship.save();
     target.fetch({
       success: function(){
@@ -91,28 +100,29 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
   removeFriendship: function (e) {
     e.preventDefault();
-
     $( ".approve_friend" ).remove();
     $( ".deny_friend" ).remove();
 
     var target_id = $(e.currentTarget).attr('data')
     var target = this.collection.getOrFetch(target_id)
+    // debugger
 
-    var friendship = target.friendships().findWhere({
+    var friendship = this.friendships.findWhere({
       user_id: parseInt(target_id),
       friend_id: parseInt(myfacebook.currentUser.id)
     })
+    if (friendship === undefined) {
+      friendship = this.friendships.findWhere({
+        user_id: parseInt(myfacebook.currentUser.id),
+        friend_id: parseInt(target_id)
+      })
+    }
 
-    // if (friendship === undefined){
-    //   var target = this.collection.findWhere({id: myfacebook.currentUser.id})
-    //
-    //   friendship = target.friendships().findWhere({
-    //     user_id: parseInt(myfacebook.currentUser.id),
-    //     friend_id: target_id
-    //   });
-    // };
-
+    debugger
+    this.friendships.remove(friendship)
     friendship.destroy();
+    this.friendships.fetch();
+    debugger
     target.fetch({
       success: function(){
           this.render();

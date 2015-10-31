@@ -14,15 +14,33 @@ class Api::UsersController < ApplicationController
       render json: ["User doesn't exist."], status: 404
     end
   end
+  # def index
+  #
+  #   @friends = User.find(current_user.id).friends
+  #   ActiveRecord::Associations::Preloader.new.preload(@friends, [{posts: :comments}, :comments])
+  #   # @friends = current_user.friends
+  #   render :index
+  # end
+
+
 
   def index
-    # @users = User.all
-    @users = User.order(:name_first).includes(:friendships)
+
+    @users = User.order(:name_first)
+      .includes(:friendships)
       .includes(posts: :comments)
       .includes(:requested_friendships)
     # ActiveRecord::Associations::Preloader.new.preload(@users, :friends)
     render :index
   end
+
+  # def index
+  #   @users = User.order(:name_first).includes(:friendships)
+  #     .includes(posts: :comments)
+  #     .includes(:requested_friendships)
+  #   # ActiveRecord::Associations::Preloader.new.preload(@users, :friends)
+  #   render :index
+  # end
 
   def new
     @user = User.new

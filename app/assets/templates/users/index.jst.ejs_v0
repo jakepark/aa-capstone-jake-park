@@ -17,17 +17,10 @@
         </span>
       </a>
 
+      
 
       <% if (
-           friendships.findWhere({
-             user_id: myfacebook.currentUser.id,
-             friend_id: user.id,
-             approved: true})
-            ||
-           friendships.findWhere({
-             user_id: user.id,
-             friend_id: myfacebook.currentUser.id,
-             approved: true})
+           user.friends().findWhere({id: myfacebook.currentUser.id})
          ) { %>
 
            <div class="friended" data="<%= user.id%>">
@@ -36,16 +29,12 @@
 
 
        <%  } else if (
-            friendships.findWhere({
-              user_id: myfacebook.currentUser.id,
-              friend_id: user.id,
-              approved: false})
-             ||
-            friendships.findWhere({
-              user_id: user.id,
-              friend_id: myfacebook.currentUser.id,
-              approved: false})
-          )
+              user.friendships().findWhere({
+                user_id: user.get('id'),
+                friend_id: myfacebook.currentUser.get('id'),
+                approved: false
+              })
+            )
           { %>
 
           <div class="approve_friend" data="<%= user.id%>">
