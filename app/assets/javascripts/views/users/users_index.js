@@ -2,7 +2,7 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
   template: JST['users/index'],
 
   initialize: function (options) {
-    this.collection.fetch();
+    this.collection = options.collection
     this.friendships = options.friendships;
 
     this.listenTo(this.currentUser, 'add update remove', this.render)
@@ -31,8 +31,8 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
   createFriendship: function (e) {
     e.preventDefault();
-
     $( ".add_friend" ).remove();
+
 
     var target_id = $(e.currentTarget).attr('data')
     var target = this.collection.getOrFetch(target_id)
@@ -105,7 +105,7 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
     var target_id = $(e.currentTarget).attr('data')
     var target = this.collection.getOrFetch(target_id)
-    // debugger
+    
 
     var friendship = this.friendships.findWhere({
       user_id: parseInt(target_id),
@@ -121,7 +121,7 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
     this.friendships.remove(friendship)
     friendship.destroy();
     this.friendships.fetch();
-    
+
     target.fetch({
       success: function(){
           this.render();

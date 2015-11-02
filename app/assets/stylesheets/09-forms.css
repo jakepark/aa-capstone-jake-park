@@ -1,43 +1,36 @@
 /*103 x 28*/
 .friended{
-  position: relative;
-  bottom: 63px;
-  left: 75px;
   padding: 5px 20px;
   color: black;
   background: #dfe3ee;
   font-size: 12px;
   font-weight: 500;
   border-radius: 3px;
-  /*box-shadow: 0 3px 0 0 #3b5998;*/
   margin: 0 auto;
   display: block;
   width: 50px;
+  float: right;
+  margin: 40px 20px 0 0;
 }
 
 .requested{
-  position: relative;
-  bottom: 77px;
-  left: 75px;
   padding: 5px 20px;
   color: black;
   background: #dfe3ee;
   font-size: 12px;
   font-weight: 500;
   border-radius: 3px;
-  /*box-shadow: 0 3px 0 0 #3b5998;*/
   margin: 0 auto;
   display: block;
   width: 50px;
+  float: right;
+  margin: 20px 20px 0 0;
 }
 
 .add_friend {
-  /*margin: 20px 0 0 0;*/
-  /*padding: 0 0 3px 0;*/
-  position: relative;
-  bottom: 65px;
-  left: 75px;
   width: 100px;
+  float: right;
+  margin: 40px 20px 0 0;
 }
 
 .add_friend > button {
@@ -49,11 +42,9 @@
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 0 3px 0 0 #3b5998;
-  /* margin: 0 auto; */
   display: block;
   width: 60px;
-  position: relative;
-  left: 200px;
+
 }
 
 .add_friend > button:hover {
@@ -68,19 +59,14 @@
 
 
 .approve_friend {
-  /*margin: 20px 0 0 0;*/
   padding: 0 0 3px 0;
-  position: relative;
-  bottom: 80px;
-  left: 75px;
   width: 100px;
+  float: right;
+  margin: 20px 40px 0 0;
 }
 
 
 .approve_friend > button {
-  position: relative;
-  left: 200px;
-  top: -5px;
   padding: 5px 20px;
   color: #fff;
   background: #3b5998;
@@ -108,15 +94,13 @@
 .deny_friend {
   padding: 0 0 3px 0;
   position: relative;
-  bottom: 80px;
-  left: 75px;
+  bottom: -50px;
+  left: 100px;
   width: 100px;
+  float: right;
 }
 
 .deny_friend > button {
-  position: relative;
-  left: 200px;
-  top: 5px;
   padding: 5px 20px;
   color: black;
   background: white;
