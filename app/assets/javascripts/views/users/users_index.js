@@ -105,7 +105,7 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
     var target_id = $(e.currentTarget).attr('data')
     var target = this.collection.getOrFetch(target_id)
-    
+
 
     var friendship = this.friendships.findWhere({
       user_id: parseInt(target_id),
@@ -120,13 +120,14 @@ myfacebook.Views.UsersIndex = Backbone.View.extend({
 
     this.friendships.remove(friendship)
     friendship.destroy();
-    this.friendships.fetch();
-
-    target.fetch({
-      success: function(){
-          this.render();
-      }.bind(this)
-    });
+    // this.friendships.fetch();
+    //
+    // target.fetch({
+    //   success: function(){
+    //       this.render();
+    //   }.bind(this)
+    // });
+  
     // friendship.destroy({
     //   success: function () {
     //
